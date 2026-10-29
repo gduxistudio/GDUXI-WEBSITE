@@ -45,6 +45,11 @@ collections:
               - { label: Cover image, name: cover, widget: image }
               - { label: Logo image (Brand + Digital cards only), name: logo, widget: image, required: false }
               - { label: Screen image (Brand + Digital cards only), name: screen, widget: image, required: false }
+              - label: Case study images (shown in the pop-up when the Figma link is empty)
+                name: pages
+                widget: list
+                required: false
+                field: { label: Image, name: image, widget: image }
               - { label: Short description (cards), name: short, widget: text }
               - { label: Credit line, name: who, widget: string }
               - { label: Long description (Built together cards), name: description, widget: text }

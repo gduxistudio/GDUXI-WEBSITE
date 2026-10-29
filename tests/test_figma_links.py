@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Click every case-study card and check its Figma file opens in a new tab.
+"""Click every case-study card: Figma cards must open their file in a new tab,
+and cards without a Figma link must open the pop-up with only that project's images.
 
 Usage: python3 tests/test_figma_links.py http://localhost:8000/index.html
 Figma itself is stubbed, so this checks the links, not the Figma sharing settings.
@@ -35,8 +36,21 @@ with sync_playwright() as p:
             for i in range(cards.count()):
                 card = cards.nth(i)
                 title = card.locator(".h3,.h2").first.inner_text()
-                want = next((x["figma"] for x in PROJECTS if x["title"] == title), None)
+                proj = next((x for x in PROJECTS if x["title"] == title), {})
+                want = proj.get("figma")
                 card.scroll_into_view_if_needed()
+                if not want:
+                    card.click()
+                    page.wait_for_selector("#caseDlg[open]")
+                    srcs = page.evaluate("[...document.querySelectorAll('#casePages img')].map(i=>i.getAttribute('src'))")
+                    loaded = page.evaluate("Promise.all([...document.querySelectorAll('#casePages img')].map(i=>i.decode().then(()=>i.naturalWidth>0,()=>false)))")
+                    exp = [x.lstrip("/") for x in proj.get("pages", [])]
+                    ok = page.inner_text("#case-h") == title and srcs == exp and all(loaded) and len(ctx.pages) == 1
+                    print(("  ok   " if ok else "  FAIL ") + f"{label} {route}: {title} -> pop-up with {len(srcs)} case-study image(s)")
+                    if not ok:
+                        FAILS.append(f"{label} {title}")
+                    page.click("#caseDlg [data-close]")
+                    continue
                 with ctx.expect_page() as info:
                     card.click()
                 tab = info.value

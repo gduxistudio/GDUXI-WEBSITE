@@ -80,12 +80,12 @@ Projects, services and steps use a category: `bd` (Brand + Digital), `dg` (Digit
 - Tag styles: `.tag.bd` is a gradient pill, `.tag.dg` a lilac pill, `.tag.id` a sky-blue pill.
 
 ### Projects (`content/projects.json`)
-Fields: `title`, `figma`, `group` (bd/dg/id), `label` (year or type), `cover`, `logo`, `screen`, `short`, `who` (credit line), `description`, `facts[{label,value}]`.
+Fields: `title`, `figma`, `group` (bd/dg/id), `label` (year or type), `cover`, `logo`, `screen`, `pages` (list of case-study image paths), `short`, `who` (credit line), `description`, `facts[{label,value}]`.
 
 `screen` is the right-hand image on a Built together card (logo ⟶ screen). It falls back to `cover` when empty.
 
 - **If `figma` is set**, the card is an `<a class="proj">` (or `<a class="joint">`) with `target="_blank" rel="noopener noreferrer"`. It opens that project's Figma file. Link text ends in ↗.
-- **If `figma` is empty**, the card is a `<button>`, and the joint card an `<article role=button>`. It opens the case-study `<dialog id="caseDlg">`.
+- **If `figma` is empty**, the card is a `<button>`, and the joint card an `<article role=button>`. It opens the case-study `<dialog id="caseDlg">`. If `pages` has images, the dialog widens to 1100px and shows them stacked under the title (in `#casePages`) instead of the cover.
 - Where projects appear:
   - **Home "Selected work"** grid (`[data-projects="all"]`) shows all projects in a 3-column grid.
   - **Work "Built together"** (`#joints`) shows `bd` projects as large joint cards: logo + arrow + cover, then facts. The first joint card has a decorative "Layers" pop. With no logo, the cover spans the full width at 16:10.
@@ -221,12 +221,12 @@ The logo:
 |---|---|---|
 | RS Tour & Traveler | Brand + Digital | `figma.com/design/oWHsEHVMx038r51olfe0uv/...?node-id=34-1449` (website file, cover page) |
 | The N'Cafe | Digital | `figma.com/design/xtYAcKAoR4VHk0wFkWY93H/...?node-id=0-1` |
-| Ek Oankar | Identity | `figma.com/design/UAoudlnFWjoVSXLJ4fxfyC/...?node-id=25-1051` (Paramdeep's portfolio, case study 02) |
+| Ek Oankar | Identity | No Figma link: opens the on-site pop-up with `assets/img/case-ek-oankar-1/2.jpg` (exported from Paramdeep's portfolio, case study 02, node `25:1051`) |
 | Artisan Crafts | Brand + Digital | `figma.com/design/17WEqDMeY9NPCAWhZvrvS1/...?node-id=0-1` (brand guide + lo/hi-fi file) |
 | Canada Bank | Digital | `figma.com/design/uO4KBkt4W3AKwAXOf16xPE/...?node-id=0-1` (fictional bank concept) |
-| RS Tour campaigns | Identity | `figma.com/design/UAoudlnFWjoVSXLJ4fxfyC/...?node-id=25-972` (Paramdeep's portfolio, "Campaigns & print") |
+| RS Tour campaigns | Identity | No Figma link: opens the on-site pop-up with `assets/img/case-rs-campaigns-1/2.jpg` (portfolio nodes `25:972` "Campaigns & print" and `25:1048` "Result") |
 
-The full URLs are in `content/projects.json`. Each file must be shared as **"Anyone with the link · can view"**, or visitors see a request-access screen. The owners have to do this in Figma.
+The owner asked (2026-10-29) that these two cards show only their own project, not the rest of Paramdeep's portfolio file, so they no longer link to Figma. The full URLs for the other four are in `content/projects.json`. Each file must be shared as **"Anyone with the link · can view"**, or visitors see a request-access screen. The owners have to do this in Figma.
 
 ---
 
@@ -345,7 +345,7 @@ Last run, all passed:
 
 - [ ] Do the GitHub/Netlify/OAuth setup in README.md, then test a real dashboard login and save.
 - [ ] Activate FormSubmit: send one message from the live site, then click "Activate form" in the email that arrives at gduxistudio@gmail.com. Alternative: switch to Netlify Forms.
-- [ ] Set the five project Figma files to "Anyone with the link · can view".
+- [ ] Set the four linked project Figma files to "Anyone with the link · can view".
 - [ ] Optional: reword the remaining "founder" phrases if the owners want: "Both founders read every message", "with both founders", "Hire either founder", "the other founder still reviews".
 - [ ] Optional: delete the unlinked case-study overlay frames in Figma, and bring the mobile Figma frames up to date with desktop content.
 - [ ] The meta description still names both founders. Ask the owners whether to keep it (it helps search).
