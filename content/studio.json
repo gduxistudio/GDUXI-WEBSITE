@@ -1,0 +1,17 @@
+{
+  "eyebrow": "Studio",
+  "title": "Two crafts. One studio.",
+  "intro": "GDUXI is a merger between not just two minds but also two professionals delivering their own skills at perfection as ONE.",
+  "story_eyebrow": "Why GDUXI",
+  "story_quote": "GD + UX/uI: graphic design and UX/UI as one practice. We design the mark and the experience together, so the join never shows.",
+  "story_body": "Our name is our two crafts: GD for graphic design, UXI for UX/UI. The colours flow from cobalt into violet and orchid, and the wave lines come from our own banner work.",
+  "founders_eyebrow": "The founders",
+  "founders_title": "Equal partners, side by side",
+  "values_eyebrow": "What we believe",
+  "values_title": "Three promises to every client",
+  "values": [
+    { "title": "Research before pixels", "body": "We talk to your customers before we design for them. Decisions come with reasons." },
+    { "title": "Craft you can feel", "body": "Hand-drawn marks and calm interfaces, never template-generic. Built to stand out from AI sameness." },
+    { "title": "No surprises", "body": "Clear milestones, a fixed quote upfront and regular check-ins. You always know what's next." }
+  ]
+}

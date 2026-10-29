@@ -1,0 +1,259 @@
+# Decap CMS dashboard for the GDUXI Studio website.
+# Every field here must match content/*.json exactly. Run tools/check_dashboard.py after changes.
+backend:
+  name: github
+  repo: paramzgraphic-arch/gduxi-website
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+local_backend: true
+publish_mode: simple
+media_folder: assets/uploads
+public_folder: /assets/uploads
+site_url: /
+display_url: /
+logo_url: /favicon.svg
+
+collections:
+  - name: website
+    label: Website
+    format: json
+    editor:
+      preview: false
+    files:
+      # ---------------------------------------------------------------- projects
+      - name: projects
+        label: Projects
+        file: content/projects.json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            summary: "{{fields.title}} · {{fields.group}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Figma link (leave empty to open a pop-up instead), name: figma, widget: string, required: false }
+              - label: Category
+                name: group
+                widget: select
+                options:
+                  - { label: Brand + Digital, value: bd }
+                  - { label: Digital, value: dg }
+                  - { label: Identity, value: id }
+              - { label: Label (year or type), name: label, widget: string }
+              - { label: Cover image, name: cover, widget: image }
+              - { label: Logo image (Brand + Digital cards only), name: logo, widget: image, required: false }
+              - { label: Screen image (Brand + Digital cards only), name: screen, widget: image, required: false }
+              - { label: Short description (cards), name: short, widget: text }
+              - { label: Credit line, name: who, widget: string }
+              - { label: Long description (Built together cards), name: description, widget: text }
+              - label: Facts
+                name: facts
+                widget: list
+                required: false
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Value, name: value, widget: string }
+
+      # ---------------------------------------------------------------- founders
+      - name: founders
+        label: Founders
+        file: content/founders.json
+        fields:
+          - label: Founders
+            name: founders
+            widget: list
+            allow_add: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Full name, name: name, widget: string }
+              - { label: First name, name: short, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Photo, name: photo, widget: image }
+              - { label: Signature logo, name: signature, widget: image, required: false }
+              - { label: Bio, name: bio, widget: text }
+              - label: Leads
+                name: leads
+                widget: select
+                options:
+                  - { label: Brand + Digital, value: bd }
+                  - { label: Digital, value: dg }
+                  - { label: Identity, value: id }
+              - { label: Skills, name: skills, widget: list, field: { label: Skill, name: skill, widget: string } }
+              - { label: LinkedIn URL, name: linkedin, widget: string }
+              - label: Background
+                name: background
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Where, name: title, widget: string }
+                  - { label: What, name: detail, widget: string }
+
+      # ---------------------------------------------------------------- home
+      - name: home
+        label: Home
+        file: content/home.json
+        fields:
+          - { label: Hero eyebrow, name: hero_eyebrow, widget: string }
+          - { label: Hero headline line 1, name: hero_title_1, widget: string }
+          - { label: Hero headline line 2 (gradient), name: hero_title_2, widget: string }
+          - { label: Hero intro, name: hero_intro, widget: text }
+          - { label: Hero project name (used in image alt text), name: hero_project_name, widget: string }
+          - { label: Hero card 1 label, name: hero_mark_label, widget: string }
+          - { label: Hero card 1 image, name: hero_mark_image, widget: image }
+          - { label: Hero joiner text, name: hero_joiner, widget: string }
+          - { label: Hero card 2 label, name: hero_site_label, widget: string }
+          - { label: Hero card 2 image, name: hero_site_image, widget: image }
+          - { label: Marquee words, name: marquee, widget: list, field: { label: Word, name: word, widget: string } }
+          - { label: Founders eyebrow, name: founders_eyebrow, widget: string }
+          - { label: Founders heading, name: founders_title, widget: string }
+          - { label: Founders intro, name: founders_intro, widget: text }
+          - label: Stats
+            name: stats
+            widget: list
+            summary: "{{fields.number}} {{fields.label}}"
+            fields:
+              - { label: Number, name: number, widget: string }
+              - { label: Label, name: label, widget: string }
+          - { label: What we do eyebrow, name: services_eyebrow, widget: string }
+          - { label: What we do heading, name: services_title, widget: string }
+          - { label: What we do intro, name: services_intro, widget: text }
+          - { label: Selected work eyebrow, name: work_eyebrow, widget: string }
+          - { label: Selected work heading, name: work_title, widget: string }
+          - { label: Selected work intro, name: work_intro, widget: text }
+          - { label: Why eyebrow, name: why_eyebrow, widget: string }
+          - { label: Why heading, name: why_title, widget: string }
+          - { label: Why intro, name: why_intro, widget: text }
+          - label: Why points
+            name: why_points
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: Process eyebrow, name: process_eyebrow, widget: string }
+          - { label: Process heading, name: process_title, widget: string }
+          - { label: Process intro, name: process_intro, widget: text }
+          - label: Process steps
+            name: steps
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Category
+                name: group
+                widget: select
+                options:
+                  - { label: Brand + Digital, value: bd }
+                  - { label: Digital, value: dg }
+                  - { label: Identity, value: id }
+              - { label: Body, name: body, widget: text }
+          - { label: CTA band eyebrow (all pages), name: cta_eyebrow, widget: string }
+          - { label: CTA band heading (all pages), name: cta_title, widget: text }
+          - { label: CTA band text (all pages), name: cta_body, widget: text }
+
+      # ---------------------------------------------------------------- work
+      - name: work
+        label: Work
+        file: content/work.json
+        fields:
+          - { label: Eyebrow, name: eyebrow, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Intro, name: intro, widget: text }
+          - { label: Built together eyebrow, name: joint_eyebrow, widget: string }
+          - { label: Built together heading, name: joint_title, widget: string }
+          - { label: More projects eyebrow, name: more_eyebrow, widget: string }
+          - { label: More projects heading, name: more_title, widget: string }
+
+      # ---------------------------------------------------------------- studio
+      - name: studio
+        label: Studio
+        file: content/studio.json
+        fields:
+          - { label: Eyebrow, name: eyebrow, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Intro, name: intro, widget: text }
+          - { label: Story eyebrow, name: story_eyebrow, widget: string }
+          - { label: Story statement, name: story_quote, widget: text }
+          - { label: Story paragraph, name: story_body, widget: text }
+          - { label: Founders eyebrow, name: founders_eyebrow, widget: string }
+          - { label: Founders heading, name: founders_title, widget: string }
+          - { label: Values eyebrow, name: values_eyebrow, widget: string }
+          - { label: Values heading, name: values_title, widget: string }
+          - label: Values
+            name: values
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+
+      # ---------------------------------------------------------------- services
+      - name: services
+        label: Services & FAQ
+        file: content/services.json
+        fields:
+          - { label: Eyebrow, name: eyebrow, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Intro, name: intro, widget: text }
+          - label: Services (the last one is the featured card)
+            name: services
+            widget: list
+            allow_add: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Category
+                name: group
+                widget: select
+                options:
+                  - { label: Brand + Digital, value: bd }
+                  - { label: Digital, value: dg }
+                  - { label: Identity, value: id }
+              - label: Pre-selects on the contact form
+                name: need
+                widget: select
+                options:
+                  - { label: Brand identity, value: n1 }
+                  - { label: UX/UI & digital, value: n2 }
+                  - { label: Brand + digital, value: n3 }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Included items, name: items, widget: list, field: { label: Item, name: item, widget: string } }
+              - { label: Timeline line, name: timeline, widget: string }
+          - { label: Included eyebrow, name: included_eyebrow, widget: string }
+          - label: Included in every project
+            name: included
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Body, name: body, widget: text }
+          - { label: FAQ eyebrow, name: faq_eyebrow, widget: string }
+          - { label: FAQ heading, name: faq_title, widget: string }
+          - label: FAQ
+            name: faq
+            widget: list
+            summary: "{{fields.q}}"
+            fields:
+              - { label: Question, name: q, widget: string }
+              - { label: Answer, name: a, widget: text }
+
+      # ---------------------------------------------------------------- contact
+      - name: contact
+        label: Contact & footer
+        file: content/contact.json
+        fields:
+          - { label: Studio email (form sends here), name: email, widget: string }
+          - { label: Contact card heading, name: card_title, widget: string }
+          - { label: Contact card intro, name: card_intro, widget: text }
+          - { label: Location line, name: location, widget: string }
+          - { label: Form heading, name: form_title, widget: string }
+          - { label: Form note, name: form_note, widget: string }
+          - { label: Budget options, name: budgets, widget: list, field: { label: Option, name: option, widget: string } }
+          - { label: Timeline options, name: timelines, widget: list, field: { label: Option, name: option, widget: string } }
+          - { label: Footer tagline, name: footer_tagline, widget: string }
+          - { label: Footer description, name: footer_description, widget: text }
+          - { label: Footer reply note, name: footer_reply, widget: string }
+          - { label: Copyright line, name: copyright, widget: string }

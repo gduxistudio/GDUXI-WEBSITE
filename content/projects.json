@@ -1,0 +1,90 @@
+{
+  "projects": [
+    {
+      "title": "RS Tour & Traveler",
+      "figma": "https://www.figma.com/design/oWHsEHVMx038r51olfe0uv/RS-Tour---Traveler-%E2%80%93-Website?node-id=34-1449",
+      "group": "bd",
+      "label": "2020",
+      "cover": "/assets/img/proj-rs-tour.jpg",
+      "logo": "/assets/img/joint-rs-mark.jpg",
+      "screen": "/assets/img/joint-rs-screen.jpg",
+      "short": "A family-run taxi and tour company in Punjab. One road-swoosh mark, carried straight into a booking website.",
+      "who": "Mark   ⟶   Website",
+      "description": "A family taxi and tour company in Jalandhar, Punjab, running trips from Amritsar to the Taj Mahal. One road-swoosh mark had to work on a vehicle sticker and a WhatsApp profile picture, then carry straight into a booking website.",
+      "facts": [
+        { "label": "Year", "value": "2020 – 2024" },
+        { "label": "The mark", "value": "Road-swoosh logo, brand guide, banners & flyers" },
+        { "label": "The experience", "value": "Brand guide, wireframes, hi-fi booking prototype" }
+      ]
+    },
+    {
+      "title": "The N'Cafe",
+      "figma": "https://www.figma.com/design/xtYAcKAoR4VHk0wFkWY93H/The-N-Cafe-%E2%80%94-UX-UI-Website-Project?node-id=0-1",
+      "group": "dg",
+      "label": "Case study",
+      "cover": "/assets/img/proj-ncafe.jpg",
+      "logo": "",
+      "screen": "",
+      "short": "A neighbourhood café website, from user research and information architecture to wireframes and a full style guide.",
+      "who": "Research, IA & UI",
+      "description": "A full UX/UI design project for a neighbourhood café's website, from research and wireframes to a finished visual design.",
+      "facts": []
+    },
+    {
+      "title": "Ek Oankar",
+      "figma": "https://www.figma.com/design/UAoudlnFWjoVSXLJ4fxfyC/Paramdeep-Singh-Portfolio?node-id=25-1051",
+      "group": "id",
+      "label": "2018",
+      "cover": "/assets/img/proj-ek-oankar.jpg",
+      "logo": "",
+      "screen": "",
+      "short": "An IELTS and spoken-English centre. A gold eagle over a teal globe: exciting for students, credible for parents.",
+      "who": "Logo & identity",
+      "description": "An IELTS and spoken-English centre. A gold eagle over a teal globe: exciting for students, credible for parents.",
+      "facts": []
+    },
+    {
+      "title": "Artisan Crafts",
+      "figma": "https://www.figma.com/design/17WEqDMeY9NPCAWhZvrvS1/Artisan-Crafts-%E2%80%94-Brand-Guide--Lo-Fi---Hi-Fi?node-id=0-1",
+      "group": "bd",
+      "label": "2026",
+      "cover": "/assets/img/proj-artisan.jpg",
+      "logo": "/assets/img/joint-artisan-mark.jpg",
+      "screen": "/assets/img/joint-artisan-screen.jpg",
+      "short": "A handmade décor brand. An ornate R monogram leads straight into a story-led online storefront.",
+      "who": "Mark   ⟶   Storefront",
+      "description": "A new brand for handmade décor and gifts. An ornate, hand-drawn R monogram that still reads at swing-tag size, carried into a marketplace where every product tells its maker's story.",
+      "facts": [
+        { "label": "Year", "value": "2026" },
+        { "label": "The mark", "value": "R monogram, vine frame, packaging & social" },
+        { "label": "The experience", "value": "Research, brand guide, lo-fi & hi-fi storefront" }
+      ]
+    },
+    {
+      "title": "Canada Bank",
+      "figma": "https://www.figma.com/design/uO4KBkt4W3AKwAXOf16xPE/Canada-Bank?node-id=0-1",
+      "group": "dg",
+      "label": "Concept",
+      "cover": "/assets/img/proj-canada-bank.jpg",
+      "logo": "",
+      "screen": "",
+      "short": "A concept bank built on one promise: show people the numbers. Research, brand, website, online banking and app.",
+      "who": "Research, brand & UI",
+      "description": "A concept bank built on one promise: show people the numbers. Research, brand, website, online banking and app.",
+      "facts": []
+    },
+    {
+      "title": "RS Tour campaigns",
+      "figma": "https://www.figma.com/design/UAoudlnFWjoVSXLJ4fxfyC/Paramdeep-Singh-Portfolio?node-id=25-972",
+      "group": "id",
+      "label": "Print & social",
+      "cover": "/assets/img/proj-rs-campaigns.jpg",
+      "logo": "",
+      "screen": "",
+      "short": "Destination banners, stories and flyers that carry one mark from Taj Mahal tour posters to airport-taxi flyers.",
+      "who": "Campaigns & print",
+      "description": "Destination banners, stories and flyers that carry one mark from Taj Mahal tour posters to airport-taxi flyers.",
+      "facts": []
+    }
+  ]
+}

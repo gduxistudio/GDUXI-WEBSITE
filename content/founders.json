@@ -1,0 +1,38 @@
+{
+  "founders": [
+    {
+      "name": "Navita Ramanand",
+      "short": "Navita",
+      "role": "UX/UI Designer & Researcher",
+      "photo": "/assets/img/portrait-navita.png",
+      "signature": "/assets/img/sig-navita.png",
+      "bio": "Navita turns research into calm, human-centred interfaces. Interviews, surveys and usability tests come first; wireframes, design systems and prototype-ready UI follow. Google UX Design certified, with a BA from the University of Toronto.",
+      "leads": "dg",
+      "skills": ["UX research", "Usability testing", "Information architecture", "Hi-fi UI", "Figma prototyping"],
+      "linkedin": "https://www.linkedin.com/in/navita-r-122158224/",
+      "background": [
+        { "title": "Google", "detail": "UX Design Professional Certificate" },
+        { "title": "University of Toronto", "detail": "BA, Communication, Culture, Information & Technology + Sociology" },
+        { "title": "Sheridan College", "detail": "Digital Communication" },
+        { "title": "Coursera · IBM", "detail": "Capstone: Applying UX/UI Design in the Real World" }
+      ]
+    },
+    {
+      "name": "Paramdeep Singh",
+      "short": "Paramdeep",
+      "role": "Logo & Graphic Designer",
+      "photo": "/assets/img/portrait-paramdeep.png",
+      "signature": "/assets/img/sig-paramdeep.png",
+      "bio": "Paramdeep designs logos and identities that brands grow into. Self-taught, he has branded many startups and small businesses across India and beyond, co-founded RS Tour & Traveler, and runs every project on clear milestones.",
+      "leads": "id",
+      "skills": ["Logo design", "Brand identity", "Print & packaging", "Social media", "Adobe Illustrator"],
+      "linkedin": "https://www.linkedin.com/in/singh1313param/",
+      "background": [
+        { "title": "Freelance · Mississauga", "detail": "Logo & graphic designer for startups and small businesses" },
+        { "title": "RS Tour & Traveler", "detail": "Co-founder, took the family business online" },
+        { "title": "Algoma University", "detail": "Post-Graduate Diploma, Project Management" },
+        { "title": "Google", "detail": "Project Management Professional Certificate" }
+      ]
+    }
+  ]
+}
