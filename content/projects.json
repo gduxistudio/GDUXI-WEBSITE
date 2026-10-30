@@ -9,6 +9,7 @@
       "logo": "/assets/img/joint-rs-mark.jpg",
       "screen": "/assets/img/joint-rs-screen.jpg",
       "pages": [],
+      "pieces": [],
       "screens": [
         {
           "label": "Home (full page)",
@@ -53,6 +54,7 @@
       "logo": "",
       "screen": "",
       "pages": [],
+      "pieces": [],
       "screens": [
         {
           "label": "Home",
@@ -112,6 +114,7 @@
         "/assets/img/case-ek-oankar-1.jpg",
         "/assets/img/case-ek-oankar-2.jpg"
       ],
+      "pieces": [],
       "screens": [],
       "short": "An IELTS and spoken-English centre. A gold eagle over a teal globe: exciting for students, credible for parents.",
       "who": "Logo & identity",
@@ -127,6 +130,7 @@
       "logo": "/assets/img/joint-artisan-mark.jpg",
       "screen": "/assets/img/joint-artisan-screen.jpg",
       "pages": [],
+      "pieces": [],
       "screens": [
         {
           "label": "Home",
@@ -236,6 +240,7 @@
       "logo": "",
       "screen": "",
       "pages": [],
+      "pieces": [],
       "screens": [
         {
           "label": "Website · Home",
@@ -347,8 +352,34 @@
       "logo": "",
       "screen": "",
       "pages": [
-        "/assets/img/case-rs-campaigns-1.jpg",
         "/assets/img/case-rs-campaigns-2.jpg"
+      ],
+      "pieces": [
+        {
+          "kind": "Banner",
+          "label": "Visit the Rajasthan",
+          "image": "/assets/img/rs-campaigns/01-banner-visit-the-rajasthan.jpg"
+        },
+        {
+          "kind": "Banner",
+          "label": "Visit the Taj Mahal",
+          "image": "/assets/img/rs-campaigns/02-banner-visit-the-taj-mahal.jpg"
+        },
+        {
+          "kind": "Story",
+          "label": "Golden Temple",
+          "image": "/assets/img/rs-campaigns/03-story-golden-temple.jpg"
+        },
+        {
+          "kind": "Story",
+          "label": "Jodhpur",
+          "image": "/assets/img/rs-campaigns/04-story-jodhpur.jpg"
+        },
+        {
+          "kind": "Flyer",
+          "label": "Contact for taxi",
+          "image": "/assets/img/rs-campaigns/05-flyer-contact-for-taxi.jpg"
+        }
       ],
       "screens": [],
       "short": "Destination banners, stories and flyers that carry one mark from Taj Mahal tour posters to airport-taxi flyers.",
