@@ -13,18 +13,33 @@
       "screens": [
         {
           "label": "Home (full page)",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/rstour/01-desktop-home-full-page.jpg"
         },
         {
           "label": "Home (full page)",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/rstour/02-mobile-home-full-page.jpg"
         },
         {
           "label": "Trip request summary",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/rstour/03-mobile-trip-request-summary.jpg"
+        },
+        {
+          "label": "Home (full page)",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/rstour/01-desktop-home.jpg"
+        },
+        {
+          "label": "Home (full page)",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/rstour/02-mobile-home.jpg"
         }
       ],
       "short": "A family-run taxi and tour company in Punjab. One road-swoosh mark, carried straight into a booking website.",
@@ -58,43 +73,75 @@
       "screens": [
         {
           "label": "Home",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/01-desktop-home.jpg"
         },
         {
           "label": "Menu",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/02-desktop-menu.jpg"
         },
         {
           "label": "About",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/03-desktop-about.jpg"
         },
         {
           "label": "Location & contact",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/04-desktop-location-contact.jpg"
         },
         {
           "label": "Cart (empty state)",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/05-desktop-cart-empty-state.jpg"
         },
         {
           "label": "Checkout",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/06-desktop-checkout.jpg"
         },
         {
           "label": "Payment",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/07-desktop-payment.jpg"
         },
         {
           "label": "Order confirmed",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/ncafe/08-desktop-order-confirmed.jpg"
+        },
+        {
+          "label": "Home",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/ncafe/01-desktop-home.jpg"
+        },
+        {
+          "label": "Menu",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/ncafe/02-desktop-menu.jpg"
+        },
+        {
+          "label": "Cart & checkout",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/ncafe/03-desktop-cart-checkout.jpg"
+        },
+        {
+          "label": "Location & contact",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/ncafe/04-desktop-location-contact.jpg"
         }
       ],
       "short": "A neighbourhood café website, from user research and information architecture to wireframes and a full style guide.",
@@ -134,83 +181,147 @@
       "screens": [
         {
           "label": "Home",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/01-desktop-01-home.jpg"
         },
         {
           "label": "Shop",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/02-desktop-02-shop.jpg"
         },
         {
           "label": "Our story",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/03-desktop-03-our-story.jpg"
         },
         {
           "label": "Product detail",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/04-desktop-05-product-detail.jpg"
         },
         {
           "label": "Account & checkout",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/05-desktop-04-account-checkout.jpg"
         },
         {
           "label": "Saved pieces",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/06-desktop-06-saved-pieces.jpg"
         },
         {
           "label": "Order confirmed",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/07-desktop-07-order-confirmed.jpg"
         },
         {
           "label": "Menu",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/artisan/08-desktop-08-menu.jpg"
         },
         {
           "label": "Home",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/09-mobile-01-home.jpg"
         },
         {
           "label": "Shop",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/10-mobile-02-shop.jpg"
         },
         {
           "label": "Our story",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/11-mobile-03-our-story.jpg"
         },
         {
           "label": "Checkout",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/12-mobile-04-checkout.jpg"
         },
         {
           "label": "Product detail",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/13-mobile-05-product-detail.jpg"
         },
         {
           "label": "Saved pieces",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/14-mobile-06-saved-pieces.jpg"
         },
         {
           "label": "Order confirmed",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/15-mobile-07-order-confirmed.jpg"
         },
         {
           "label": "Menu",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/artisan/16-mobile-08-menu.jpg"
+        },
+        {
+          "label": "Home",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/artisan/01-desktop-home.jpg"
+        },
+        {
+          "label": "Shop",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/artisan/02-desktop-shop.jpg"
+        },
+        {
+          "label": "Our story",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/artisan/03-desktop-our-story.jpg"
+        },
+        {
+          "label": "Account & checkout",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/artisan/04-desktop-account-checkout.jpg"
+        },
+        {
+          "label": "Home",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/artisan/05-mobile-home.jpg"
+        },
+        {
+          "label": "Shop",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/artisan/06-mobile-shop.jpg"
+        },
+        {
+          "label": "Our story",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/artisan/07-mobile-our-story.jpg"
+        },
+        {
+          "label": "Checkout",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/artisan/08-mobile-checkout.jpg"
         }
       ],
       "short": "A handmade décor brand. An ornate R monogram leads straight into a story-led online storefront.",
@@ -244,98 +355,177 @@
       "screens": [
         {
           "label": "Website · Home",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/01-desktop-website-home.jpg"
         },
         {
           "label": "Website · Chequing accounts",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/02-desktop-website-chequing-accounts.jpg"
         },
         {
           "label": "Website · Credit cards",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/03-desktop-website-credit-cards.jpg"
         },
         {
           "label": "Website · Mortgages",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/04-desktop-website-mortgages.jpg"
         },
         {
           "label": "Online banking · Sign in",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/05-desktop-online-banking-sign-in.jpg"
         },
         {
           "label": "Online banking · Dashboard",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/06-desktop-online-banking-dashboard.jpg"
         },
         {
           "label": "Online banking · Account details",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/07-desktop-online-banking-account-details.jpg"
         },
         {
           "label": "Online banking · Send e-Transfer",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/08-desktop-online-banking-send-e-transfer.jpg"
         },
         {
           "label": "Online banking · e-Transfer sent",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/09-desktop-online-banking-e-transfer-sent.jpg"
         },
         {
           "label": "Online banking · Pay bills",
+          "stage": "hifi",
           "device": "desktop",
           "image": "/assets/img/screens/canada/10-desktop-online-banking-pay-bills.jpg"
         },
         {
           "label": "App · Sign in (Face ID)",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/11-mobile-app-sign-in-face-id.jpg"
         },
         {
           "label": "App · Home",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/12-mobile-app-home.jpg"
         },
         {
           "label": "App · Account detail",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/13-mobile-app-account-detail.jpg"
         },
         {
           "label": "App · Send money",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/14-mobile-app-send-money.jpg"
         },
         {
           "label": "App · Review & confirm",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/15-mobile-app-review-confirm.jpg"
         },
         {
           "label": "App · Pay bills",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/16-mobile-app-pay-bills.jpg"
         },
         {
           "label": "App · Cards & controls",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/17-mobile-app-cards-controls.jpg"
         },
         {
           "label": "App · New to Canada checklist",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/18-mobile-app-new-to-canada-checklist.jpg"
         },
         {
           "label": "App · Profile & security",
+          "stage": "hifi",
           "device": "mobile",
           "image": "/assets/img/screens/canada/19-mobile-app-profile-security.jpg"
+        },
+        {
+          "label": "Website · Home",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/canada/01-desktop-home.jpg"
+        },
+        {
+          "label": "Website · Chequing compare",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/canada/02-desktop-chequing-compare.jpg"
+        },
+        {
+          "label": "Online banking · Sign in",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/canada/03-desktop-sign-in.jpg"
+        },
+        {
+          "label": "Online banking · Dashboard",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/canada/04-desktop-dashboard.jpg"
+        },
+        {
+          "label": "Online banking · Send e-Transfer",
+          "stage": "lofi",
+          "device": "desktop",
+          "image": "/assets/img/lofi/canada/05-desktop-send-e-transfer.jpg"
+        },
+        {
+          "label": "App · Home",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/canada/06-mobile-home.jpg"
+        },
+        {
+          "label": "App · Send money",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/canada/07-mobile-send-money.jpg"
+        },
+        {
+          "label": "App · Pay bills",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/canada/08-mobile-pay-bills.jpg"
+        },
+        {
+          "label": "App · Account detail",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/canada/09-mobile-account-detail.jpg"
+        },
+        {
+          "label": "App · New to Canada checklist",
+          "stage": "lofi",
+          "device": "mobile",
+          "image": "/assets/img/lofi/canada/10-mobile-new-to-canada-checklist.jpg"
         }
       ],
       "short": "A concept bank built on one promise: show people the numbers. Research, brand, website, online banking and app.",
