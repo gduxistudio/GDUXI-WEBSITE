@@ -80,12 +80,14 @@ Projects, services and steps use a category: `bd` (Brand + Digital), `dg` (Digit
 - Tag styles: `.tag.bd` is a gradient pill, `.tag.dg` a lilac pill, `.tag.id` a sky-blue pill.
 
 ### Projects (`content/projects.json`)
-Fields: `title`, `figma`, `group` (bd/dg/id), `label` (year or type), `cover`, `logo`, `screen`, `pages` (list of case-study image paths), `short`, `who` (credit line), `description`, `facts[{label,value}]`.
+Fields: `title`, `figma`, `group` (bd/dg/id), `label` (year or type), `cover`, `logo`, `screen`, `pages` (list of case-study image paths), `screens[{label,device,image}]` (hi-fi screenshots, `device` is `desktop` or `mobile`), `short`, `who` (credit line), `description`, `facts[{label,value}]`.
 
 `screen` is the right-hand image on a Built together card (logo ⟶ screen). It falls back to `cover` when empty.
 
 - **If `figma` is set**, the card is an `<a class="proj">` (or `<a class="joint">`) with `target="_blank" rel="noopener noreferrer"`. It opens that project's Figma file. Link text ends in ↗.
 - **If `figma` is empty**, the card is a `<button>`, and the joint card an `<article role=button>`. It opens the case-study `<dialog id="caseDlg">`. If `pages` has images, the dialog widens to 1100px and shows them stacked under the title (in `#casePages`) instead of the cover.
+- **If `screens` has images**, the card (and joint card) is an `<article>` with two buttons: "View screens →" opens `<dialog id="shotsDlg">`, and "Open in Figma ↗" opens the Figma file in a new tab. The gallery has Desktop / Mobile tabs, numbered labels, and a shareable link `#screens/<title-slug>` (e.g. `#screens/canada-bank`); closing it restores the previous hash.
+  - Screens live in `assets/img/screens/<project>/NN-<device>-<label>.jpg`, exported at 1x from each project's hi-fi Figma page (2026-10-30). N'Cafe has no mobile hi-fi frames, so it shows desktop only.
 - Where projects appear:
   - **Home "Selected work"** grid (`[data-projects="all"]`) shows all projects in a 3-column grid.
   - **Work "Built together"** (`#joints`) shows `bd` projects as large joint cards: logo + arrow + cover, then facts. The first joint card has a decorative "Layers" pop. With no logo, the cover spans the full width at 16:10.
