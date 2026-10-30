@@ -59,13 +59,21 @@ collections:
                   - { label: Type (e.g. Banner, Story, Flyer), name: kind, widget: string }
                   - { label: Name, name: label, widget: string }
                   - { label: Image, name: image, widget: image }
-              - label: Hi-fi screens (adds a "View screens" button next to the Figma link)
+              - label: Screens, hi-fi and lo-fi (adds a "View screens" button next to the Figma link)
                 name: screens
                 widget: list
                 required: false
-                summary: "{{fields.device}} · {{fields.label}}"
+                summary: "{{fields.stage}} · {{fields.device}} · {{fields.label}}"
                 fields:
                   - { label: Label, name: label, widget: string }
+                  - label: Fidelity
+                    name: stage
+                    widget: select
+                    required: false
+                    default: hifi
+                    options:
+                      - { label: "Hi-fi design", value: hifi }
+                      - { label: "Lo-fi wireframe", value: lofi }
                   - label: Device
                     name: device
                     widget: select

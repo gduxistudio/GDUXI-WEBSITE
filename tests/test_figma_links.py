@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Click every case-study card: Figma links must open their file in a new tab,
-"View screens" must show every hi-fi screen, and cards without a Figma link
+"View screens" must show every hi-fi and lo-fi screen, and cards without a Figma link
 must open the pop-up with only that project's images.
 
 Usage: python3 tests/test_figma_links.py http://localhost:8000/index.html
@@ -45,13 +45,18 @@ with sync_playwright() as p:
                     card.locator("[data-screens]").click()
                     page.wait_for_selector("#shotsDlg[open]")
                     seen = 0
-                    for dev in ("desktop", "mobile"):
-                        if page.locator(f"#shotsBar [data-shots-dev={dev}]").count():
-                            page.click(f"#shotsBar [data-shots-dev={dev}]")
-                            imgs = page.locator("#shotsList img")
-                            for k in range(imgs.count()):
-                                imgs.nth(k).scroll_into_view_if_needed()
-                            seen += page.evaluate("Promise.all([...document.querySelectorAll('#shotsList img')].map(i=>i.decode().then(()=>i.naturalWidth>0,()=>false))).then(r=>r.filter(Boolean).length)")
+                    for stage in ("hifi", "lofi"):
+                        if page.locator(f"#shotsBar [data-shots-stage={stage}]").count():
+                            page.click(f"#shotsBar [data-shots-stage={stage}]")
+                        elif stage == "lofi":
+                            continue
+                        for dev in ("desktop", "mobile"):
+                            if page.locator(f"#shotsBar [data-shots-dev={dev}]").count():
+                                page.click(f"#shotsBar [data-shots-dev={dev}]")
+                                imgs = page.locator("#shotsList img")
+                                for k in range(imgs.count()):
+                                    imgs.nth(k).scroll_into_view_if_needed()
+                                seen += page.evaluate("Promise.all([...document.querySelectorAll('#shotsList img')].map(i=>i.decode().then(()=>i.naturalWidth>0,()=>false))).then(r=>r.filter(Boolean).length)")
                     deep = page.evaluate("location.hash")
                     ok = seen == len(shots) and deep.startswith("#screens/") and len(ctx.pages) == 1
                     print(("  ok   " if ok else "  FAIL ") + f"{label} {route}: {title} -> {seen}/{len(shots)} screens shown, link {deep}")
