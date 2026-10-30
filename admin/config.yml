@@ -50,6 +50,20 @@ collections:
                 widget: list
                 required: false
                 field: { label: Image, name: image, widget: image }
+              - label: Hi-fi screens (adds a "View screens" button next to the Figma link)
+                name: screens
+                widget: list
+                required: false
+                summary: "{{fields.device}} · {{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - label: Device
+                    name: device
+                    widget: select
+                    options:
+                      - { label: Desktop, value: desktop }
+                      - { label: Mobile, value: mobile }
+                  - { label: Screenshot, name: image, widget: image }
               - { label: Short description (cards), name: short, widget: text }
               - { label: Credit line, name: who, widget: string }
               - { label: Long description (Built together cards), name: description, widget: text }
