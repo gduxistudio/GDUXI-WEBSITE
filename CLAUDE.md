@@ -80,7 +80,7 @@ Projects, services and steps use a category: `bd` (Brand + Digital), `dg` (Digit
 - Tag styles: `.tag.bd` is a gradient pill, `.tag.dg` a lilac pill, `.tag.id` a sky-blue pill.
 
 ### Projects (`content/projects.json`)
-Fields: `title`, `figma`, `group` (bd/dg/id), `label` (year or type), `cover`, `logo`, `screen`, `pages` (list of case-study image paths), `screens[{label,device,image}]` (hi-fi screenshots, `device` is `desktop` or `mobile`), `short`, `who` (credit line), `description`, `facts[{label,value}]`.
+Fields: `title`, `figma`, `group` (bd/dg/id), `label` (year or type), `cover`, `logo`, `screen`, `pages` (list of case-study image paths), `pieces[{kind,label,image}]` (labelled campaign pieces shown as a grid in the case pop-up: landscape images span half the width, portrait ones a third; 2 columns on phones, 1 below 520px), `screens[{label,device,image}]` (hi-fi screenshots, `device` is `desktop` or `mobile`), `short`, `who` (credit line), `description`, `facts[{label,value}]`.
 
 `screen` is the right-hand image on a Built together card (logo ⟶ screen). It falls back to `cover` when empty.
 
@@ -226,7 +226,7 @@ The logo:
 | Ek Oankar | Identity | No Figma link: opens the on-site pop-up with `assets/img/case-ek-oankar-1/2.jpg` (exported from Paramdeep's portfolio, case study 02, node `25:1051`) |
 | Artisan Crafts | Brand + Digital | `figma.com/design/17WEqDMeY9NPCAWhZvrvS1/...?node-id=0-1` (brand guide + lo/hi-fi file) |
 | Canada Bank | Digital | `figma.com/design/uO4KBkt4W3AKwAXOf16xPE/...?node-id=0-1` (fictional bank concept) |
-| RS Tour campaigns | Identity | No Figma link: opens the on-site pop-up with `assets/img/case-rs-campaigns-1/2.jpg` (portfolio nodes `25:972` "Campaigns & print" and `25:1048` "Result") |
+| RS Tour campaigns | Identity | No Figma link: opens the on-site pop-up with five labelled pieces in `assets/img/rs-campaigns/` (2 banners, 2 stories, 1 flyer, laid out as a grid) and `assets/img/case-rs-campaigns-2.jpg` (portfolio nodes `25:972` "Campaigns & print" and `25:1048` "Result") |
 
 The owner asked (2026-10-29) that these two cards show only their own project, not the rest of Paramdeep's portfolio file, so they no longer link to Figma. The full URLs for the other four are in `content/projects.json`. Each file must be shared as **"Anyone with the link · can view"**, or visitors see a request-access screen. The owners have to do this in Figma.
 

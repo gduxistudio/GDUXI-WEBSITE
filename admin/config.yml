@@ -50,6 +50,15 @@ collections:
                 widget: list
                 required: false
                 field: { label: Image, name: image, widget: image }
+              - label: Labelled pieces (banners, posters, flyers shown as a grid in the pop-up)
+                name: pieces
+                widget: list
+                required: false
+                summary: "{{fields.kind}} · {{fields.label}}"
+                fields:
+                  - { label: Type (e.g. Banner, Story, Flyer), name: kind, widget: string }
+                  - { label: Name, name: label, widget: string }
+                  - { label: Image, name: image, widget: image }
               - label: Hi-fi screens (adds a "View screens" button next to the Figma link)
                 name: screens
                 widget: list
