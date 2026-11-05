@@ -358,3 +358,25 @@ Last run, all passed:
 - **2026-10-29:** the original files were lost (the GitHub repo was empty), so the site was rebuilt from this document plus the desktop Figma frames. Images in `assets/img/` were exported from Figma at 1x (the Figma connector cannot reach figma.com asset URLs from the cloud sandbox), so photos and covers are 1x. Re-export at 2x from Figma when convenient and drop them in with the same file names.
 - Decorations that are in Figma but were left out on purpose, per section 8: the Pen tool (Pop/Bezier) and Palette (Pop/Swatch) cards, and both Pop/Toast pills ("Case study live", "We reply in 2 days").
 - Tests on that date: `test_site.py` all passed at 1440px and 390px (114 and 98 interactive elements, 0 overflow, 0 JS errors); `test_figma_links.py` 12 of 12 on desktop and phone (the Built together cards count separately from the grid cards). Run with `PW_CHROMIUM=/path/to/chrome` if Playwright's own browser is not installed.
+
+---
+
+## 14. Experiments branch redesign (2026-11-05, not on main)
+
+Prm asked for these on `experiments` only. They override sections 1, 4, 5 and 6 on this branch.
+
+- **Home order:** Hero → marquee → Selected work (`.work-first`, more padding) → Founders → stats → services → why → process → CTA.
+- **Hero:** the text headline is now a screen-reader-only `h1`; on screen it is replaced by `assets/img/hero-studio.svg` (logo mark with bezier anchors overlapping a website window and phone, joined by one line). Dashboard fields `home.hero_graphic` and `home.hero_graphic_alt`. Only the "See our work" button remains (gold primary); the hero "Start a project" button was removed at Prm's request.
+- **Fonts:** Bricolage Grotesque (display, 500–800) + Inter (body 400–700). Julius Sans One is loaded only as a `text=GDUXI` subset for the logo wordmark (`--f-logo`).
+- **Type scale** (desktop / ≤760px): H1 `.d-xl` 68/42 700 · H2 `.d-l` 48/34 700 · H3 `.h2` 34/27 650 · H4 `.h3` 22/20 600 display · H5 `.h4` 18 Inter 600 · lead 18/17 · body 16/1.65 · small 14 · caption `.eyebrow` 12 uppercase .16em · button 15 600. Sizes live in `--fs-*`.
+- **Palette (accented analogous):** blue → violet → orchid analogous base, gold accent (violet's complement). 60% neutrals, 30% purple (blue supports), 10% gold.
+  - Purple `--p-50…900`: F5F0FF EBE0FF D6C2FF BB9BFF A073FF **8549FF** 6E2FF2 5A1ED6 4316A6 2C0F70
+  - Blue `--b-50…900`: EEF4FF DCE9FF B5D0FF 7FAEFF 3F7EFC **045FEA** 034FC4 033F9C 022F74 01204F
+  - Gold `--g-50…900`: FFF9EB FFF0C7 FFE08F FFCF57 **FFBE2E** F5A70A D18A00 A36A00 6E4700 3D2700
+  - Orchid (gradient end + Identity tag): FBEAFF D75FFF 8A1FAF
+  - Neutrals: FFFFFF, mist F4F1FA, ECE8F5, line E2DEEC, 9C97B0, muted 5E5874, 2E2948, ink 1D1933
+  - Bands 3A2AB8 → 5A26D6 → 7535E0 (white text ≥ 6.2:1; the old light bands were 2.7:1 and failed AA). Footer 2C0F70 → 4316A6.
+  - Roles: gold = primary CTA buttons, eyebrow rules, nav underline, highlights; purple 600/700 = links, secondary buttons, card buttons, active filters, Brand + Digital tag; blue 50/700 = Digital tag; orchid 100/700 = Identity tag.
+  - All text/background pairs checked to WCAG AA (script check, 0 failures on the four pages).
+- **Project cards:** "Open in Figma" and "Open the full Figma file" now read "View Prototype ↗". The Canada Bank "Concept" label and "concept" wording were removed (empty `label` is not rendered).
+- **Prototype links:** `figma` URLs now use `/proto/` with each file's desktop flow starting point (RS Tour 7:85, N'Cafe 2:319, Artisan 12:5, Canada Bank 30:2129), so visitors land in prototype view.

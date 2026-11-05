@@ -9,6 +9,8 @@
   "hero_joiner": "one brand, flowing from mark to screen",
   "hero_site_label": "02 · The experience",
   "hero_site_image": "/assets/img/hero-site.jpg",
+  "hero_graphic": "/assets/img/hero-studio.svg",
+  "hero_graphic_alt": "GDUXI Studio illustration: a gradient logo mark with its bezier anchor points overlaps a website window and a phone screen, joined by one flowing line, showing logo design and UX/UI design as one practice.",
   "marquee": ["Logos", "Identities", "Websites", "Apps", "UX research", "Brand systems", "Packaging", "Prototypes"],
   "founders_eyebrow": "The founders",
   "founders_title": "Two crafts. One studio.",

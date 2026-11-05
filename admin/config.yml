@@ -133,8 +133,8 @@ collections:
         file: content/home.json
         fields:
           - { label: Hero eyebrow, name: hero_eyebrow, widget: string }
-          - { label: Hero headline line 1, name: hero_title_1, widget: string }
-          - { label: Hero headline line 2 (gradient), name: hero_title_2, widget: string }
+          - { label: Hero headline line 1 (read by screen readers and search; the graphic replaces it on screen), name: hero_title_1, widget: string }
+          - { label: Hero headline line 2 (read by screen readers and search), name: hero_title_2, widget: string }
           - { label: Hero intro, name: hero_intro, widget: text }
           - { label: Hero project name (used in image alt text), name: hero_project_name, widget: string }
           - { label: Hero card 1 label, name: hero_mark_label, widget: string }
@@ -142,6 +142,8 @@ collections:
           - { label: Hero joiner text, name: hero_joiner, widget: string }
           - { label: Hero card 2 label, name: hero_site_label, widget: string }
           - { label: Hero card 2 image, name: hero_site_image, widget: image }
+          - { label: Hero graphic, name: hero_graphic, widget: image }
+          - { label: Hero graphic description (alt text), name: hero_graphic_alt, widget: text }
           - { label: Marquee words, name: marquee, widget: list, field: { label: Word, name: word, widget: string } }
           - { label: Founders eyebrow, name: founders_eyebrow, widget: string }
           - { label: Founders heading, name: founders_title, widget: string }

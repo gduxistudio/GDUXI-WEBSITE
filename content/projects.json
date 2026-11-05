@@ -2,7 +2,7 @@
   "projects": [
     {
       "title": "RS Tour & Traveler",
-      "figma": "https://www.figma.com/design/oWHsEHVMx038r51olfe0uv/RS-Tour---Traveler-%E2%80%93-Website?node-id=34-1449",
+      "figma": "https://www.figma.com/proto/oWHsEHVMx038r51olfe0uv/RS-Tour---Traveler-%E2%80%93-Website?page-id=0%3A1&node-id=7-85&starting-point-node-id=7%3A85&scaling=scale-down-width&content-scaling=fixed",
       "group": "bd",
       "label": "2020",
       "cover": "/assets/img/proj-rs-tour.jpg",
@@ -62,7 +62,7 @@
     },
     {
       "title": "The N'Cafe",
-      "figma": "https://www.figma.com/design/xtYAcKAoR4VHk0wFkWY93H/The-N-Cafe-%E2%80%94-UX-UI-Website-Project?node-id=0-1",
+      "figma": "https://www.figma.com/proto/xtYAcKAoR4VHk0wFkWY93H/The-N-Cafe-%E2%80%94-UX-UI-Website-Project?page-id=1%3A5&node-id=2-319&starting-point-node-id=2%3A319&scaling=scale-down-width&content-scaling=fixed",
       "group": "dg",
       "label": "Case study",
       "cover": "/assets/img/proj-ncafe.jpg",
@@ -170,7 +170,7 @@
     },
     {
       "title": "Artisan Crafts",
-      "figma": "https://www.figma.com/design/17WEqDMeY9NPCAWhZvrvS1/Artisan-Crafts-%E2%80%94-Brand-Guide--Lo-Fi---Hi-Fi?node-id=0-1",
+      "figma": "https://www.figma.com/proto/17WEqDMeY9NPCAWhZvrvS1/Artisan-Crafts-%E2%80%94-Brand-Guide--Lo-Fi---Hi-Fi?page-id=2%3A4&node-id=12-5&starting-point-node-id=12%3A5&scaling=scale-down-width&content-scaling=fixed",
       "group": "bd",
       "label": "2026",
       "cover": "/assets/img/proj-artisan.jpg",
@@ -344,9 +344,9 @@
     },
     {
       "title": "Canada Bank",
-      "figma": "https://www.figma.com/design/uO4KBkt4W3AKwAXOf16xPE/Canada-Bank?node-id=0-1",
+      "figma": "https://www.figma.com/proto/uO4KBkt4W3AKwAXOf16xPE/Canada-Bank?page-id=30%3A2128&node-id=30-2129&starting-point-node-id=30%3A2129&scaling=scale-down-width&content-scaling=fixed",
       "group": "dg",
-      "label": "Concept",
+      "label": "",
       "cover": "/assets/img/proj-canada-bank.jpg",
       "logo": "",
       "screen": "",
@@ -528,9 +528,9 @@
           "image": "/assets/img/lofi/canada/10-mobile-new-to-canada-checklist.jpg"
         }
       ],
-      "short": "A concept bank built on one promise: show people the numbers. Research, brand, website, online banking and app.",
+      "short": "A bank built on one promise: show people the numbers. Research, brand, website, online banking and app.",
       "who": "Research, brand & UI",
-      "description": "A concept bank built on one promise: show people the numbers. Research, brand, website, online banking and app.",
+      "description": "A bank built on one promise: show people the numbers. Research, brand, website, online banking and app.",
       "facts": []
     },
     {

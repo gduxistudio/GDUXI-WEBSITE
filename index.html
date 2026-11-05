@@ -5,37 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GDUXI Studio · Brand to screen. In one flow.</title>
 <meta name="description" content="GDUXI Studio is a brand and digital design studio in the Greater Toronto Area, run by Navita Ramanand (UX/UI design and research) and Paramdeep Singh (logo and graphic design). Logos, identities, websites and apps, designed as one.">
-<meta name="theme-color" content="#045FEA">
+<meta name="theme-color" content="#6E2FF2">
 <meta property="og:title" content="GDUXI Studio · Brand to screen. In one flow.">
 <meta property="og:description" content="A brand and digital design studio. We design the mark and the experience together.">
 <meta property="og:image" content="assets/img/hero-site.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Julius Sans One is kept only for the GDUXI logo wordmark (owners keep the original logo), loaded as a five-letter subset -->
+<link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&text=GDUXI&display=swap" rel="stylesheet">
 <style>
 :root{
-  --blue:#045FEA;--blue-2:#3F7EFC;--violet:#8549FF;--lilac:#A76EFF;--orchid:#D75FFF;
-  --sky:#8AD2FD;--sky-100:#E0EDFF;--lavender:#F2DDFF;--pink-deep:#B33DDB;--harbor:#1169B6;
-  --ink:#1F2A44;--ink-soft:#2A3555;--muted:#5D6680;--line:#E3E7EF;--paper:#FFF;--cream:#FCF7EE;--mist:#E7EEF8;
-  --band-1:#7C95D2;--band-2:#9A97E2;--band-3:#B38ADE;--pale-pink:#FFE1FF;
+  /* Palette: accented analogous. Blue → violet → orchid sit side by side on the wheel (the base feel);
+     gold is violet's complement and is the 10% accent for calls to action and highlights.
+     60% neutrals · 30% purple (with blue as its analogous support) · 10% gold. */
+  --p-50:#F5F0FF;--p-100:#EBE0FF;--p-200:#D6C2FF;--p-300:#BB9BFF;--p-400:#A073FF;--p-500:#8549FF;--p-600:#6E2FF2;--p-700:#5A1ED6;--p-800:#4316A6;--p-900:#2C0F70;
+  --b-50:#EEF4FF;--b-100:#DCE9FF;--b-200:#B5D0FF;--b-300:#7FAEFF;--b-400:#3F7EFC;--b-500:#045FEA;--b-600:#034FC4;--b-700:#033F9C;--b-800:#022F74;--b-900:#01204F;
+  --g-50:#FFF9EB;--g-100:#FFF0C7;--g-200:#FFE08F;--g-300:#FFCF57;--g-400:#FFBE2E;--g-500:#F5A70A;--g-600:#D18A00;--g-700:#A36A00;--g-800:#6E4700;--g-900:#3D2700;
+  --o-100:#FBEAFF;--o-500:#D75FFF;--o-700:#8A1FAF;
+  --n-0:#FFFFFF;--n-50:#F4F1FA;--n-100:#ECE8F5;--n-200:#E2DEEC;--n-400:#9C97B0;--n-600:#5E5874;--n-800:#2E2948;--n-900:#1D1933;
+  /* roles (older names kept as aliases) */
+  --blue:var(--b-500);--blue-2:var(--b-400);--violet:var(--p-500);--lilac:var(--p-400);--orchid:var(--o-500);
+  --sky:var(--b-300);--sky-100:var(--b-100);--lavender:var(--p-100);--pink-deep:var(--p-600);--harbor:var(--b-700);
+  --accent:var(--g-400);--accent-hover:var(--g-300);--on-accent:var(--n-900);--link:var(--p-700);
+  --ink:var(--n-900);--ink-soft:var(--n-800);--muted:var(--n-600);--line:var(--n-200);--paper:#FFF;--cream:var(--g-50);--mist:var(--n-50);
+  --band-1:#3A2AB8;--band-2:#5A26D6;--band-3:#7535E0;--pale-pink:var(--g-200);
   --grad:linear-gradient(90deg,#045FEA,#8549FF 50%,#D75FFF);
-  --grad-text:linear-gradient(90deg,#045FEA,#843FFC 50%,#EC6EFF);
-  --grad-btn:linear-gradient(90deg,#1169B6 0%,#5804EA 30%,#843FFC 70%,#EC6EFF 100%);
-  --dawn:linear-gradient(150deg,#E0EDFF 15%,#F0EDFD 50%,#F8E2FB 85%);
-  --band:linear-gradient(150deg,var(--band-1) 15%,var(--band-2) 54%,var(--band-3) 85%);
-  --soft:linear-gradient(138deg,#EDF3FD 15%,#FFF 50%,#E6F0FF 85%);
-  --shadow-soft:0 12px 32px rgba(4,95,234,.10);
-  --shadow-lift:0 4px 12px rgba(4,95,234,.08),0 18px 44px -4px rgba(16,36,83,.10);
-  --f-display:"Julius Sans One",ui-sans-serif,system-ui,sans-serif;
-  --f-body:"Montserrat",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --grad-text:linear-gradient(90deg,#045FEA,#6E2FF2 50%,#A22BD1);
+  --grad-ink:linear-gradient(90deg,#045FEA,#6E2FF2 55%,#8A1FAF);
+  --dawn:linear-gradient(150deg,#ECF2FF 10%,#F3EDFF 55%,#FFF5DE 100%);
+  --band:linear-gradient(150deg,var(--band-1) 10%,var(--band-2) 55%,var(--band-3) 95%);
+  --soft:linear-gradient(138deg,#F0F4FF 15%,#FFF 50%,#F3EDFF 85%);
+  --shadow-soft:0 12px 32px rgba(90,30,214,.10);
+  --shadow-lift:0 4px 12px rgba(90,30,214,.08),0 18px 44px -4px rgba(29,25,51,.12);
+  --shadow-card:0 12px 16px rgba(90,30,214,.08);
+  /* Type: Bricolage Grotesque (display) + Inter (body) */
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-logo:"Julius Sans One",ui-sans-serif,system-ui,sans-serif;
+  --fs-h1:68px;--fs-h2:48px;--fs-h3:34px;--fs-h4:22px;--fs-h5:18px;--fs-lead:18px;--fs-body:16px;--fs-small:14px;--fs-cap:12px;--fs-btn:15px;
   --r-card:24px;--max:1200px;--gut:120px;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 html.cms-loading main,html.cms-loading footer{visibility:hidden}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--f-body);overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--fs-body)/1.65 var(--f-body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
@@ -44,22 +60,24 @@ ul{margin:0;padding:0;list-style:none}
 [hidden]{display:none!important}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 :focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:8px}
+.on-band :focus-visible,.footer :focus-visible,.cta :focus-visible,.ccard :focus-visible{outline-color:var(--g-300)}
 .skip{position:absolute;left:16px;top:-60px;z-index:200;background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-weight:600}
 .skip:focus{top:12px}
 #contact,#built-together,#more-work,#main{scroll-margin-top:84px}
 
 /* ---------- type ---------- */
-.eyebrow{font:600 12px/1.4 var(--f-body);letter-spacing:2.4px;text-transform:uppercase;color:var(--pink-deep)}
+.eyebrow{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--p-600)}
 .eyebrow.line{display:flex;align-items:center;gap:14px}
-.eyebrow.line::before{content:"";width:40px;height:2px;background:linear-gradient(90deg,#02439E,#EC6EFF);flex:none}
+.eyebrow.line::before{content:"";width:40px;height:3px;border-radius:2px;background:var(--g-400);flex:none}
 .on-band .eyebrow{color:var(--pale-pink)}
-.d-xl{font:400 76px/1.08 var(--f-display);letter-spacing:3px}
-.d-l{font:400 54px/1.12 var(--f-display);letter-spacing:2px}
-.h2{font:400 38px/1.18 var(--f-display);letter-spacing:1.5px}
-.h3{font:600 22px/1.3 var(--f-body)}
-.h4{font:600 18px/1.35 var(--f-body)}
-.lead{font-size:18px;line-height:1.6;color:var(--muted)}
-.small{font-size:14px;line-height:1.5}
+/* type scale: H1 .d-xl · H2 .d-l · H3 .h2 · H4 .h3 · H5 .h4 · lead · body · small · caption (.eyebrow) · button */
+.d-xl{font:700 var(--fs-h1)/1.04 var(--f-display);letter-spacing:-.025em}
+.d-l{font:700 var(--fs-h2)/1.08 var(--f-display);letter-spacing:-.02em}
+.h2{font:650 var(--fs-h3)/1.15 var(--f-display);letter-spacing:-.015em}
+.h3{font:600 var(--fs-h4)/1.25 var(--f-display);letter-spacing:-.01em}
+.h4{font:600 var(--fs-h5)/1.4 var(--f-body);letter-spacing:-.005em}
+.lead{font-size:var(--fs-lead);line-height:1.6;color:var(--muted)}
+.small{font-size:var(--fs-small);line-height:1.55}
 .muted{color:var(--muted)}
 .gtext{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 
@@ -76,32 +94,32 @@ ul{margin:0;padding:0;list-style:none}
 .deco{position:absolute;pointer-events:none;z-index:0}
 
 /* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 22px 16px 26px;border-radius:999px;font:600 15px/1.2 var(--f-body);letter-spacing:.2px;white-space:nowrap;transition:transform .2s,box-shadow .2s,background-color .2s,color .2s}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 22px 16px 26px;border-radius:999px;font:600 var(--fs-btn)/1.2 var(--f-body);letter-spacing:.01em;white-space:nowrap;transition:transform .2s,box-shadow .2s,background-color .2s,color .2s}
 .btn .arr{transition:transform .2s}
 .btn:hover .arr{transform:translateX(3px)}
-.btn-primary{background:var(--grad-btn);color:#fff;box-shadow:0 12px 16px rgba(4,95,234,.10)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 28px rgba(88,4,234,.22)}
-.btn-secondary{border:1.5px solid var(--ink);color:var(--ink);padding:14.5px 20.5px 14.5px 24.5px}
-.btn-secondary:hover{background:var(--ink);color:#fff}
-.link{font:600 15px/1.2 var(--f-body);letter-spacing:.2px;color:var(--blue)}
+.btn-primary{background:var(--accent);color:var(--on-accent);box-shadow:0 10px 18px rgba(209,138,0,.22),inset 0 -2px 0 rgba(163,106,0,.25)}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 16px 28px rgba(209,138,0,.28),inset 0 -2px 0 rgba(163,106,0,.25)}
+.btn-secondary{border:1.5px solid var(--p-700);color:var(--p-700);padding:14.5px 20.5px 14.5px 24.5px}
+.btn-secondary:hover{background:var(--p-700);color:#fff}
+.link{font:600 var(--fs-btn)/1.2 var(--f-body);letter-spacing:.01em;color:var(--link)}
 
 /* ---------- tags ---------- */
-.tag{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;font:600 12px/1.4 var(--f-body);letter-spacing:.3px;white-space:nowrap;flex:none}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.02em;white-space:nowrap;flex:none}
 .tag::before{content:"";width:7px;height:7px;border-radius:50%}
-.tag.id{background:var(--sky-100);color:var(--harbor)}
-.tag.id::before{background:var(--blue)}
-.tag.dg{background:var(--lavender);color:var(--ink)}
-.tag.dg::before{background:var(--orchid)}
-.tag.bd{background:var(--grad);color:#fff}
-.tag.bd::before{background:#fff;opacity:.85}
+.tag.id{background:var(--o-100);color:var(--o-700)}
+.tag.id::before{background:var(--o-500)}
+.tag.dg{background:var(--b-50);color:var(--b-700)}
+.tag.dg::before{background:var(--b-500)}
+.tag.bd{background:var(--p-600);color:#fff}
+.tag.bd::before{background:var(--g-300)}
 
 /* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;border-image:linear-gradient(90deg,rgba(4,95,234,.35),rgba(215,95,255,.35)) 1}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid transparent;border-image:linear-gradient(90deg,rgba(4,95,234,.3),rgba(110,47,242,.3)) 1}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:88px}
 .logo{display:inline-flex;align-items:center;gap:10px}
 .logo .mark{width:40px;height:40px;border-radius:12px;background:var(--grad);flex:none;display:block}
 .logo .word{display:flex;flex-direction:column;gap:2px;line-height:1}
-.logo .wm{font:400 24px/1 var(--f-display);letter-spacing:3.36px}
+.logo .wm{font:400 24px/1 var(--f-logo);letter-spacing:3.36px}
 .logo .wm b{font-weight:400;color:var(--blue)}
 .logo .wm i{font-style:normal;background:linear-gradient(90deg,#8549FF,#D75FFF);-webkit-background-clip:text;background-clip:text;color:transparent}
 .logo .st{font:600 9px/1 var(--f-body);letter-spacing:3.78px;color:var(--ink)}
@@ -109,10 +127,11 @@ ul{margin:0;padding:0;list-style:none}
 .logo.dark .wm i{background-image:linear-gradient(90deg,#BCE6FF,#FFC8FF)}
 .logo.dark .st{color:#fff}
 .nav-right{display:flex;align-items:center;gap:40px}
-.nav-links{display:flex;gap:36px;font:500 15px/1.2 var(--f-body)}
+.nav-links{display:flex;gap:36px;font:500 var(--fs-btn)/1.2 var(--f-body)}
 .nav-links a{position:relative;padding:6px 0}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:3px;border-radius:2px;background:var(--g-400);transform:scaleX(0);transform-origin:left;transition:transform .25s}
 .nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.nav-links a[aria-current="page"]{color:var(--p-700)}
 .burger{display:none;width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center;border:1px solid var(--line);background:#fff}
 .burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative}
 .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink);border-radius:2px}
@@ -121,7 +140,7 @@ ul{margin:0;padding:0;list-style:none}
 #mmenu .mm-top{display:flex;justify-content:space-between;align-items:center;height:48px;margin-bottom:40px}
 #mmenu .close{width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line);font-size:20px}
 #mmenu nav{display:flex;flex-direction:column;gap:8px}
-#mmenu nav a{font:400 40px/1.2 var(--f-display);letter-spacing:1.5px;padding:6px 0;border-bottom:1px solid rgba(31,42,68,.08)}
+#mmenu nav a{font:600 36px/1.2 var(--f-display);letter-spacing:-.02em;padding:6px 0;border-bottom:1px solid rgba(31,42,68,.08)}
 #mmenu .btn{margin-top:32px;align-self:flex-start}
 #mmenu .mm-mail{margin-top:auto;padding-top:32px;font-size:14px;color:var(--muted)}
 
@@ -133,6 +152,7 @@ ul{margin:0;padding:0;list-style:none}
 .grid-bg{position:absolute;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(4,95,234,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(4,95,234,.07) 1px,transparent 1px);background-size:32px 32px}
 .dots{position:absolute;width:131px;height:77px;pointer-events:none;z-index:0;background-image:radial-gradient(circle,rgba(133,73,255,.35) 2px,transparent 2.4px);background-size:18px 18px}
 .spark{position:absolute;pointer-events:none;z-index:2;color:var(--violet)}
+.spark.gold{color:var(--g-500)}
 .spark svg{width:100%;height:100%;display:block}
 .crop{position:absolute;pointer-events:none;z-index:0}
 .crop i{position:absolute;width:18px;height:18px;border-color:rgba(31,42,68,.45);border-style:solid;border-width:0}
@@ -140,22 +160,22 @@ ul{margin:0;padding:0;list-style:none}
 .crop i:nth-child(2){right:0;top:0;border-right-width:1px;border-top-width:1px}
 .crop i:nth-child(3){left:0;bottom:0;border-left-width:1px;border-bottom-width:1px}
 .crop i:nth-child(4){right:0;bottom:0;border-right-width:1px;border-bottom-width:1px}
-.badge{position:absolute;width:132px;height:132px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;text-align:center;box-shadow:0 12px 16px rgba(4,95,234,.12);z-index:3;pointer-events:none}
+.badge{position:absolute;width:132px;height:132px;border-radius:50%;background:var(--grad-ink);color:#fff;display:grid;place-items:center;text-align:center;box-shadow:0 12px 16px rgba(4,95,234,.12);z-index:3;pointer-events:none}
 .badge::before{content:"";position:absolute;inset:10px;border-radius:50%;border:1px dashed rgba(255,255,255,.75);animation:spin 18s linear infinite}
-.badge .b1{font:400 17px/1 var(--f-display);letter-spacing:.5px;display:block;white-space:nowrap}
+.badge .b1{font:700 17px/1 var(--f-display);letter-spacing:-.01em;display:block;white-space:nowrap}
 .badge .b2{font:600 9px/1 var(--f-body);letter-spacing:1.8px;display:block;margin-top:9px;white-space:nowrap}
 .badge .ring-dot{position:absolute;inset:6px;border-radius:50%;animation:spin 12s linear infinite}
-.badge .ring-dot::after{content:"";position:absolute;top:-2px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff}
+.badge .ring-dot::after{content:"";position:absolute;top:-2px;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:#fff;background:var(--g-300);box-shadow:0 0 10px var(--g-300)}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(var(--r,0deg))}}
 .pop{position:absolute;z-index:3;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lift);pointer-events:none;animation:floaty 6s ease-in-out infinite}
 .pop-wire{padding:14px 16px;display:flex;flex-direction:column;gap:8px}
 .pop-wire i{display:block;border-radius:4px;height:7px;background:var(--line)}
-.pop-wire i:nth-child(1){width:150px;height:56px;border-radius:10px;background:linear-gradient(160deg,#8AD2FD 15%,#F9D1FF 85%)}
+.pop-wire i:nth-child(1){width:150px;height:56px;border-radius:10px;background:linear-gradient(160deg,var(--b-200) 15%,var(--p-200) 85%)}
 .pop-wire i:nth-child(2){width:118px}.pop-wire i:nth-child(3){width:86px}
-.pop-wire i:nth-child(4){width:64px;height:20px;border-radius:10px;background:var(--grad)}
+.pop-wire i:nth-child(4){width:64px;height:20px;border-radius:10px;background:var(--g-400)}
 .pop-type{padding:14px 20px;text-align:center}
-.pop-type b{display:block;font:400 54px/1.1 var(--f-display);background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pop-type b{display:block;font:700 54px/1.1 var(--f-display);letter-spacing:-.02em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 .pop-type small{font:500 10px/1 var(--f-body);color:var(--muted)}
 .pop-layers{width:176px;padding:12px 10px 10px;display:flex;flex-direction:column;gap:2px;border-radius:16px}
 .pop-layers p{font:600 9px/1 var(--f-body);letter-spacing:1.26px;color:var(--muted);margin:0 0 4px 6px}
@@ -163,8 +183,8 @@ ul{margin:0;padding:0;list-style:none}
 .pop-layers span em{font-style:normal;font-size:10px;color:var(--muted);width:10px}
 .pop-layers span.on{background:var(--sky-100);color:var(--blue);font-weight:600}
 .pop-layers span.on em{color:var(--blue)}
-.outline-word{position:absolute;font:400 150px/1 var(--f-display);color:transparent;-webkit-text-stroke:1.2px rgba(4,95,234,.45);pointer-events:none;z-index:0;white-space:nowrap;letter-spacing:4px}
-.outline-word .u{-webkit-text-stroke-color:rgba(133,73,255,.45)}
+.outline-word{position:absolute;font:800 150px/1 var(--f-display);color:transparent;-webkit-text-stroke:1.2px rgba(4,95,234,.4);pointer-events:none;z-index:0;white-space:nowrap;letter-spacing:-.02em}
+.outline-word .u{-webkit-text-stroke-color:rgba(110,47,242,.45)}
 .swoosh{display:block;pointer-events:none}
 
 /* ---------- reveal ---------- */
@@ -174,10 +194,8 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--dawn);padding:96px 0 104px;overflow:hidden}
 .hero-row{display:grid;grid-template-columns:1fr 540px;gap:80px;align-items:center}
-.hero-intro{display:flex;flex-direction:column;gap:28px;position:relative}
-.hero h1{color:var(--blue)}
-.hero h1 .l2{display:block;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content;max-width:100%}
-.hero .swoosh{width:min(520px,100%);height:30px;margin:-22px 0 -10px}
+.hero-intro{display:flex;flex-direction:column;gap:28px;position:relative;min-width:0}
+.hero-art{width:100%;max-width:600px;height:auto;aspect-ratio:640/400;margin:-8px 0 -12px -12px}
 .actions{display:flex;gap:14px;flex-wrap:wrap}
 .compo{position:relative;display:flex;flex-direction:column;align-items:center}
 .compo .crop{inset:-22px -18px -22px -18px}
@@ -186,13 +204,13 @@ ul{margin:0;padding:0;list-style:none}
 .shot .img{height:224px;border-radius:16px;overflow:hidden;background:#F4EDDD}
 .shot .img img{width:100%;height:100%;object-fit:cover}
 .shot .cap{display:flex;justify-content:space-between;align-items:center;padding:0 6px 2px}
-.shot .cap>span:first-child{font:600 18px/1.35 var(--f-body)}
+.shot .cap>span:first-child{font:600 var(--fs-h5)/1.35 var(--f-display);letter-spacing:-.01em}
 .flow{display:flex;align-items:center;gap:14px;padding:10px 0;font-size:14px;color:var(--muted);position:relative;z-index:1}
-.flow::before{content:"";width:2px;height:44px;background:linear-gradient(#02439E,#EC6EFF);flex:none}
+.flow::before{content:"";width:2px;height:44px;background:linear-gradient(var(--p-600),var(--g-400));flex:none}
 .scroll-cue{position:absolute;left:56px;bottom:38px;width:16px;height:150px;z-index:1}
 .scroll-cue span{position:absolute;left:2px;top:7px;writing-mode:vertical-rl;transform:rotate(180deg);font:600 10px/1 var(--f-body);letter-spacing:3px;color:var(--muted)}
-.scroll-cue i{position:absolute;left:7.5px;top:78px;width:1px;height:56px;background:var(--blue);opacity:.5}
-.scroll-cue b{position:absolute;left:5px;top:140px;width:6px;height:6px;border-radius:50%;background:var(--blue);animation:cue 2.4s ease-in-out infinite}
+.scroll-cue i{position:absolute;left:7.5px;top:78px;width:1px;height:56px;background:var(--p-600);opacity:.5}
+.scroll-cue b{position:absolute;left:5px;top:140px;width:6px;height:6px;border-radius:50%;background:var(--g-500);animation:cue 2.4s ease-in-out infinite}
 @keyframes cue{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 /* ---------- marquee ---------- */
@@ -200,7 +218,7 @@ ul{margin:0;padding:0;list-style:none}
 .marquee .track{display:flex;width:max-content;animation:marq 40s linear infinite}
 .marquee:hover .track{animation-play-state:paused}
 .marquee ul{display:flex;align-items:center;gap:28px;padding-right:28px}
-.marquee li{display:flex;align-items:center;gap:28px;font:400 20px/1 var(--f-display);letter-spacing:1.2px;color:var(--ink-soft);white-space:nowrap}
+.marquee li{display:flex;align-items:center;gap:28px;font:500 20px/1 var(--f-display);letter-spacing:-.005em;color:var(--ink-soft);white-space:nowrap}
 .marquee li::after{content:"";width:18px;height:18px;background:var(--violet);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
 @keyframes marq{to{transform:translateX(-50%)}}
 :root{--star:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z'/%3E%3C/svg%3E")}
@@ -213,46 +231,46 @@ ul{margin:0;padding:0;list-style:none}
 .fcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:40px;display:flex;flex-direction:column;gap:24px;box-shadow:var(--shadow-soft);position:relative;overflow:hidden;z-index:1}
 .fcard .dots{right:20px;top:21px}
 .fhead{display:flex;align-items:center;gap:24px;position:relative}
-.fhead .ph{width:132px;height:132px;border-radius:50%;overflow:hidden;flex:none;background:linear-gradient(140deg,#FBD0E8,#D9B8F7)}
+.fhead .ph{width:132px;height:132px;border-radius:50%;overflow:hidden;flex:none;background:linear-gradient(140deg,var(--g-100),var(--p-200))}
 .fhead .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.03)}
 .fid{display:flex;flex-direction:column;gap:6px;min-width:0}
 .fid .sig{width:200px;height:48px;object-fit:contain;object-position:left center;mix-blend-mode:multiply}
 .fid .role{font-size:14px;line-height:1.5;color:var(--muted)}
 .fcard .bio{font-size:16px;line-height:1.6}
 .leads{display:flex;align-items:center;gap:12px}
-.leads>span:first-child{font:600 12px/1.4 var(--f-body);letter-spacing:2.4px;text-transform:uppercase;color:var(--muted)}
+.leads>span:first-child{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .skills{display:flex;flex-wrap:wrap;gap:8px}
 .skills li{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;line-height:1.5}
 .fcol{display:flex;flex-direction:column;gap:24px}
 .bgcard{background:var(--mist);border-radius:24px;padding:28px 32px 12px}
-.bgcard h4{font:600 12px/1.4 var(--f-body);letter-spacing:2.4px;text-transform:uppercase;color:var(--muted)}
+.bgcard h4{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .bgcard li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
 .bgcard li:last-child{border-bottom:0}
-.bgcard li b{font:600 18px/1.35 var(--f-body)}
+.bgcard li b{font:600 var(--fs-h5)/1.35 var(--f-display);letter-spacing:-.01em}
 .bgcard li span{font-size:14px;line-height:1.5;color:var(--muted)}
 
 /* ---------- stats ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr)}
 .stats li{display:flex;flex-direction:column;gap:8px;padding:0 32px;border-left:1px solid var(--line)}
 .stats li:first-child{padding-left:0;border-left:0}
-.stats b{font:400 44px/1.1 var(--f-display);letter-spacing:1px;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content}
+.stats b{font:700 44px/1.1 var(--f-display);letter-spacing:-.02em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content}
 .stats span{font-size:14px;line-height:1.5;color:var(--muted)}
 
 /* ---------- services ---------- */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
-.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:36px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;box-shadow:0 12px 16px rgba(4,95,234,.10);transition:transform .3s,box-shadow .3s;text-align:left}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:36px;display:flex;flex-direction:column;gap:18px;position:relative;overflow:hidden;box-shadow:var(--shadow-card);transition:transform .3s,box-shadow .3s;text-align:left}
 a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .svc .top{display:flex;justify-content:space-between;align-items:center}
-.svc .num{font:400 44px/1.1 var(--f-display);letter-spacing:1px;color:var(--blue)}
+.svc .num{font:700 44px/1.1 var(--f-display);letter-spacing:-.02em;color:var(--p-600)}
 .svc .sum{font-size:14px;line-height:1.5;color:var(--muted)}
 .svc ul{display:flex;flex-direction:column;gap:10px}
 .svc li{display:flex;gap:10px;align-items:center;font-size:14px;line-height:1.5}
-.svc li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue);flex:none}
+.svc li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--p-500);flex:none}
 .svc hr{border:0;height:1px;background:var(--line);margin:0;width:100%}
 .svc .time{font-size:14px;line-height:1.5;color:var(--muted);margin-top:auto}
 .svc.feat{background:var(--band);color:#fff;border-color:transparent;box-shadow:var(--shadow-lift)}
 .svc.feat .num{color:rgba(255,255,255,.9)}
-.svc.feat .sum,.svc.feat li,.svc.feat .time{color:rgba(255,255,255,.95);font-weight:700}
+.svc.feat .sum,.svc.feat li,.svc.feat .time{color:#fff;font-weight:600}
 .svc.feat li::before{background:var(--pale-pink)}
 .svc.feat hr{background:rgba(255,255,255,.4)}
 .svc.feat .waves{left:-260px;top:156px;width:1080px;height:360px;opacity:.45}
@@ -263,23 +281,26 @@ a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 /* ---------- projects ---------- */
 .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .p-grid.two{grid-template-columns:repeat(2,1fr)}
-.proj{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:12px;display:flex;flex-direction:column;box-shadow:0 12px 16px rgba(4,95,234,.10);transition:transform .3s,box-shadow .3s;text-align:left;width:100%}
+.proj{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:12px;display:flex;flex-direction:column;box-shadow:var(--shadow-card);transition:transform .3s,box-shadow .3s;text-align:left;width:100%}
 .proj:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .proj .cover{height:250px;border-radius:12px;overflow:hidden;background:var(--mist)}
 .proj .cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .proj:hover .cover img{transform:scale(1.04)}
 .proj .body{padding:20px 10px 10px;display:flex;flex-direction:column;gap:12px;flex:1}
-.proj .meta{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
+.proj .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:30px;font-size:var(--fs-small);color:var(--muted)}
 .proj .short{font-size:14px;line-height:1.5;color:var(--muted)}
-.proj .who{font:500 13px/1.5 var(--f-body);white-space:pre-wrap}
+.proj .who{font:500 13px/1.5 var(--f-body);white-space:pre-wrap;color:var(--ink-soft)}
 .proj .link{margin-top:auto}
+/* Home: Selected work sits right after the hero, so it gets more room */
+.work-first{padding:136px 0 128px}
+.work-first .sec-head{margin-bottom:64px}
 
 /* ---------- why ---------- */
 .why-row{display:grid;grid-template-columns:480px 1fr;gap:96px}
 .why-left{display:flex;flex-direction:column;gap:20px}
 .why-left .lead{color:rgba(255,255,255,.9)}
-.points li{display:flex;gap:28px;padding:28px 0;border-top:1px solid var(--ink)}
-.points .n{font:400 38px/1.18 var(--f-display);letter-spacing:1.5px;color:var(--pale-pink);flex:none;min-width:39px}
+.points li{display:flex;gap:28px;padding:28px 0;border-top:1px solid rgba(255,255,255,.35)}
+.points .n{font:700 38px/1.18 var(--f-display);letter-spacing:-.02em;color:var(--g-300);flex:none;min-width:39px}
 .points .t{display:flex;flex-direction:column;gap:8px}
 .points p{color:rgba(255,255,255,.9)}
 
@@ -287,8 +308,8 @@ a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .steps li{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
 .steps .mk{display:flex;align-items:center;gap:14px;width:100%}
-.steps .mk b{width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font:600 15px/1 var(--f-body);flex:none}
-.steps .mk i{flex:1;height:1px;background:linear-gradient(90deg,rgba(4,95,234,.35),rgba(132,63,252,.35),rgba(236,110,255,.35))}
+.steps .mk b{width:44px;height:44px;border-radius:50%;background:var(--p-600);color:#fff;display:grid;place-items:center;font:600 15px/1 var(--f-body);flex:none;box-shadow:0 0 0 4px var(--p-100)}
+.steps .mk i{flex:1;height:1px;background:linear-gradient(90deg,rgba(110,47,242,.4),rgba(245,167,10,.45))}
 .steps p{font-size:14px;line-height:1.5;color:var(--muted)}
 
 /* ---------- cta ---------- */
@@ -308,9 +329,9 @@ a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .phead .lead{max-width:780px}
 .phead .swoosh{width:min(460px,80%);height:28px;margin:-30px 0 -6px 2px}
 .filters{display:flex;flex-wrap:wrap;gap:10px;padding-top:16px}
-.filters button{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 15px/1.2 var(--f-body);transition:background .2s,color .2s}
-.filters button:hover{border-color:var(--ink)}
-.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filters button{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 var(--fs-btn)/1.2 var(--f-body);transition:background .2s,color .2s}
+.filters button:hover{border-color:var(--p-600)}
+.filters button[aria-pressed="true"]{background:var(--p-700);color:#fff;border-color:var(--p-700)}
 
 /* ---------- joint cards ---------- */
 .built{background:var(--soft);padding:88px 0}
@@ -322,13 +343,13 @@ a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .joint .ms .im img{width:100%;height:100%;object-fit:cover}
 .joint .ms .im.full{width:709px}
 .joint .ms .im.alt{display:none}
-.joint .join{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 10px;color:var(--orchid);font:600 18px/1.35 var(--f-body)}
-.joint .join::before{content:"";width:2px;height:120px;background:linear-gradient(#02439E,#EC6EFF)}
+.joint .join{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 10px;color:var(--g-500);font:600 18px/1.35 var(--f-body)}
+.joint .join::before{content:"";width:2px;height:120px;background:linear-gradient(var(--p-600),var(--g-400))}
 .joint .txt{flex:1;display:flex;flex-direction:column;gap:16px;align-items:flex-start;min-width:0}
 .joint .txt>p{color:var(--muted)}
 .facts{display:flex;flex-direction:column;gap:14px;padding:8px 0;width:100%}
 .facts div{display:grid;grid-template-columns:190px 1fr;gap:16px}
-.facts dt{font:600 12px/1.4 var(--f-body);letter-spacing:2.4px;text-transform:uppercase;color:var(--muted)}
+.facts dt{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .facts dd{margin:0;font-size:14px;line-height:1.5}
 .joint .crop{inset:-18px}
 .more{padding:88px 0 112px;position:relative;overflow:hidden}
@@ -342,30 +363,30 @@ a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .fdetail{padding:112px 0}
 .fdetail .outline-word{top:40px;right:calc(50% - 600px)}
 .values{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.values li{border-top:1.5px solid var(--ink);padding-top:28px;display:flex;flex-direction:column;gap:14px}
-.values .n{font:400 38px/1.18 var(--f-display);letter-spacing:1.5px;color:var(--orchid)}
+.values li{border-top:1.5px solid var(--p-200);padding-top:28px;display:flex;flex-direction:column;gap:14px}
+.values .n{font:700 38px/1.18 var(--f-display);letter-spacing:-.02em;color:var(--p-600)}
 .values p{color:var(--muted)}
 
 /* ---------- services page ---------- */
 .inc{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .inc li{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:10px}
-.inc .ck{width:36px;height:36px;border-radius:50%;background:var(--sky-100);color:var(--blue);display:grid;place-items:center;font:600 15px/1 var(--f-body)}
+.inc .ck{width:36px;height:36px;border-radius:50%;background:var(--g-100);color:var(--g-800);display:grid;place-items:center;font:600 15px/1 var(--f-body)}
 .inc p{font-size:14px;line-height:1.5;color:var(--muted)}
 .faq-row{display:grid;grid-template-columns:380px 1fr;gap:80px}
 .faq-row .heading{display:flex;flex-direction:column;gap:16px}
 .faq details{border-top:1px solid var(--line);padding:24px 0}
 .faq details:last-child{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;font:600 18px/1.35 var(--f-body)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;font:600 var(--fs-h5)/1.4 var(--f-body)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--blue);font-weight:600;flex:none;width:18px;text-align:center}
+.faq summary::after{content:"+";color:var(--p-600);font-weight:600;flex:none;width:18px;text-align:center}
 .faq details[open] summary::after{content:"—"}
 .faq details p{margin-top:8px;color:var(--muted)}
 .contact-sec{background:var(--dawn);padding:112px 0;position:relative;overflow:hidden}
 .contact-row{display:grid;grid-template-columns:480px 1fr;gap:24px;align-items:start}
 .ccard{background:var(--band);color:#fff;border-radius:28px;padding:48px;display:flex;flex-direction:column;gap:22px;align-self:stretch}
 .ccard .intro{color:rgba(255,255,255,.9)}
-.ccard .row{border-top:1px solid var(--ink);padding:14px 0;display:flex;flex-direction:column;gap:4px}
-.ccard .row span{font:600 12px/1.4 var(--f-body);letter-spacing:2.4px;text-transform:uppercase;color:var(--pale-pink)}
+.ccard .row{border-top:1px solid rgba(255,255,255,.35);padding:14px 0;display:flex;flex-direction:column;gap:4px}
+.ccard .row span{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--pale-pink)}
 .ccard .row a,.ccard .row p{font-size:16px;line-height:1.6;color:#fff;word-break:break-word}
 .ccard .row a:hover{text-decoration:underline}
 .fcard-form{background:#fff;border:1px solid var(--line);border-radius:28px;padding:48px;display:flex;flex-direction:column;gap:24px}
@@ -373,7 +394,7 @@ a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .field{display:flex;flex-direction:column;gap:8px;min-width:0}
 .field>label,.field legend{font-size:14px;line-height:1.5}
 .field input,.field select,.field textarea{width:100%;background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:13px 16px;font:400 16px/1.6 var(--f-body);color:var(--ink);transition:border-color .2s,box-shadow .2s;appearance:none;-webkit-appearance:none}
-.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231F2A44' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231D1933' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
 .field select:invalid,.field select option[value=""]{color:var(--muted)}
 .field textarea{min-height:140px;resize:vertical}
 .field input::placeholder,.field textarea::placeholder{color:var(--muted)}
@@ -385,8 +406,8 @@ fieldset.field legend{padding:0;margin-bottom:10px}
 .opts{display:flex;flex-wrap:wrap;gap:10px}
 .opts label{position:relative}
 .opts input{position:absolute;opacity:0;width:1px;height:1px}
-.opts span{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 15px/1.2 var(--f-body);cursor:pointer;transition:background .2s,color .2s}
-.opts input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.opts span{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:500 var(--fs-btn)/1.2 var(--f-body);cursor:pointer;transition:background .2s,color .2s}
+.opts input:checked+span{background:var(--p-700);color:#fff;border-color:var(--p-700)}
 .opts input:focus-visible+span{outline:3px solid var(--violet);outline-offset:2px}
 .submit-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .submit-row p{font-size:14px;color:var(--muted)}
@@ -397,28 +418,28 @@ dialog{border:0;border-radius:28px;padding:0;max-width:min(560px,calc(100vw - 32
 dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 .dlg{padding:40px;display:flex;flex-direction:column;gap:16px;position:relative}
 .dlg .x{position:absolute;right:16px;top:16px;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);font-size:18px}
-.dlg .ok-ic{width:56px;height:56px;border-radius:18px;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:26px}
+.dlg .ok-ic{width:56px;height:56px;border-radius:18px;background:var(--grad-ink);color:#fff;display:grid;place-items:center;font-size:26px}
 .dlg .actions{margin-top:8px}
-.dlg .mail{font-weight:600;color:var(--blue);word-break:break-all}
+.dlg .mail{font-weight:600;color:var(--link);word-break:break-all}
 #caseDlg{max-width:min(860px,calc(100vw - 32px))}
 #caseDlg .cimg{height:320px;overflow:hidden}
 #caseDlg .cimg img{width:100%;height:100%;object-fit:cover}
 #caseDlg.has-pages{max-width:min(1100px,calc(100vw - 32px))}
 .plinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
-.mbtn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);font:600 14px/1.2 var(--f-body);white-space:nowrap;transition:transform .2s,box-shadow .2s,background-color .2s,color .2s}
-.mbtn:hover{background:var(--ink);color:#fff}
-.mbtn.pri{background:var(--grad-btn);border-color:transparent;color:#fff;box-shadow:0 8px 14px rgba(4,95,234,.12)}
-.mbtn.pri:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(88,4,234,.22)}
+.mbtn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1.5px solid var(--p-700);background:#fff;color:var(--p-700);font:600 14px/1.2 var(--f-body);white-space:nowrap;transition:transform .2s,box-shadow .2s,background-color .2s,color .2s}
+.mbtn:hover{background:var(--p-700);color:#fff}
+.mbtn.pri{background:var(--p-600);border-color:var(--p-600);color:#fff;box-shadow:0 8px 14px rgba(90,30,214,.16)}
+.mbtn.pri:hover{background:var(--p-700);border-color:var(--p-700);transform:translateY(-2px);box-shadow:0 12px 22px rgba(90,30,214,.24)}
 #shotsDlg{max-width:min(1180px,calc(100vw - 32px))}
 .shots-head{padding:40px 40px 20px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
 .shots-head p{color:var(--muted)}
 .shots-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 72px 14px 40px;background:#fff;border-bottom:1px solid var(--line)}
 .shots-bar .x{position:absolute;right:16px;top:50%;margin-top:-20px;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:18px}
 .shots-bar [data-shots-dev]{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);font:600 14px/1.2 var(--f-body);color:var(--ink);background:#fff}
-.shots-bar [data-shots-dev][aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.shots-bar [data-shots-dev][aria-pressed=true]{background:var(--p-700);border-color:var(--p-700);color:#fff}
 .shots-bar .seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:#EEF2F8;margin-right:6px}
 .shots-bar [data-shots-stage]{padding:9px 16px;border-radius:999px;border:0;font:600 14px/1.2 var(--f-body);color:var(--ink);background:transparent}
-.shots-bar [data-shots-stage][aria-pressed=true]{background:var(--grad-btn);color:#fff;box-shadow:0 6px 12px rgba(4,95,234,.16)}
+.shots-bar [data-shots-stage][aria-pressed=true]{background:var(--p-600);color:#fff;box-shadow:0 6px 12px rgba(90,30,214,.18)}
 .shots-bar .devs{display:inline-flex;gap:8px}
 .shots-note{padding:22px 40px 0;margin:0;background:#F2F6F9;color:var(--muted);font-size:14px}
 .shots-note:empty{display:none}
@@ -426,7 +447,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 .shots.mobile{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:32px 24px;align-items:start}
 .shots figure{margin:0;display:flex;flex-direction:column;gap:12px}
 .shots figcaption{display:flex;align-items:baseline;gap:10px;font:600 15px/1.35 var(--f-body)}
-.shots figcaption .n{font:400 20px/1 var(--f-display);color:var(--blue)}
+.shots figcaption .n{font:700 20px/1 var(--f-display);color:var(--p-600)}
 .shots figcaption .d{margin-left:auto;font:600 11px/1 var(--f-body);letter-spacing:1.6px;text-transform:uppercase;color:var(--muted)}
 .shots img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 12px 24px rgba(16,36,83,.08)}
 #caseDlg.has-pages .cimg{display:none}
@@ -455,25 +476,25 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 }
 
 /* ---------- footer ---------- */
-.footer{background:var(--band);color:#fff;padding:88px 0 40px;position:relative;overflow:hidden}
+.footer{background:linear-gradient(150deg,var(--p-900) 10%,var(--p-800) 60%,#3A2AB8 100%);color:#fff;padding:88px 0 40px;position:relative;overflow:hidden}
 .ftop{display:flex;gap:48px}
 .fbrand{width:420px;display:flex;flex-direction:column;gap:18px;flex:none}
-.fbrand .tag-l{font:400 28px/1.18 var(--f-display);letter-spacing:1.5px}
-.fbrand p:last-child,.fcols p.note{font:700 14px/1.5 var(--f-body);color:rgba(255,255,255,.9)}
+.fbrand .tag-l{font:650 28px/1.18 var(--f-display);letter-spacing:-.015em}
+.fbrand p:last-child,.fcols p.note{font:500 var(--fs-small)/1.55 var(--f-body);color:rgba(255,255,255,.9)}
 .fcols{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
 .fcols div{display:flex;flex-direction:column;gap:12px;min-width:0}
-.fcols h4{font:600 12px/1.4 var(--f-body);letter-spacing:2.4px;text-transform:uppercase;color:var(--pale-pink)}
-.fcols a{font:700 14px/1.5 var(--f-body);white-space:nowrap}
-.fcols a:hover{text-decoration:underline}
-.fdiv{height:1px;background:rgba(255,255,255,.4);margin:64px 0 40px}
-.fbot{display:flex;justify-content:space-between;align-items:center;font:700 14px/1.5 var(--f-body);color:rgba(255,255,255,.9)}
-.fbot button:hover{text-decoration:underline}
+.fcols h4{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--pale-pink)}
+.fcols a{font:600 var(--fs-small)/1.5 var(--f-body);white-space:nowrap}
+.fcols a:hover{color:var(--g-200);text-decoration:underline}
+.fdiv{height:1px;background:rgba(255,255,255,.25);margin:64px 0 40px}
+.fbot{display:flex;justify-content:space-between;align-items:center;font:500 var(--fs-small)/1.5 var(--f-body);color:rgba(255,255,255,.9)}
+.fbot button:hover{color:var(--g-200);text-decoration:underline}
 
 /* ---------- responsive ---------- */
 @media (max-width:1100px){
   :root{--gut:56px}
   .hero-row{grid-template-columns:1fr 460px;gap:48px}
-  .d-xl{font-size:64px}
+  :root{--fs-h1:60px;--fs-h2:44px}
   .why-row{grid-template-columns:1fr 1.2fr;gap:56px}
   .joint .ms .im{width:260px;height:260px}
   .joint .ms .im.full{width:569px}
@@ -522,12 +543,11 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 @media (max-width:760px){
   :root{--gut:20px}
   .section{padding:72px 0}
-  .d-xl{font-size:44px;letter-spacing:1.5px}
-  .d-l{font-size:36px;letter-spacing:1px}
-  .h2{font-size:30px}
-  .lead{font-size:16px}
+  .work-first{padding:88px 0 80px}
+  .work-first .sec-head{margin-bottom:40px}
+  :root{--fs-h1:42px;--fs-h2:34px;--fs-h3:27px;--fs-h4:20px;--fs-lead:17px}
   .hero{padding:56px 0 72px}
-  .hero .swoosh{margin:-14px 0 -6px;height:22px;width:300px}
+  .hero-art{margin:-4px 0 -6px;max-width:none}
   .scroll-cue{display:none}
   .compo .crop{inset:-12px -8px}
   .shot .img{height:auto;aspect-ratio:510/224}
@@ -591,7 +611,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .actions .btn{flex:1 1 auto;justify-content:center}
 }
 @media (max-width:520px){
-  .d-xl{font-size:38px}
+  :root{--fs-h1:38px;--fs-h2:31px}
   .shot .cap>span:first-child{font-size:15px}
   .flow{font-size:12px}
 }
@@ -661,14 +681,13 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
     <div class="wrap hero-row">
       <div class="hero-intro">
         <p class="eyebrow line" data-c="home.hero_eyebrow">Brand + digital design studio</p>
-        <h1 class="d-xl" id="hero-h"><span data-c="home.hero_title_1">Brand to screen.</span> <span class="l2" data-c="home.hero_title_2">In one flow.</span></h1>
-        <svg class="swoosh" aria-hidden="true"><use href="#swoosh"/></svg>
+        <h1 class="sr-only" id="hero-h">GDUXI Studio: <span data-c="home.hero_title_1">Brand to screen.</span> <span data-c="home.hero_title_2">In one flow.</span></h1>
+        <img class="hero-art" data-ci="home.hero_graphic" src="assets/img/hero-studio.svg" alt="GDUXI Studio illustration: a gradient logo mark with its bezier anchor points overlaps a website window and a phone screen, joined by one flowing line, showing logo design and UX/UI design as one practice." width="640" height="400" fetchpriority="high">
         <p class="lead" data-c="home.hero_intro">GDUXI is a brand and digital design studio. We design the mark and the experience together, so your logo, your website and your app feel like one piece.</p>
         <div class="actions">
-          <a href="#contact" data-route="contact" class="btn btn-primary">Start a project <span class="arr" aria-hidden="true">→</span></a>
-          <a href="#work" data-route="work" class="btn btn-secondary">See our work <span class="arr" aria-hidden="true">→</span></a>
+          <a href="#work" data-route="work" class="btn btn-primary">See our work <span class="arr" aria-hidden="true">→</span></a>
         </div>
-        <span class="spark" style="right:-90px;top:60px;width:32px;height:32px" aria-hidden="true"><svg><use href="#star"/></svg></span>
+        <span class="spark gold" style="right:-90px;top:60px;width:32px;height:32px" aria-hidden="true"><svg><use href="#star"/></svg></span>
         <span class="spark" style="right:-4px;top:126px;width:28px;height:28px" aria-hidden="true"><svg><use href="#star"/></svg></span>
         <span class="spark" style="right:30px;top:22px;width:16px;height:16px;opacity:.8" aria-hidden="true"><svg><use href="#star"/></svg></span>
       </div>
@@ -692,6 +711,23 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   </section>
 
   <div class="marquee" aria-label="What we design"><div class="track" data-list="marquee"></div></div>
+
+  <section class="section bg-mist work-first" aria-labelledby="sw-h">
+    <div class="glow" style="left:-160px;top:-120px;width:588px;height:588px"></div>
+    <div class="dots" style="left:40px;top:60px"></div>
+    <div class="badge" style="right:calc(50% - 650px);top:52px;transform:rotate(12deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/uI</span><span class="b2">ONE STUDIO</span></span></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="heading">
+          <p class="eyebrow line" data-c="home.work_eyebrow">Selected work</p>
+          <h2 class="d-l" id="sw-h" data-c="home.work_title">Six projects, shared equally</h2>
+          <p class="lead" data-c="home.work_intro">Two built together from mark to screen, plus identity and digital projects.</p>
+        </div>
+        <a href="#work" data-route="work" class="btn btn-secondary">View all work <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="p-grid" data-projects="all"></div>
+    </div>
+  </section>
 
   <section class="section founders" aria-labelledby="fo-h">
     <div class="outline-word" aria-hidden="true">GD<span class="u">UXI</span></div>
@@ -721,7 +757,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 
   <section class="section" aria-labelledby="sv-h">
     <div class="waves" data-wave="light" style="top:587px;height:480px;opacity:.6"></div>
-    <div class="pop pop-type" style="right:calc(50% - 625px);top:79px;--r:-8deg" aria-hidden="true"><b>Aa</b><small>Julius Sans One</small></div>
+    <div class="pop pop-type" style="right:calc(50% - 625px);top:79px;--r:-8deg" aria-hidden="true"><b>Aa</b><small>Bricolage Grotesque</small></div>
     <div class="badge" style="right:calc(50% - 562px);top:88px;transform:rotate(12deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/uI</span><span class="b2">ONE STUDIO</span></span></div>
     <span class="spark" style="right:calc(50% - 480px);top:250px;width:20px;height:20px" aria-hidden="true"><svg><use href="#star"/></svg></span>
     <div class="wrap">
@@ -734,23 +770,6 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
         <a href="#services" data-route="services" class="btn btn-secondary">All services <span class="arr" aria-hidden="true">→</span></a>
       </div>
       <div class="svc-grid" data-list="services"></div>
-    </div>
-  </section>
-
-  <section class="section bg-mist" aria-labelledby="sw-h">
-    <div class="glow" style="left:-160px;top:-120px;width:588px;height:588px"></div>
-    <div class="dots" style="left:40px;top:60px"></div>
-    <div class="badge" style="right:calc(50% - 650px);top:52px;transform:rotate(12deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/uI</span><span class="b2">ONE STUDIO</span></span></div>
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="heading">
-          <p class="eyebrow" data-c="home.work_eyebrow">Selected work</p>
-          <h2 class="d-l" id="sw-h" data-c="home.work_title">Six projects, shared equally</h2>
-          <p class="lead" data-c="home.work_intro">Two built together from mark to screen, plus identity and digital projects.</p>
-        </div>
-        <a href="#work" data-route="work" class="btn btn-secondary">View all work <span class="arr" aria-hidden="true">→</span></a>
-      </div>
-      <div class="p-grid" data-projects="all"></div>
     </div>
   </section>
 
@@ -883,7 +902,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 
   <section class="section" aria-labelledby="vl-h" style="padding-bottom:88px">
     <div class="waves" data-wave="light" style="top:347px;height:480px;opacity:.3"></div>
-    <div class="pop pop-type" style="right:calc(50% - 611px);top:60px;--r:-8deg" aria-hidden="true"><b>Aa</b><small>Julius Sans One</small></div>
+    <div class="pop pop-type" style="right:calc(50% - 611px);top:60px;--r:-8deg" aria-hidden="true"><b>Aa</b><small>Bricolage Grotesque</small></div>
     <span class="spark" style="right:calc(50% - 450px);top:60px;width:20px;height:20px" aria-hidden="true"><svg><use href="#star"/></svg></span>
     <div class="wrap">
       <div class="sec-head tight" style="margin-bottom:40px">
@@ -1091,7 +1110,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   <div class="shots" id="shotsList"></div>
 </dialog>
 
-<script type="application/json" id="content-fallback">{"home":{"hero_eyebrow":"Brand + digital design studio","hero_title_1":"Brand to screen.","hero_title_2":"In one flow.","hero_intro":"GDUXI is a brand and digital design studio. We design the mark and the experience together, so your logo, your website and your app feel like one piece.","hero_project_name":"RS Tour & Traveler","hero_mark_label":"01 · The mark","hero_mark_image":"/assets/img/hero-mark.png","hero_joiner":"one brand, flowing from mark to screen","hero_site_label":"02 · The experience","hero_site_image":"/assets/img/hero-site.jpg","marquee":["Logos","Identities","Websites","Apps","UX research","Brand systems","Packaging","Prototypes"],"founders_eyebrow":"The founders","founders_title":"Two crafts. One studio.","founders_intro":"Equal partners with complementary skills. Navita leads the experience, Paramdeep leads the identity, and every project gets both of us.","stats":[{"number":"28+","label":"businesses given a brand identity"},{"number":"10+","label":"end-to-end UX/UI case studies"},{"number":"5+","label":"industries: travel, education, retail, hospitality, finance"},{"number":"1","label":"team, one timeline, one invoice"}],"services_eyebrow":"What we do","services_title":"Three ways to work with us","services_intro":"Hire either founder for their speciality, or both of us for the whole journey: a brand and a digital product designed as one system.","work_eyebrow":"Selected work","work_title":"Six projects, shared equally","work_intro":"Two built together from mark to screen, plus identity and digital projects.","why_eyebrow":"Why one studio","why_title":"Your brand shouldn't change at the browser.","why_intro":"Most small businesses hire a logo designer, then a web designer, and spend months making the two agree. We start them together.","why_points":[{"title":"One idea, every touchpoint","body":"The mark, the colours and the interface come from the same thinking, so customers recognise you on a flyer, a phone and a checkout page."},{"title":"Research meets craft","body":"User research tells us what people need. Identity design makes it memorable. You get evidence and personality."},{"title":"Fewer handoffs, faster launch","body":"No briefing a second agency, no rebuilding the logo for screens. One team, one timeline, one invoice."}],"process_eyebrow":"How we work","process_title":"From first call to launch","process_intro":"Clear milestones, one shared timeline, and you always know who is leading each stage.","steps":[{"title":"Discover","group":"bd","body":"A kickoff call, stakeholder chats and quick user interviews. We agree on the problem before we draw anything."},{"title":"Identity","group":"id","body":"Mood boards, sketches and two or three mark directions, refined into a logo and a brand guide."},{"title":"Experience","group":"dg","body":"Information architecture, wireframes and hi-fi UI built on the new brand, then tested with real users."},{"title":"Launch","group":"bd","body":"Final files, a working prototype or site, and a launch kit for socials and print."}],"cta_eyebrow":"Let's work together","cta_title":"Have a brand that needs a mark,\nand a site that needs to work?","cta_body":"Tell us about your project. You'll hear back from both of us within two business days."},"work":{"eyebrow":"Work","title":"Work that holds together","intro":"Logos, identities, websites and apps, from the first mark to the finished screen.","joint_eyebrow":"Built together · mark to screen","joint_title":"Where Graphic Design meets UX/uI","more_eyebrow":"More projects","more_title":"Identity and digital work"},"studio":{"eyebrow":"Studio","title":"Two crafts. One studio.","intro":"GDUXI is a merger between not just two minds but also two professionals delivering their own skills at perfection as ONE.","story_eyebrow":"Why GDUXI","story_quote":"GD + UX/uI: graphic design and UX/UI as one practice. We design the mark and the experience together, so the join never shows.","story_body":"Our name is our two crafts: GD for graphic design, UXI for UX/UI. The colours flow from cobalt into violet and orchid, and the wave lines come from our own banner work.","founders_eyebrow":"The founders","founders_title":"Equal partners, side by side","values_eyebrow":"What we believe","values_title":"Three promises to every client","values":[{"title":"Research before pixels","body":"We talk to your customers before we design for them. Decisions come with reasons."},{"title":"Craft you can feel","body":"Hand-drawn marks and calm interfaces, never template-generic. Built to stand out from AI sameness."},{"title":"No surprises","body":"Clear milestones, a fixed quote upfront and regular check-ins. You always know what's next."}]},"services":{"eyebrow":"Services & contact","title":"Pick a speciality, or get both","intro":"Brand identity, UX/UI design, or the whole journey from logo to launched website. Every project starts with a free 20-minute call.","services":[{"title":"Brand identity","group":"id","need":"n1","summary":"A mark people remember and a system that holds up everywhere, from a WhatsApp profile picture to a highway billboard.","items":["Logo design & monogram","Colour, type & brand guide","Print, packaging & signage","Social media templates"],"timeline":"Typical timeline · 1–3 weeks"},{"title":"UX/UI & digital","group":"dg","need":"n2","summary":"Research-led websites and apps that feel calm to use, tested with real people before a line of code is written.","items":["User interviews & surveys","Information architecture","Wireframes & hi-fi UI","Interactive prototypes & testing"],"timeline":"Typical timeline · 2–5 weeks"},{"title":"Brand + digital","group":"bd","need":"n3","summary":"The whole journey. One team takes you from first sketch to launched website, so the brand and the product never drift apart.","items":["Everything in 01 and 02","One shared design system","Launch kit: site, socials, print","One point of contact"],"timeline":"Typical timeline · 3–6 weeks"}],"included_eyebrow":"Included in every project","included":[{"title":"Fixed quote upfront","body":"You know the price before we start. No hourly surprises."},{"title":"Milestone check-ins","body":"A short review at the end of every stage, with both founders."},{"title":"Two revision rounds","body":"Per stage, built into the timeline and the quote."},{"title":"Files you own","body":"Source files, brand guide and Figma handover. Yours to keep."}],"faq_eyebrow":"Questions","faq_title":"Good to know before we talk","faq":[{"q":"Can we hire just one of you?","a":"Yes. Identity-only and digital-only projects each have one lead designer, and the other founder still reviews the work, at no extra cost."},{"q":"Do you work with clients outside Canada?","a":"Yes. We're based in the Greater Toronto Area and already work with businesses in India and beyond, remotely or in person."},{"q":"How do payments work?","a":"A fixed quote, split into a deposit to start and payments at agreed milestones."},{"q":"What do you need from us to start?","a":"A 20-minute call, any existing brand files, and one person on your side who can make decisions."}]},"contact":{"email":"gduxistudio@gmail.com","card_title":"Let's build something together.","card_intro":"Both founders read every message. You'll hear back within two business days.","location":"Greater Toronto Area · remote worldwide","form_title":"Start a project","form_note":"We reply within 2 business days.","budgets":["Under CA$1,000","CA$1,000 – 3,000","CA$3,000 – 6,000","CA$6,000+","Not sure yet"],"timelines":["As soon as possible","Within a month","In 1–3 months","Just exploring"],"footer_tagline":"Brand to screen. In one flow.","footer_description":"A brand and digital design studio in the Greater Toronto Area. Working with startups and small businesses everywhere.","footer_reply":"Replies within 2 business days","copyright":"© 2026 GDUXI Studio"},"founders":{"founders":[{"name":"Navita Ramanand","short":"Navita","role":"UX/UI Designer & Researcher","photo":"/assets/img/portrait-navita.png","signature":"/assets/img/sig-navita.png","bio":"Navita turns research into calm, human-centred interfaces. Interviews, surveys and usability tests come first; wireframes, design systems and prototype-ready UI follow. Google UX Design certified, with a BA from the University of Toronto.","leads":"dg","skills":["UX research","Usability testing","Information architecture","Hi-fi UI","Figma prototyping"],"linkedin":"https://www.linkedin.com/in/navita-r-122158224/","background":[{"title":"Google","detail":"UX Design Professional Certificate"},{"title":"University of Toronto","detail":"BA, Communication, Culture, Information & Technology + Sociology"},{"title":"Sheridan College","detail":"Digital Communication"},{"title":"Coursera · IBM","detail":"Capstone: Applying UX/UI Design in the Real World"}]},{"name":"Paramdeep Singh","short":"Paramdeep","role":"Logo & Graphic Designer","photo":"/assets/img/portrait-paramdeep.png","signature":"/assets/img/sig-paramdeep.png","bio":"Paramdeep designs logos and identities that brands grow into. Self-taught, he has branded many startups and small businesses across India and beyond, co-founded RS Tour & Traveler, and runs every project on clear milestones.","leads":"id","skills":["Logo design","Brand identity","Print & packaging","Social media","Adobe Illustrator"],"linkedin":"https://www.linkedin.com/in/singh1313param/","background":[{"title":"Freelance · Mississauga","detail":"Logo & graphic designer for startups and small businesses"},{"title":"RS Tour & Traveler","detail":"Co-founder, took the family business online"},{"title":"Algoma University","detail":"Post-Graduate Diploma, Project Management"},{"title":"Google","detail":"Project Management Professional Certificate"}]}]},"projects":{"projects":[{"title":"RS Tour & Traveler","figma":"https://www.figma.com/design/oWHsEHVMx038r51olfe0uv/RS-Tour---Traveler-%E2%80%93-Website?node-id=34-1449","group":"bd","label":"2020","cover":"/assets/img/proj-rs-tour.jpg","logo":"/assets/img/joint-rs-mark.jpg","screen":"/assets/img/joint-rs-screen.jpg","pages":[],"pieces":[],"screens":[{"label":"Home (full page)","stage":"hifi","device":"desktop","image":"/assets/img/screens/rstour/01-desktop-home-full-page.jpg"},{"label":"Home (full page)","stage":"hifi","device":"mobile","image":"/assets/img/screens/rstour/02-mobile-home-full-page.jpg"},{"label":"Trip request summary","stage":"hifi","device":"mobile","image":"/assets/img/screens/rstour/03-mobile-trip-request-summary.jpg"},{"label":"Home (full page)","stage":"lofi","device":"desktop","image":"/assets/img/lofi/rstour/01-desktop-home.jpg"},{"label":"Home (full page)","stage":"lofi","device":"mobile","image":"/assets/img/lofi/rstour/02-mobile-home.jpg"}],"short":"A family-run taxi and tour company in Punjab. One road-swoosh mark, carried straight into a booking website.","who":"Mark   ⟶   Website","description":"A family taxi and tour company in Jalandhar, Punjab, running trips from Amritsar to the Taj Mahal. One road-swoosh mark had to work on a vehicle sticker and a WhatsApp profile picture, then carry straight into a booking website.","facts":[{"label":"Year","value":"2020 – 2024"},{"label":"The mark","value":"Road-swoosh logo, brand guide, banners & flyers"},{"label":"The experience","value":"Brand guide, wireframes, hi-fi booking prototype"}]},{"title":"The N'Cafe","figma":"https://www.figma.com/design/xtYAcKAoR4VHk0wFkWY93H/The-N-Cafe-%E2%80%94-UX-UI-Website-Project?node-id=0-1","group":"dg","label":"Case study","cover":"/assets/img/proj-ncafe.jpg","logo":"","screen":"","pages":[],"pieces":[],"screens":[{"label":"Home","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/01-desktop-home.jpg"},{"label":"Menu","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/02-desktop-menu.jpg"},{"label":"About","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/03-desktop-about.jpg"},{"label":"Location & contact","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/04-desktop-location-contact.jpg"},{"label":"Cart (empty state)","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/05-desktop-cart-empty-state.jpg"},{"label":"Checkout","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/06-desktop-checkout.jpg"},{"label":"Payment","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/07-desktop-payment.jpg"},{"label":"Order confirmed","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/08-desktop-order-confirmed.jpg"},{"label":"Home","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/01-desktop-home.jpg"},{"label":"Menu","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/02-desktop-menu.jpg"},{"label":"Cart & checkout","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/03-desktop-cart-checkout.jpg"},{"label":"Location & contact","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/04-desktop-location-contact.jpg"}],"short":"A neighbourhood café website, from user research and information architecture to wireframes and a full style guide.","who":"Research, IA & UI","description":"A full UX/UI design project for a neighbourhood café's website, from research and wireframes to a finished visual design.","facts":[]},{"title":"Ek Oankar","figma":"","group":"id","label":"2018","cover":"/assets/img/proj-ek-oankar.jpg","logo":"","screen":"","pages":["/assets/img/case-ek-oankar-1.jpg","/assets/img/case-ek-oankar-2.jpg"],"pieces":[],"screens":[],"short":"An IELTS and spoken-English centre. A gold eagle over a teal globe: exciting for students, credible for parents.","who":"Logo & identity","description":"An IELTS and spoken-English centre. A gold eagle over a teal globe: exciting for students, credible for parents.","facts":[]},{"title":"Artisan Crafts","figma":"https://www.figma.com/design/17WEqDMeY9NPCAWhZvrvS1/Artisan-Crafts-%E2%80%94-Brand-Guide--Lo-Fi---Hi-Fi?node-id=0-1","group":"bd","label":"2026","cover":"/assets/img/proj-artisan.jpg","logo":"/assets/img/joint-artisan-mark.jpg","screen":"/assets/img/joint-artisan-screen.jpg","pages":[],"pieces":[],"screens":[{"label":"Home","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/01-desktop-01-home.jpg"},{"label":"Shop","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/02-desktop-02-shop.jpg"},{"label":"Our story","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/03-desktop-03-our-story.jpg"},{"label":"Product detail","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/04-desktop-05-product-detail.jpg"},{"label":"Account & checkout","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/05-desktop-04-account-checkout.jpg"},{"label":"Saved pieces","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/06-desktop-06-saved-pieces.jpg"},{"label":"Order confirmed","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/07-desktop-07-order-confirmed.jpg"},{"label":"Menu","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/08-desktop-08-menu.jpg"},{"label":"Home","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/09-mobile-01-home.jpg"},{"label":"Shop","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/10-mobile-02-shop.jpg"},{"label":"Our story","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/11-mobile-03-our-story.jpg"},{"label":"Checkout","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/12-mobile-04-checkout.jpg"},{"label":"Product detail","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/13-mobile-05-product-detail.jpg"},{"label":"Saved pieces","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/14-mobile-06-saved-pieces.jpg"},{"label":"Order confirmed","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/15-mobile-07-order-confirmed.jpg"},{"label":"Menu","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/16-mobile-08-menu.jpg"},{"label":"Home","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/01-desktop-home.jpg"},{"label":"Shop","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/02-desktop-shop.jpg"},{"label":"Our story","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/03-desktop-our-story.jpg"},{"label":"Account & checkout","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/04-desktop-account-checkout.jpg"},{"label":"Home","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/05-mobile-home.jpg"},{"label":"Shop","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/06-mobile-shop.jpg"},{"label":"Our story","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/07-mobile-our-story.jpg"},{"label":"Checkout","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/08-mobile-checkout.jpg"}],"short":"A handmade décor brand. An ornate R monogram leads straight into a story-led online storefront.","who":"Mark   ⟶   Storefront","description":"A new brand for handmade décor and gifts. An ornate, hand-drawn R monogram that still reads at swing-tag size, carried into a marketplace where every product tells its maker's story.","facts":[{"label":"Year","value":"2026"},{"label":"The mark","value":"R monogram, vine frame, packaging & social"},{"label":"The experience","value":"Research, brand guide, lo-fi & hi-fi storefront"}]},{"title":"Canada Bank","figma":"https://www.figma.com/design/uO4KBkt4W3AKwAXOf16xPE/Canada-Bank?node-id=0-1","group":"dg","label":"Concept","cover":"/assets/img/proj-canada-bank.jpg","logo":"","screen":"","pages":[],"pieces":[],"screens":[{"label":"Website · Home","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/01-desktop-website-home.jpg"},{"label":"Website · Chequing accounts","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/02-desktop-website-chequing-accounts.jpg"},{"label":"Website · Credit cards","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/03-desktop-website-credit-cards.jpg"},{"label":"Website · Mortgages","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/04-desktop-website-mortgages.jpg"},{"label":"Online banking · Sign in","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/05-desktop-online-banking-sign-in.jpg"},{"label":"Online banking · Dashboard","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/06-desktop-online-banking-dashboard.jpg"},{"label":"Online banking · Account details","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/07-desktop-online-banking-account-details.jpg"},{"label":"Online banking · Send e-Transfer","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/08-desktop-online-banking-send-e-transfer.jpg"},{"label":"Online banking · e-Transfer sent","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/09-desktop-online-banking-e-transfer-sent.jpg"},{"label":"Online banking · Pay bills","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/10-desktop-online-banking-pay-bills.jpg"},{"label":"App · Sign in (Face ID)","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/11-mobile-app-sign-in-face-id.jpg"},{"label":"App · Home","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/12-mobile-app-home.jpg"},{"label":"App · Account detail","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/13-mobile-app-account-detail.jpg"},{"label":"App · Send money","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/14-mobile-app-send-money.jpg"},{"label":"App · Review & confirm","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/15-mobile-app-review-confirm.jpg"},{"label":"App · Pay bills","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/16-mobile-app-pay-bills.jpg"},{"label":"App · Cards & controls","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/17-mobile-app-cards-controls.jpg"},{"label":"App · New to Canada checklist","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/18-mobile-app-new-to-canada-checklist.jpg"},{"label":"App · Profile & security","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/19-mobile-app-profile-security.jpg"},{"label":"Website · Home","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/01-desktop-home.jpg"},{"label":"Website · Chequing compare","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/02-desktop-chequing-compare.jpg"},{"label":"Online banking · Sign in","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/03-desktop-sign-in.jpg"},{"label":"Online banking · Dashboard","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/04-desktop-dashboard.jpg"},{"label":"Online banking · Send e-Transfer","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/05-desktop-send-e-transfer.jpg"},{"label":"App · Home","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/06-mobile-home.jpg"},{"label":"App · Send money","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/07-mobile-send-money.jpg"},{"label":"App · Pay bills","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/08-mobile-pay-bills.jpg"},{"label":"App · Account detail","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/09-mobile-account-detail.jpg"},{"label":"App · New to Canada checklist","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/10-mobile-new-to-canada-checklist.jpg"}],"short":"A concept bank built on one promise: show people the numbers. Research, brand, website, online banking and app.","who":"Research, brand & UI","description":"A concept bank built on one promise: show people the numbers. Research, brand, website, online banking and app.","facts":[]},{"title":"RS Tour campaigns","figma":"","group":"id","label":"Print & social","cover":"/assets/img/proj-rs-campaigns.jpg","logo":"","screen":"","pages":["/assets/img/case-rs-campaigns-2.jpg"],"pieces":[{"kind":"Banner","label":"Visit the Rajasthan","image":"/assets/img/rs-campaigns/01-banner-visit-the-rajasthan.jpg"},{"kind":"Banner","label":"Visit the Taj Mahal","image":"/assets/img/rs-campaigns/02-banner-visit-the-taj-mahal.jpg"},{"kind":"Story","label":"Golden Temple","image":"/assets/img/rs-campaigns/03-story-golden-temple.jpg"},{"kind":"Story","label":"Jodhpur","image":"/assets/img/rs-campaigns/04-story-jodhpur.jpg"},{"kind":"Flyer","label":"Contact for taxi","image":"/assets/img/rs-campaigns/05-flyer-contact-for-taxi.jpg"}],"screens":[],"short":"Destination banners, stories and flyers that carry one mark from Taj Mahal tour posters to airport-taxi flyers.","who":"Campaigns & print","description":"Destination banners, stories and flyers that carry one mark from Taj Mahal tour posters to airport-taxi flyers.","facts":[]}]}}</script>
+<script type="application/json" id="content-fallback">{"home":{"hero_eyebrow":"Brand + digital design studio","hero_title_1":"Brand to screen.","hero_title_2":"In one flow.","hero_intro":"GDUXI is a brand and digital design studio. We design the mark and the experience together, so your logo, your website and your app feel like one piece.","hero_project_name":"RS Tour & Traveler","hero_mark_label":"01 · The mark","hero_mark_image":"/assets/img/hero-mark.png","hero_joiner":"one brand, flowing from mark to screen","hero_site_label":"02 · The experience","hero_site_image":"/assets/img/hero-site.jpg","hero_graphic":"/assets/img/hero-studio.svg","hero_graphic_alt":"GDUXI Studio illustration: a gradient logo mark with its bezier anchor points overlaps a website window and a phone screen, joined by one flowing line, showing logo design and UX/UI design as one practice.","marquee":["Logos","Identities","Websites","Apps","UX research","Brand systems","Packaging","Prototypes"],"founders_eyebrow":"The founders","founders_title":"Two crafts. One studio.","founders_intro":"Equal partners with complementary skills. Navita leads the experience, Paramdeep leads the identity, and every project gets both of us.","stats":[{"number":"28+","label":"businesses given a brand identity"},{"number":"10+","label":"end-to-end UX/UI case studies"},{"number":"5+","label":"industries: travel, education, retail, hospitality, finance"},{"number":"1","label":"team, one timeline, one invoice"}],"services_eyebrow":"What we do","services_title":"Three ways to work with us","services_intro":"Hire either founder for their speciality, or both of us for the whole journey: a brand and a digital product designed as one system.","work_eyebrow":"Selected work","work_title":"Six projects, shared equally","work_intro":"Two built together from mark to screen, plus identity and digital projects.","why_eyebrow":"Why one studio","why_title":"Your brand shouldn't change at the browser.","why_intro":"Most small businesses hire a logo designer, then a web designer, and spend months making the two agree. We start them together.","why_points":[{"title":"One idea, every touchpoint","body":"The mark, the colours and the interface come from the same thinking, so customers recognise you on a flyer, a phone and a checkout page."},{"title":"Research meets craft","body":"User research tells us what people need. Identity design makes it memorable. You get evidence and personality."},{"title":"Fewer handoffs, faster launch","body":"No briefing a second agency, no rebuilding the logo for screens. One team, one timeline, one invoice."}],"process_eyebrow":"How we work","process_title":"From first call to launch","process_intro":"Clear milestones, one shared timeline, and you always know who is leading each stage.","steps":[{"title":"Discover","group":"bd","body":"A kickoff call, stakeholder chats and quick user interviews. We agree on the problem before we draw anything."},{"title":"Identity","group":"id","body":"Mood boards, sketches and two or three mark directions, refined into a logo and a brand guide."},{"title":"Experience","group":"dg","body":"Information architecture, wireframes and hi-fi UI built on the new brand, then tested with real users."},{"title":"Launch","group":"bd","body":"Final files, a working prototype or site, and a launch kit for socials and print."}],"cta_eyebrow":"Let's work together","cta_title":"Have a brand that needs a mark,\nand a site that needs to work?","cta_body":"Tell us about your project. You'll hear back from both of us within two business days."},"work":{"eyebrow":"Work","title":"Work that holds together","intro":"Logos, identities, websites and apps, from the first mark to the finished screen.","joint_eyebrow":"Built together · mark to screen","joint_title":"Where Graphic Design meets UX/uI","more_eyebrow":"More projects","more_title":"Identity and digital work"},"studio":{"eyebrow":"Studio","title":"Two crafts. One studio.","intro":"GDUXI is a merger between not just two minds but also two professionals delivering their own skills at perfection as ONE.","story_eyebrow":"Why GDUXI","story_quote":"GD + UX/uI: graphic design and UX/UI as one practice. We design the mark and the experience together, so the join never shows.","story_body":"Our name is our two crafts: GD for graphic design, UXI for UX/UI. The colours flow from cobalt into violet and orchid, and the wave lines come from our own banner work.","founders_eyebrow":"The founders","founders_title":"Equal partners, side by side","values_eyebrow":"What we believe","values_title":"Three promises to every client","values":[{"title":"Research before pixels","body":"We talk to your customers before we design for them. Decisions come with reasons."},{"title":"Craft you can feel","body":"Hand-drawn marks and calm interfaces, never template-generic. Built to stand out from AI sameness."},{"title":"No surprises","body":"Clear milestones, a fixed quote upfront and regular check-ins. You always know what's next."}]},"services":{"eyebrow":"Services & contact","title":"Pick a speciality, or get both","intro":"Brand identity, UX/UI design, or the whole journey from logo to launched website. Every project starts with a free 20-minute call.","services":[{"title":"Brand identity","group":"id","need":"n1","summary":"A mark people remember and a system that holds up everywhere, from a WhatsApp profile picture to a highway billboard.","items":["Logo design & monogram","Colour, type & brand guide","Print, packaging & signage","Social media templates"],"timeline":"Typical timeline · 1–3 weeks"},{"title":"UX/UI & digital","group":"dg","need":"n2","summary":"Research-led websites and apps that feel calm to use, tested with real people before a line of code is written.","items":["User interviews & surveys","Information architecture","Wireframes & hi-fi UI","Interactive prototypes & testing"],"timeline":"Typical timeline · 2–5 weeks"},{"title":"Brand + digital","group":"bd","need":"n3","summary":"The whole journey. One team takes you from first sketch to launched website, so the brand and the product never drift apart.","items":["Everything in 01 and 02","One shared design system","Launch kit: site, socials, print","One point of contact"],"timeline":"Typical timeline · 3–6 weeks"}],"included_eyebrow":"Included in every project","included":[{"title":"Fixed quote upfront","body":"You know the price before we start. No hourly surprises."},{"title":"Milestone check-ins","body":"A short review at the end of every stage, with both founders."},{"title":"Two revision rounds","body":"Per stage, built into the timeline and the quote."},{"title":"Files you own","body":"Source files, brand guide and Figma handover. Yours to keep."}],"faq_eyebrow":"Questions","faq_title":"Good to know before we talk","faq":[{"q":"Can we hire just one of you?","a":"Yes. Identity-only and digital-only projects each have one lead designer, and the other founder still reviews the work, at no extra cost."},{"q":"Do you work with clients outside Canada?","a":"Yes. We're based in the Greater Toronto Area and already work with businesses in India and beyond, remotely or in person."},{"q":"How do payments work?","a":"A fixed quote, split into a deposit to start and payments at agreed milestones."},{"q":"What do you need from us to start?","a":"A 20-minute call, any existing brand files, and one person on your side who can make decisions."}]},"contact":{"email":"gduxistudio@gmail.com","card_title":"Let's build something together.","card_intro":"Both founders read every message. You'll hear back within two business days.","location":"Greater Toronto Area · remote worldwide","form_title":"Start a project","form_note":"We reply within 2 business days.","budgets":["Under CA$1,000","CA$1,000 – 3,000","CA$3,000 – 6,000","CA$6,000+","Not sure yet"],"timelines":["As soon as possible","Within a month","In 1–3 months","Just exploring"],"footer_tagline":"Brand to screen. In one flow.","footer_description":"A brand and digital design studio in the Greater Toronto Area. Working with startups and small businesses everywhere.","footer_reply":"Replies within 2 business days","copyright":"© 2026 GDUXI Studio"},"founders":{"founders":[{"name":"Navita Ramanand","short":"Navita","role":"UX/UI Designer & Researcher","photo":"/assets/img/portrait-navita.png","signature":"/assets/img/sig-navita.png","bio":"Navita turns research into calm, human-centred interfaces. Interviews, surveys and usability tests come first; wireframes, design systems and prototype-ready UI follow. Google UX Design certified, with a BA from the University of Toronto.","leads":"dg","skills":["UX research","Usability testing","Information architecture","Hi-fi UI","Figma prototyping"],"linkedin":"https://www.linkedin.com/in/navita-r-122158224/","background":[{"title":"Google","detail":"UX Design Professional Certificate"},{"title":"University of Toronto","detail":"BA, Communication, Culture, Information & Technology + Sociology"},{"title":"Sheridan College","detail":"Digital Communication"},{"title":"Coursera · IBM","detail":"Capstone: Applying UX/UI Design in the Real World"}]},{"name":"Paramdeep Singh","short":"Paramdeep","role":"Logo & Graphic Designer","photo":"/assets/img/portrait-paramdeep.png","signature":"/assets/img/sig-paramdeep.png","bio":"Paramdeep designs logos and identities that brands grow into. Self-taught, he has branded many startups and small businesses across India and beyond, co-founded RS Tour & Traveler, and runs every project on clear milestones.","leads":"id","skills":["Logo design","Brand identity","Print & packaging","Social media","Adobe Illustrator"],"linkedin":"https://www.linkedin.com/in/singh1313param/","background":[{"title":"Freelance · Mississauga","detail":"Logo & graphic designer for startups and small businesses"},{"title":"RS Tour & Traveler","detail":"Co-founder, took the family business online"},{"title":"Algoma University","detail":"Post-Graduate Diploma, Project Management"},{"title":"Google","detail":"Project Management Professional Certificate"}]}]},"projects":{"projects":[{"title":"RS Tour & Traveler","figma":"https://www.figma.com/proto/oWHsEHVMx038r51olfe0uv/RS-Tour---Traveler-%E2%80%93-Website?page-id=0%3A1&node-id=7-85&starting-point-node-id=7%3A85&scaling=scale-down-width&content-scaling=fixed","group":"bd","label":"2020","cover":"/assets/img/proj-rs-tour.jpg","logo":"/assets/img/joint-rs-mark.jpg","screen":"/assets/img/joint-rs-screen.jpg","pages":[],"pieces":[],"screens":[{"label":"Home (full page)","stage":"hifi","device":"desktop","image":"/assets/img/screens/rstour/01-desktop-home-full-page.jpg"},{"label":"Home (full page)","stage":"hifi","device":"mobile","image":"/assets/img/screens/rstour/02-mobile-home-full-page.jpg"},{"label":"Trip request summary","stage":"hifi","device":"mobile","image":"/assets/img/screens/rstour/03-mobile-trip-request-summary.jpg"},{"label":"Home (full page)","stage":"lofi","device":"desktop","image":"/assets/img/lofi/rstour/01-desktop-home.jpg"},{"label":"Home (full page)","stage":"lofi","device":"mobile","image":"/assets/img/lofi/rstour/02-mobile-home.jpg"}],"short":"A family-run taxi and tour company in Punjab. One road-swoosh mark, carried straight into a booking website.","who":"Mark   ⟶   Website","description":"A family taxi and tour company in Jalandhar, Punjab, running trips from Amritsar to the Taj Mahal. One road-swoosh mark had to work on a vehicle sticker and a WhatsApp profile picture, then carry straight into a booking website.","facts":[{"label":"Year","value":"2020 – 2024"},{"label":"The mark","value":"Road-swoosh logo, brand guide, banners & flyers"},{"label":"The experience","value":"Brand guide, wireframes, hi-fi booking prototype"}]},{"title":"The N'Cafe","figma":"https://www.figma.com/proto/xtYAcKAoR4VHk0wFkWY93H/The-N-Cafe-%E2%80%94-UX-UI-Website-Project?page-id=1%3A5&node-id=2-319&starting-point-node-id=2%3A319&scaling=scale-down-width&content-scaling=fixed","group":"dg","label":"Case study","cover":"/assets/img/proj-ncafe.jpg","logo":"","screen":"","pages":[],"pieces":[],"screens":[{"label":"Home","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/01-desktop-home.jpg"},{"label":"Menu","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/02-desktop-menu.jpg"},{"label":"About","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/03-desktop-about.jpg"},{"label":"Location & contact","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/04-desktop-location-contact.jpg"},{"label":"Cart (empty state)","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/05-desktop-cart-empty-state.jpg"},{"label":"Checkout","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/06-desktop-checkout.jpg"},{"label":"Payment","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/07-desktop-payment.jpg"},{"label":"Order confirmed","stage":"hifi","device":"desktop","image":"/assets/img/screens/ncafe/08-desktop-order-confirmed.jpg"},{"label":"Home","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/01-desktop-home.jpg"},{"label":"Menu","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/02-desktop-menu.jpg"},{"label":"Cart & checkout","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/03-desktop-cart-checkout.jpg"},{"label":"Location & contact","stage":"lofi","device":"desktop","image":"/assets/img/lofi/ncafe/04-desktop-location-contact.jpg"}],"short":"A neighbourhood café website, from user research and information architecture to wireframes and a full style guide.","who":"Research, IA & UI","description":"A full UX/UI design project for a neighbourhood café's website, from research and wireframes to a finished visual design.","facts":[]},{"title":"Ek Oankar","figma":"","group":"id","label":"2018","cover":"/assets/img/proj-ek-oankar.jpg","logo":"","screen":"","pages":["/assets/img/case-ek-oankar-1.jpg","/assets/img/case-ek-oankar-2.jpg"],"pieces":[],"screens":[],"short":"An IELTS and spoken-English centre. A gold eagle over a teal globe: exciting for students, credible for parents.","who":"Logo & identity","description":"An IELTS and spoken-English centre. A gold eagle over a teal globe: exciting for students, credible for parents.","facts":[]},{"title":"Artisan Crafts","figma":"https://www.figma.com/proto/17WEqDMeY9NPCAWhZvrvS1/Artisan-Crafts-%E2%80%94-Brand-Guide--Lo-Fi---Hi-Fi?page-id=2%3A4&node-id=12-5&starting-point-node-id=12%3A5&scaling=scale-down-width&content-scaling=fixed","group":"bd","label":"2026","cover":"/assets/img/proj-artisan.jpg","logo":"/assets/img/joint-artisan-mark.jpg","screen":"/assets/img/joint-artisan-screen.jpg","pages":[],"pieces":[],"screens":[{"label":"Home","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/01-desktop-01-home.jpg"},{"label":"Shop","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/02-desktop-02-shop.jpg"},{"label":"Our story","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/03-desktop-03-our-story.jpg"},{"label":"Product detail","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/04-desktop-05-product-detail.jpg"},{"label":"Account & checkout","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/05-desktop-04-account-checkout.jpg"},{"label":"Saved pieces","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/06-desktop-06-saved-pieces.jpg"},{"label":"Order confirmed","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/07-desktop-07-order-confirmed.jpg"},{"label":"Menu","stage":"hifi","device":"desktop","image":"/assets/img/screens/artisan/08-desktop-08-menu.jpg"},{"label":"Home","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/09-mobile-01-home.jpg"},{"label":"Shop","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/10-mobile-02-shop.jpg"},{"label":"Our story","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/11-mobile-03-our-story.jpg"},{"label":"Checkout","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/12-mobile-04-checkout.jpg"},{"label":"Product detail","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/13-mobile-05-product-detail.jpg"},{"label":"Saved pieces","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/14-mobile-06-saved-pieces.jpg"},{"label":"Order confirmed","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/15-mobile-07-order-confirmed.jpg"},{"label":"Menu","stage":"hifi","device":"mobile","image":"/assets/img/screens/artisan/16-mobile-08-menu.jpg"},{"label":"Home","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/01-desktop-home.jpg"},{"label":"Shop","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/02-desktop-shop.jpg"},{"label":"Our story","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/03-desktop-our-story.jpg"},{"label":"Account & checkout","stage":"lofi","device":"desktop","image":"/assets/img/lofi/artisan/04-desktop-account-checkout.jpg"},{"label":"Home","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/05-mobile-home.jpg"},{"label":"Shop","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/06-mobile-shop.jpg"},{"label":"Our story","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/07-mobile-our-story.jpg"},{"label":"Checkout","stage":"lofi","device":"mobile","image":"/assets/img/lofi/artisan/08-mobile-checkout.jpg"}],"short":"A handmade décor brand. An ornate R monogram leads straight into a story-led online storefront.","who":"Mark   ⟶   Storefront","description":"A new brand for handmade décor and gifts. An ornate, hand-drawn R monogram that still reads at swing-tag size, carried into a marketplace where every product tells its maker's story.","facts":[{"label":"Year","value":"2026"},{"label":"The mark","value":"R monogram, vine frame, packaging & social"},{"label":"The experience","value":"Research, brand guide, lo-fi & hi-fi storefront"}]},{"title":"Canada Bank","figma":"https://www.figma.com/proto/uO4KBkt4W3AKwAXOf16xPE/Canada-Bank?page-id=30%3A2128&node-id=30-2129&starting-point-node-id=30%3A2129&scaling=scale-down-width&content-scaling=fixed","group":"dg","label":"","cover":"/assets/img/proj-canada-bank.jpg","logo":"","screen":"","pages":[],"pieces":[],"screens":[{"label":"Website · Home","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/01-desktop-website-home.jpg"},{"label":"Website · Chequing accounts","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/02-desktop-website-chequing-accounts.jpg"},{"label":"Website · Credit cards","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/03-desktop-website-credit-cards.jpg"},{"label":"Website · Mortgages","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/04-desktop-website-mortgages.jpg"},{"label":"Online banking · Sign in","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/05-desktop-online-banking-sign-in.jpg"},{"label":"Online banking · Dashboard","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/06-desktop-online-banking-dashboard.jpg"},{"label":"Online banking · Account details","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/07-desktop-online-banking-account-details.jpg"},{"label":"Online banking · Send e-Transfer","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/08-desktop-online-banking-send-e-transfer.jpg"},{"label":"Online banking · e-Transfer sent","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/09-desktop-online-banking-e-transfer-sent.jpg"},{"label":"Online banking · Pay bills","stage":"hifi","device":"desktop","image":"/assets/img/screens/canada/10-desktop-online-banking-pay-bills.jpg"},{"label":"App · Sign in (Face ID)","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/11-mobile-app-sign-in-face-id.jpg"},{"label":"App · Home","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/12-mobile-app-home.jpg"},{"label":"App · Account detail","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/13-mobile-app-account-detail.jpg"},{"label":"App · Send money","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/14-mobile-app-send-money.jpg"},{"label":"App · Review & confirm","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/15-mobile-app-review-confirm.jpg"},{"label":"App · Pay bills","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/16-mobile-app-pay-bills.jpg"},{"label":"App · Cards & controls","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/17-mobile-app-cards-controls.jpg"},{"label":"App · New to Canada checklist","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/18-mobile-app-new-to-canada-checklist.jpg"},{"label":"App · Profile & security","stage":"hifi","device":"mobile","image":"/assets/img/screens/canada/19-mobile-app-profile-security.jpg"},{"label":"Website · Home","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/01-desktop-home.jpg"},{"label":"Website · Chequing compare","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/02-desktop-chequing-compare.jpg"},{"label":"Online banking · Sign in","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/03-desktop-sign-in.jpg"},{"label":"Online banking · Dashboard","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/04-desktop-dashboard.jpg"},{"label":"Online banking · Send e-Transfer","stage":"lofi","device":"desktop","image":"/assets/img/lofi/canada/05-desktop-send-e-transfer.jpg"},{"label":"App · Home","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/06-mobile-home.jpg"},{"label":"App · Send money","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/07-mobile-send-money.jpg"},{"label":"App · Pay bills","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/08-mobile-pay-bills.jpg"},{"label":"App · Account detail","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/09-mobile-account-detail.jpg"},{"label":"App · New to Canada checklist","stage":"lofi","device":"mobile","image":"/assets/img/lofi/canada/10-mobile-new-to-canada-checklist.jpg"}],"short":"A bank built on one promise: show people the numbers. Research, brand, website, online banking and app.","who":"Research, brand & UI","description":"A bank built on one promise: show people the numbers. Research, brand, website, online banking and app.","facts":[]},{"title":"RS Tour campaigns","figma":"","group":"id","label":"Print & social","cover":"/assets/img/proj-rs-campaigns.jpg","logo":"","screen":"","pages":["/assets/img/case-rs-campaigns-2.jpg"],"pieces":[{"kind":"Banner","label":"Visit the Rajasthan","image":"/assets/img/rs-campaigns/01-banner-visit-the-rajasthan.jpg"},{"kind":"Banner","label":"Visit the Taj Mahal","image":"/assets/img/rs-campaigns/02-banner-visit-the-taj-mahal.jpg"},{"kind":"Story","label":"Golden Temple","image":"/assets/img/rs-campaigns/03-story-golden-temple.jpg"},{"kind":"Story","label":"Jodhpur","image":"/assets/img/rs-campaigns/04-story-jodhpur.jpg"},{"kind":"Flyer","label":"Contact for taxi","image":"/assets/img/rs-campaigns/05-flyer-contact-for-taxi.jpg"}],"screens":[],"short":"Destination banners, stories and flyers that carry one mark from Taj Mahal tour posters to airport-taxi flyers.","who":"Campaigns & print","description":"Destination banners, stories and flyers that carry one mark from Taj Mahal tour posters to airport-taxi flyers.","facts":[]}]}}</script>
 <script>
 (function(){
 "use strict";
@@ -1148,6 +1167,7 @@ function renderText(){
   $$("[data-ci]").forEach(function(el){
     var u=safeUrl(get(el.getAttribute("data-ci")));if(u)el.src=u;
     var a=el.getAttribute("data-alt");if(a!=null)el.alt=a.replace("{name}",name);
+    if(el.classList.contains("hero-art")&&get("home.hero_graphic_alt"))el.alt=get("home.hero_graphic_alt");
   });
 }
 function list(sel,h){$$('[data-list="'+sel+'"]').forEach(function(el){el.innerHTML=h})}
@@ -1166,9 +1186,9 @@ function serviceCard(s,i,n){
   return'<a class="svc rv'+(feat?" feat":"")+'" href="#contact" data-route="contact" data-need="'+esc(s.need||"n3")+'" aria-label="'+esc(s.title)+': start a project">'+(feat?'<div class="waves" data-wave="dark"></div><span class="spark" aria-hidden="true">'+STAR+"</span>":"")+'<div class="top"><span class="num">'+String(i+1).padStart(2,"0")+"</span>"+tag(s.group)+'</div><h3 class="h3">'+esc(s.title)+'</h3><p class="sum">'+nl(s.summary)+"</p><ul>"+items+'</ul><hr><p class="time">'+esc(s.timeline)+"</p></a>";
 }
 function hasShots(p){return(p.screens||[]).some(function(s){return s&&s.image})}
-function plinks(p,i,u){return'<div class="plinks"><button type="button" class="mbtn pri" data-screens="'+i+'">View screens <span aria-hidden="true">→</span></button>'+(u?'<a class="mbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Open in Figma ↗'+NEWTAB+"</a>":"")+"</div>"}
+function plinks(p,i,u){return'<div class="plinks"><button type="button" class="mbtn pri" data-screens="'+i+'">View screens <span aria-hidden="true">→</span></button>'+(u?'<a class="mbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">View Prototype ↗'+NEWTAB+"</a>":"")+"</div>"}
 function projCard(p,i){
-  var u=safeUrl(p.figma),sh=hasShots(p),inner='<div class="cover"><img src="'+esc(safeUrl(p.cover))+'" alt="'+esc(p.title)+' cover" width="562" height="250"></div><div class="body"><div class="meta">'+tag(p.group)+"<span>"+esc(p.label)+'</span></div><h3 class="h3">'+esc(p.title)+'</h3><p class="short">'+nl(p.short)+'</p><p class="who">'+esc(p.who)+"</p>"+(sh?plinks(p,i,u):'<span class="link">'+(u?"View case study ↗":"View case study →")+"</span>")+"</div>";
+  var u=safeUrl(p.figma),sh=hasShots(p),inner='<div class="cover"><img src="'+esc(safeUrl(p.cover))+'" alt="'+esc(p.title)+' cover" width="562" height="250"></div><div class="body"><div class="meta">'+tag(p.group)+(p.label?"<span>"+esc(p.label)+"</span>":"")+'</div><h3 class="h3">'+esc(p.title)+'</h3><p class="short">'+nl(p.short)+'</p><p class="who">'+esc(p.who)+"</p>"+(sh?plinks(p,i,u):'<span class="link">'+(u?"View case study ↗":"View case study →")+"</span>")+"</div>";
   if(sh)return'<article class="proj rv" data-group="'+esc(p.group)+'">'+inner+"</article>";
   return u?'<a class="proj rv" data-group="'+esc(p.group)+'" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+inner+NEWTAB+"</a>":'<button type="button" class="proj rv" data-group="'+esc(p.group)+'" data-case="'+i+'">'+inner+"</button>";
 }
@@ -1329,7 +1349,7 @@ function openShots(i,fromHash,stage){
   var u=safeUrl(p.figma),hi=shotsIn("hifi").length,lo=shotsIn("lofi").length;
   $("#shotsTag").innerHTML=tag(p.group);$("#shots-h").textContent=p.title+" · screens";
   $("#shotsDesc").innerHTML=nl(p.short||p.description)+" "+esc([hi?hi+" hi-fi screen"+(hi>1?"s":""):"",lo?lo+" lo-fi wireframe"+(lo>1?"s":""):""].filter(Boolean).join(" · ")+".");
-  $("#shotsFigma").innerHTML=u?'<a class="mbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Open the full Figma file ↗'+NEWTAB+"</a>":"";
+  $("#shotsFigma").innerHTML=u?'<a class="mbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">View Prototype ↗'+NEWTAB+"</a>":"";
   renderBar();renderShots(shotsDev);
   if(!fromHash){shotsBack=location.hash||"#work";history.replaceState(null,"",shotsHash())}else shotsBack="#work";
   var d=$("#shotsDlg");if(!d.open)d.showModal();d.scrollTop=0;
