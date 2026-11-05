@@ -433,6 +433,10 @@ The site follows the device's light/dark setting (`prefers-color-scheme`); there
 - Component tweaks sit in a `@media (prefers-color-scheme:dark)` block at the end of the stylesheet: header logo uses its on-dark colours, Digital/Identity tags, dimmed blobs and glow, outline word, select arrow, form errors, signatures (inverted with `screen` blend), focus ring.
 - Checked: pixel-measured contrast 0 of 789 text items below AA in dark and in light; test_site.py all passed.
 
-## 21. Simpler hero graphic (2026-11-05, experiments only)
 
-Prm found the circles behind the hero graphic unattractive. `assets/img/hero-studio.svg` now holds only the logo mark, the website window and the phone: the two overlapping circles, the gold overlap, the construction lines, the bezier anchors, the dotted flow line and the sparkles were removed, and the viewBox is cropped to `62 70 590 296` (`.hero-art` aspect-ratio 590/296). `home.hero_graphic_alt` was updated to match.
+## 21. Hero circles, ticker, motion and theme switch (2026-11-05, experiments only)
+
+- Hero graphic: only the two big filled circles (and their gold overlap) were removed from `hero-studio.svg`. The construction lines, bezier anchors, dotted flow line and sparkles stay (Prm rejected a version that removed them).
+- Marquee: four copies of the word list (three `aria-hidden`), 80s loop, so it never shows a gap even on wide screens. Hover/focus no longer pause it: focus stayed on the pause button after pressing play, so the strip never restarted. The pause button still stops every looping animation.
+- Subtle motion: hero text and graphic rise in on load, the hero art drifts slowly, sparkles twinkle, section headings, stats, steps, why points, values and FAQ rows reveal on scroll with a small stagger, and the stats count up once. All of it stops with reduced motion; looping parts stop with the pause button.
+- Light/dark switch: a small round moon/sun button (`#themeBtn`) after "Start a project" (next to the burger on phones). It sets `html[data-theme]` and remembers the choice in localStorage `gduxi-theme`; with no choice the site follows the device. Dark rules exist twice: inside `@media (prefers-color-scheme:dark)` guarded by `:not([data-theme="light"])`, and under `[data-theme="dark"]`. Edit both together.
