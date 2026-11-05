@@ -227,7 +227,7 @@ ul{margin:0;padding:0;list-style:none}
 .founders .outline-word{right:calc(50% - 600px);top:0}
 .f-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;position:relative}
 .f-cards .badge{left:50%;top:-4px;margin-left:-66px;transform:rotate(10deg)}
-.orbit{position:absolute;left:50%;top:-42px;width:224px;height:224px;margin-left:-112px;pointer-events:none;z-index:0}
+.orbit{position:absolute;left:50%;top:-50px;width:224px;height:224px;margin-left:-112px;pointer-events:none;z-index:0}
 .fcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:40px;display:flex;flex-direction:column;gap:24px;box-shadow:var(--shadow-soft);position:relative;overflow:hidden;z-index:1}
 .fcard .dots{right:20px;top:21px}
 .fhead{display:flex;align-items:center;gap:24px;position:relative}
@@ -320,7 +320,7 @@ a.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .cta>.waves,.cta>.blob{z-index:0}
 .cta .lead{color:rgba(255,255,255,.9)}
 .cta .waves{left:-120px;top:110px;width:1368px;height:456px;opacity:.45}
-.cta .badge{right:32px;bottom:8px;left:auto;transform:rotate(-12deg)}
+.badge.in-wrap{right:var(--gut)}
 
 /* ---------- page headers ---------- */
 .phead{position:relative;background:var(--dawn);padding:96px 0 72px;overflow:hidden}
@@ -593,10 +593,11 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .shots.mobile{grid-template-columns:1fr 1fr;gap:20px 12px}
   .shots figcaption{font-size:13px;flex-wrap:wrap;gap:6px}
   .shots figcaption .d{display:none}
-  .cta{padding:56px 22px 184px;border-radius:24px}
-  .cta .badge{left:50%;right:auto;bottom:32px;width:112px;height:112px;margin:0 0 0 -56px;transform:rotate(-8deg)}
-  .cta .badge .b1{font-size:13px}
-  .cta .badge .b2{font-size:8px;letter-spacing:1.4px;margin-top:7px}
+  .cta{padding:56px 22px;border-radius:24px}
+  .work-first .badge.in-wrap{top:-80px!important;width:96px;height:96px}
+  .work-first .badge.in-wrap .b1{font-size:12px}
+  .work-first .badge.in-wrap .b2{font-size:7px;letter-spacing:1.2px;margin-top:6px}
+  .st-ring,.sv-badge{display:none}
   .footer{padding:64px 0 32px}
   .fcols{grid-template-columns:1fr 1fr;gap:32px 20px}
   .fcols div:last-child{grid-column:1/-1}
@@ -723,8 +724,8 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   <section class="section bg-mist work-first" aria-labelledby="sw-h">
     <div class="glow" style="left:-160px;top:-120px;width:588px;height:588px"></div>
     <div class="dots" style="left:40px;top:60px"></div>
-    <div class="badge" style="right:calc(50% - 650px);top:52px;transform:rotate(12deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/UI</span><span class="b2">ONE STUDIO</span></span></div>
     <div class="wrap">
+      <div class="badge in-wrap" style="top:-104px;transform:rotate(12deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/UI</span><span class="b2">ONE STUDIO</span></span></div>
       <div class="sec-head">
         <div class="heading">
           <p class="eyebrow line" data-c="home.work_eyebrow">Selected work</p>
@@ -766,9 +767,9 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   <section class="section" aria-labelledby="sv-h">
     <div class="waves" data-wave="light" style="top:587px;height:480px;opacity:.6"></div>
     <div class="pop pop-type" style="right:calc(50% - 625px);top:79px;--r:-8deg" aria-hidden="true"><b>Aa</b><small>Bricolage Grotesque</small></div>
-    <div class="badge" style="right:calc(50% - 562px);top:88px;transform:rotate(12deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/UI</span><span class="b2">ONE STUDIO</span></span></div>
     <span class="spark" style="right:calc(50% - 480px);top:250px;width:20px;height:20px" aria-hidden="true"><svg><use href="#star"/></svg></span>
     <div class="wrap">
+      <div class="badge in-wrap sv-badge" style="top:-24px;margin-right:38px;transform:rotate(12deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/UI</span><span class="b2">ONE STUDIO</span></span></div>
       <div class="sec-head">
         <div class="heading">
           <p class="eyebrow" data-c="home.services_eyebrow">What we do</p>
@@ -869,10 +870,10 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
     <svg class="blob" style="right:-120px;top:-190px;width:390px;height:285px" aria-hidden="true"><use href="#blob"/></svg>
     <div class="glow" style="right:-44px;top:-60px;width:504px;height:504px"></div>
     <div class="waves" data-wave="light" style="top:105px;height:480px;opacity:.45"></div>
-    <svg class="deco" viewBox="0 0 230 230" style="right:calc(50% - 620px);top:100px;width:230px;height:230px" aria-hidden="true"><circle cx="115" cy="115" r="112" fill="none" stroke="#045FEA" stroke-opacity=".22" stroke-dasharray="3 5"/><circle cx="115" cy="115" r="86" fill="none" stroke="#8A6FE0" stroke-opacity=".22"/><circle cx="196" cy="30" r="4" fill="#045FEA"/><circle cx="20" cy="150" r="3.5" fill="#D75FFF"/><circle cx="148" cy="12" r="3" fill="#8A6FE0"/></svg>
-    <div class="badge" style="right:calc(50% - 600px);top:150px;transform:rotate(10deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/UI</span><span class="b2">ONE STUDIO</span></span></div>
     <span class="spark" style="right:calc(50% - 402px);top:110px;width:22px;height:22px" aria-hidden="true"><svg><use href="#star"/></svg></span>
     <div class="wrap">
+      <svg class="deco st-ring" viewBox="0 0 230 230" style="right:var(--gut);top:4px;width:230px;height:230px" aria-hidden="true"><circle cx="115" cy="115" r="112" fill="none" stroke="#045FEA" stroke-opacity=".22" stroke-dasharray="3 5"/><circle cx="115" cy="115" r="86" fill="none" stroke="#8A6FE0" stroke-opacity=".22"/><circle cx="196" cy="30" r="4" fill="#045FEA"/><circle cx="20" cy="150" r="3.5" fill="#D75FFF"/><circle cx="148" cy="12" r="3" fill="#8A6FE0"/></svg>
+      <div class="badge in-wrap" style="top:53px;margin-right:49px;transform:rotate(10deg)" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/UI</span><span class="b2">ONE STUDIO</span></span></div>
       <p class="eyebrow line" data-c="studio.eyebrow">Studio</p>
       <h1 class="d-xl" id="st-h" data-c="studio.title">Two crafts. One studio.</h1>
       <svg class="swoosh" aria-hidden="true"><use href="#swoosh"/></svg>
@@ -1063,7 +1064,6 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
         <h2 class="d-l" data-c="home.cta_title">Have a brand that needs a mark,<br>and a site that needs to work?</h2>
         <p class="lead" data-c="home.cta_body">Tell us a little about what you're building. We'll both read it, and you'll hear back within two business days.</p>
         <a href="#contact" data-route="contact" class="btn btn-primary">Start a project <span class="arr" aria-hidden="true">→</span></a>
-        <div class="badge" aria-hidden="true"><span class="ring-dot"></span><span><span class="b1">GD × UX/UI</span><span class="b2">ONE STUDIO</span></span></div>
       </div>
     </div>
   </section>
