@@ -12,7 +12,10 @@
 <meta property="og:title" content="GDUXI Studio · Brand to screen. In one flow.">
 <meta property="og:description" content="A brand and digital design studio. We design your mark and your website or app together, so they feel like one.">
 <meta property="og:image" content="assets/img/hero-site.jpg">
+<link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1292,7 +1295,7 @@ function serviceCard(s,i,n){
   return'<a class="svc rv'+(feat?" feat":"")+'" href="#contact" data-route="contact" data-need="'+esc(s.need||"n3")+'" aria-label="'+esc(s.title)+': start a project">'+(feat?'<div class="waves" data-wave="dark"></div><span class="spark" aria-hidden="true">'+STAR+"</span>":"")+'<div class="top"><span class="num">'+String(i+1).padStart(2,"0")+"</span>"+tag(s.group)+'</div><h3 class="h3">'+esc(s.title)+'</h3><p class="sum">'+nl(s.summary)+"</p><ul>"+items+'</ul><hr><p class="time">'+esc(s.timeline)+"</p></a>";
 }
 function hasShots(p){return(p.screens||[]).some(function(s){return s&&s.image})}
-function plinks(p,i,u){return'<div class="plinks"><button type="button" class="mbtn pri" data-screens="'+i+'">View screens <span aria-hidden="true">→</span></button>'+(u?'<a class="mbtn ico" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" title="View prototype"><span aria-hidden="true">↗</span><span class="sr-only">View prototype (opens in a new tab)</span></a>':"")+"</div>"}
+function plinks(p,i,u){return'<div class="plinks"><button type="button" class="mbtn pri" data-screens="'+i+'" aria-label="View screens of '+esc(p.title)+'">Screens <span aria-hidden="true">→</span></button>'+(u?'<a class="mbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Prototype <span aria-hidden="true">↗</span>'+NEWTAB+'</a>':"")+"</div>"}
 function projCard(p,i){
   var u=safeUrl(p.figma),sh=hasShots(p),inner='<div class="cover"><img src="'+esc(safeUrl(p.cover))+'" alt="'+esc(p.title)+' project cover" width="1124" height="633"></div><div class="body"><div class="meta">'+tag(p.group)+(p.label?"<span>"+esc(p.label)+"</span>":"")+'</div><h3 class="h3">'+esc(p.title)+'</h3><p class="short">'+nl(p.short)+'</p><p class="who">'+esc(p.who)+"</p>"+(sh?plinks(p,i,u):'<span class="link">'+(u?"View case study ↗":"View case study →")+"</span>")+"</div>";
   if(sh)return'<article class="proj rv" data-group="'+esc(p.group)+'">'+inner+"</article>";
@@ -1455,7 +1458,7 @@ function openShots(i,fromHash,stage){
   var u=safeUrl(p.figma),hi=shotsIn("hifi").length,lo=shotsIn("lofi").length;
   $("#shotsTag").innerHTML=tag(p.group);$("#shots-h").textContent=p.title+" · screens";
   $("#shotsDesc").innerHTML=nl(p.short||p.description)+" "+esc([hi?hi+" hi-fi screen"+(hi>1?"s":""):"",lo?lo+" lo-fi wireframe"+(lo>1?"s":""):""].filter(Boolean).join(" · ")+".");
-  $("#shotsFigma").innerHTML=u?'<a class="mbtn ico" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer" title="View prototype"><span aria-hidden="true">↗</span><span class="sr-only">View prototype (opens in a new tab)</span></a>':"";
+  $("#shotsFigma").innerHTML=u?'<a class="mbtn" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">Prototype <span aria-hidden="true">↗</span>'+NEWTAB+'</a>':"";
   renderBar();renderShots(shotsDev);
   if(!fromHash){shotsBack=location.hash||"#work";history.replaceState(null,"",shotsHash())}else shotsBack="#work";
   var d=$("#shotsDlg");if(!d.open)d.showModal();d.scrollTop=0;

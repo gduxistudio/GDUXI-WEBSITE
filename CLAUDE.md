@@ -423,7 +423,7 @@ Prm asked for the logo gradient on the header "Start a project" button only (`.n
 - While any dialog is open the page behind can't scroll: `html:has(dialog[open]){overflow:hidden}` plus `overscroll-behavior:contain` on dialogs.
 - Parallax: blobs, waves, glows, dots, outline words and the hero art drift at their own speed on scroll (CSS `translate`, capped at ±60px, 60% on phones). Off with reduced motion and with the marquee pause button.
 - Skeletons: any image still loading gets class `ld` (shimmer placeholder, with a sensible aspect ratio in the screens and case pop-ups), added by a MutationObserver, removed on load or error.
-- "View Prototype" buttons are now a round ↗ icon button (`.mbtn.ico`), with a "View prototype (opens in a new tab)" screen-reader label and tooltip.
+- Card buttons read "Screens →" (accessible name "View screens of <project>") and "Prototype ↗" (plus the sr-only new-tab note). A round arrow-only version was tried first and replaced at Prm's request.
 
 ## 20. Dark mode (2026-11-05, experiments only)
 
@@ -440,3 +440,4 @@ The site follows the device's light/dark setting (`prefers-color-scheme`); there
 - Marquee: four copies of the word list (three `aria-hidden`), 80s loop, so it never shows a gap even on wide screens. Hover/focus no longer pause it: focus stayed on the pause button after pressing play, so the strip never restarted. The pause button still stops every looping animation.
 - Subtle motion: hero text and graphic rise in on load, the hero art drifts slowly, sparkles twinkle, section headings, stats, steps, why points, values and FAQ rows reveal on scroll with a small stagger, and the stats count up once. All of it stops with reduced motion; looping parts stop with the pause button.
 - Light/dark switch: a small round moon/sun button (`#themeBtn`) after "Start a project" (next to the burger on phones). It sets `html[data-theme]` and remembers the choice in localStorage `gduxi-theme`; with no choice the site follows the device. Dark rules exist twice: inside `@media (prefers-color-scheme:dark)` guarded by `:not([data-theme="light"])`, and under `[data-theme="dark"]`. Edit both together.
+- Favicons: `favicon.svg` (the logo mark) plus `favicon.ico` (16/32/48), `favicon-32.png`, `favicon-192.png`, `favicon-512.png` and a full-bleed `apple-touch-icon.png` (180, iOS rounds it), all rendered from the SVG. Linked from `index.html` and `admin/index.html`.
