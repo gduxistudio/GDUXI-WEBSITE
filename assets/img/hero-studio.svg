@@ -2,13 +2,13 @@
   <!-- GDUXI hero graphic: the logo craft (GD, left) and the screen craft (UXI, right) overlap, and one gold-tipped line flows from the mark into the website. -->
   <defs>
     <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#D75FFF"/></linearGradient>
-    <linearGradient id="hb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A2AB8"/><stop offset=".6" stop-color="#5A26D6"/><stop offset="1" stop-color="#7535E0"/></linearGradient>
-    <linearGradient id="fl" x1="0" x2="1"><stop offset="0" stop-color="#8549FF"/><stop offset=".55" stop-color="#A073FF"/><stop offset="1" stop-color="#F5A70A"/></linearGradient>
-    <linearGradient id="ca" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#EBE0FF"/><stop offset="1" stop-color="#F5F0FF"/></linearGradient>
+    <linearGradient id="hb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3E4A8C"/><stop offset=".6" stop-color="#534A99"/><stop offset="1" stop-color="#6553A6"/></linearGradient>
+    <linearGradient id="fl" x1="0" x2="1"><stop offset="0" stop-color="#7E69BE"/><stop offset=".55" stop-color="#9D8BCF"/><stop offset="1" stop-color="#F5A70A"/></linearGradient>
+    <linearGradient id="ca" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ECE8F6"/><stop offset="1" stop-color="#F6F4FB"/></linearGradient>
     <linearGradient id="cb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#DCE9FF"/><stop offset="1" stop-color="#EEF4FF"/></linearGradient>
     <clipPath id="ka"><circle cx="200" cy="205" r="175"/></clipPath>
-    <filter id="sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#2C0F70" flood-opacity=".16"/></filter>
-    <filter id="sh2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#2C0F70" flood-opacity=".18"/></filter>
+    <filter id="sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#2D2550" flood-opacity=".16"/></filter>
+    <filter id="sh2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#2D2550" flood-opacity=".18"/></filter>
     <path id="st" d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z"/>
   </defs>
 
@@ -18,11 +18,11 @@
   <circle cx="440" cy="190" r="165" fill="#FFE7A3" clip-path="url(#ka)"/>
 
   <!-- logo construction lines -->
-  <g fill="none" stroke="#BB9BFF" stroke-width="1.2">
+  <g fill="none" stroke="#BDB0E0" stroke-width="1.2">
     <circle cx="200" cy="205" r="140" stroke-dasharray="3 7"/>
     <circle cx="200" cy="205" r="104" stroke-opacity=".55"/>
-    <path d="M200 52V358M47 205H353" stroke="#D6C2FF"/>
-    <path d="M92 97L308 313M308 97L92 313" stroke="#D6C2FF" stroke-dasharray="2 6"/>
+    <path d="M200 52V358M47 205H353" stroke="#D9D1EE"/>
+    <path d="M92 97L308 313M308 97L92 313" stroke="#D9D1EE" stroke-dasharray="2 6"/>
   </g>
 
   <!-- GD: the studio mark, with its bezier anchors and handles -->
@@ -48,7 +48,7 @@
     <rect x="330" y="88" width="270" height="226" rx="18" fill="#fff"/>
   </g>
   <rect x="330.5" y="88.5" width="269" height="225" rx="17.5" fill="none" stroke="#E2DEEC"/>
-  <circle cx="348" cy="105" r="3.5" fill="#D6C2FF"/><circle cx="360" cy="105" r="3.5" fill="#B5D0FF"/><circle cx="372" cy="105" r="3.5" fill="#FFE08F"/>
+  <circle cx="348" cy="105" r="3.5" fill="#D9D1EE"/><circle cx="360" cy="105" r="3.5" fill="#B5D0FF"/><circle cx="372" cy="105" r="3.5" fill="#FFE08F"/>
   <rect x="390" y="99" width="124" height="12" rx="6" fill="#F4F1FA"/>
   <rect x="344" y="122" width="242" height="96" rx="12" fill="url(#hb)"/>
   <rect x="360" y="140" width="112" height="10" rx="5" fill="#fff"/>
@@ -59,7 +59,7 @@
   <circle cx="564.4" cy="166.4" r="4.5" fill="#FFBE2E"/>
   <g>
     <rect x="344" y="232" width="74" height="66" rx="10" fill="#EEF4FF"/><rect x="354" y="242" width="54" height="26" rx="6" fill="#B5D0FF"/><rect x="354" y="278" width="40" height="6" rx="3" fill="#D3DCF0"/>
-    <rect x="428" y="232" width="74" height="66" rx="10" fill="#F5F0FF"/><rect x="438" y="242" width="54" height="26" rx="6" fill="#D6C2FF"/><rect x="438" y="278" width="40" height="6" rx="3" fill="#E2DEEC"/>
+    <rect x="428" y="232" width="74" height="66" rx="10" fill="#F6F4FB"/><rect x="438" y="242" width="54" height="26" rx="6" fill="#D9D1EE"/><rect x="438" y="278" width="40" height="6" rx="3" fill="#E2DEEC"/>
     <rect x="512" y="232" width="74" height="66" rx="10" fill="#FFF9EB"/><rect x="522" y="242" width="54" height="26" rx="6" fill="#FFE08F"/><rect x="522" y="278" width="40" height="6" rx="3" fill="#F0E4C6"/>
   </g>
   <!-- cursor on the call to action -->
@@ -74,11 +74,11 @@
   <rect x="569" y="272" width="46" height="6" rx="3" fill="#E2DEEC"/>
   <rect x="569" y="284" width="32" height="6" rx="3" fill="#E2DEEC"/>
   <rect x="569" y="300" width="38" height="13" rx="6.5" fill="#FFBE2E"/>
-  <rect x="569" y="320" width="56" height="12" rx="6" fill="#F5F0FF"/>
+  <rect x="569" y="320" width="56" height="12" rx="6" fill="#F6F4FB"/>
 
   <!-- sparkles -->
   <use href="#st" transform="translate(286 46) scale(1.1)" fill="#F5A70A"/>
-  <use href="#st" transform="translate(60 318) scale(.8)" fill="#8549FF"/>
+  <use href="#st" transform="translate(60 318) scale(.8)" fill="#7E69BE"/>
   <use href="#st" transform="translate(604 140) scale(.6)" fill="#045FEA"/>
   <use href="#st" transform="translate(312 330) scale(.55)" fill="#F5A70A"/>
 </svg>
