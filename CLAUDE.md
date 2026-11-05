@@ -389,3 +389,4 @@ Prm asked for all site copy to be rewritten by a UX writer: warm and human, stil
 Kept on purpose: "Two crafts. One studio.", "Brand to screen. In one flow.", "Where Graphic Design meets UX/uI", "Your brand shouldn't change at the browser.", all facts, numbers, credentials, project names, links and the form email subject. No "founder" wording was added; "Both founders read every message" now reads "We both read every message".
 
 - 2026-11-05: Prm asked for the spinning circle badge to read all capitals, so it is now "GD × UX/UI" (experiments only). The "Where Graphic Design meets UX/uI" heading keeps its casing.
+- 2026-11-05: on phones (760px and below) project thumbnails show the whole image at its own shape instead of a fixed 250px crop (experiments only).

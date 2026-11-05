@@ -615,6 +615,13 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .shot .cap>span:first-child{font-size:15px}
   .flow{font-size:12px}
 }
+/* Project thumbnails keep their own shape on tablets and phones (no side cropping) */
+@media (max-width:760px){
+  .proj .cover{height:auto}
+  .proj .cover img{height:auto;display:block}
+  .joint .ms .im.cov{aspect-ratio:auto}
+  .joint .ms .im.cov img{height:auto;display:block}
+}
 </style>
 </head>
 <body>
