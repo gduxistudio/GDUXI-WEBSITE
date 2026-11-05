@@ -2,27 +2,27 @@
   <!-- GDUXI hero graphic: the logo craft (GD, left) and the screen craft (UXI, right) overlap, and one gold-tipped line flows from the mark into the website. -->
   <defs>
     <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#D75FFF"/></linearGradient>
-    <linearGradient id="hb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C95D2"/><stop offset=".6" stop-color="#9A97E2"/><stop offset="1" stop-color="#B38ADE"/></linearGradient>
-    <linearGradient id="fl" x1="0" x2="1"><stop offset="0" stop-color="#8549FF"/><stop offset=".55" stop-color="#A76EFF"/><stop offset="1" stop-color="#D75FFF"/></linearGradient>
-    <linearGradient id="ca" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F2DDFF"/><stop offset="1" stop-color="#F2DDFF"/></linearGradient>
-    <linearGradient id="cb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#E0EDFF"/><stop offset="1" stop-color="#E0EDFF"/></linearGradient>
+    <linearGradient id="hb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3A2AB8"/><stop offset=".6" stop-color="#5A26D6"/><stop offset="1" stop-color="#7535E0"/></linearGradient>
+    <linearGradient id="fl" x1="0" x2="1"><stop offset="0" stop-color="#8549FF"/><stop offset=".55" stop-color="#A073FF"/><stop offset="1" stop-color="#F5A70A"/></linearGradient>
+    <linearGradient id="ca" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#EBE0FF"/><stop offset="1" stop-color="#F5F0FF"/></linearGradient>
+    <linearGradient id="cb" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#DCE9FF"/><stop offset="1" stop-color="#EEF4FF"/></linearGradient>
     <clipPath id="ka"><circle cx="200" cy="205" r="175"/></clipPath>
-    <filter id="sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#102453" flood-opacity=".16"/></filter>
-    <filter id="sh2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#102453" flood-opacity=".18"/></filter>
+    <filter id="sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#2C0F70" flood-opacity=".16"/></filter>
+    <filter id="sh2" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#2C0F70" flood-opacity=".18"/></filter>
     <path id="st" d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z"/>
   </defs>
 
   <!-- two crafts as overlapping circles; the overlap (the studio) is gold -->
   <circle cx="200" cy="205" r="175" fill="url(#ca)"/>
   <circle cx="440" cy="190" r="165" fill="url(#cb)"/>
-  <circle cx="440" cy="190" r="165" fill="#F9D1FF" clip-path="url(#ka)"/>
+  <circle cx="440" cy="190" r="165" fill="#FFE7A3" clip-path="url(#ka)"/>
 
   <!-- logo construction lines -->
-  <g fill="none" stroke="#A76EFF" stroke-width="1.2">
+  <g fill="none" stroke="#BB9BFF" stroke-width="1.2">
     <circle cx="200" cy="205" r="140" stroke-dasharray="3 7"/>
     <circle cx="200" cy="205" r="104" stroke-opacity=".55"/>
-    <path d="M200 52V358M47 205H353" stroke="#F2DDFF"/>
-    <path d="M92 97L308 313M308 97L92 313" stroke="#F2DDFF" stroke-dasharray="2 6"/>
+    <path d="M200 52V358M47 205H353" stroke="#D6C2FF"/>
+    <path d="M92 97L308 313M308 97L92 313" stroke="#D6C2FF" stroke-dasharray="2 6"/>
   </g>
 
   <!-- GD: the studio mark, with its bezier anchors and handles -->
@@ -30,11 +30,11 @@
     <rect x="110" y="115" width="180" height="180" rx="50" fill="url(#mk)" filter="url(#sh)"/>
     <path d="M150.5 229.75C166.25 173.5 186.5 166.75 197.75 198.25C206.75 225.25 222.5 238.75 251.75 178" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
     <circle cx="251.75" cy="178" r="11.5" fill="#fff"/>
-    <g stroke="#F2DDFF" stroke-width="1.6">
+    <g stroke="#FFE08F" stroke-width="1.6">
       <path d="M150.5 229.75L166.25 173.5M197.75 198.25L186.5 166.75M197.75 198.25L206.75 225.25"/>
     </g>
-    <g fill="#D75FFF"><circle cx="166.25" cy="173.5" r="4.5"/><circle cx="186.5" cy="166.75" r="4.5"/><circle cx="206.75" cy="225.25" r="4.5"/></g>
-    <g fill="#fff" stroke="#D75FFF" stroke-width="2.4">
+    <g fill="#FFBE2E"><circle cx="166.25" cy="173.5" r="4.5"/><circle cx="186.5" cy="166.75" r="4.5"/><circle cx="206.75" cy="225.25" r="4.5"/></g>
+    <g fill="#fff" stroke="#F5A70A" stroke-width="2.4">
       <rect x="145.5" y="224.75" width="10" height="10" rx="1.5"/>
       <rect x="192.75" y="193.25" width="10" height="10" rx="1.5"/>
     </g>
@@ -47,38 +47,38 @@
   <g filter="url(#sh)">
     <rect x="330" y="88" width="270" height="226" rx="18" fill="#fff"/>
   </g>
-  <rect x="330.5" y="88.5" width="269" height="225" rx="17.5" fill="none" stroke="#E3E7EF"/>
-  <circle cx="348" cy="105" r="3.5" fill="#F2DDFF"/><circle cx="360" cy="105" r="3.5" fill="#8AD2FD"/><circle cx="372" cy="105" r="3.5" fill="#F2DDFF"/>
-  <rect x="390" y="99" width="124" height="12" rx="6" fill="#E7EEF8"/>
+  <rect x="330.5" y="88.5" width="269" height="225" rx="17.5" fill="none" stroke="#E2DEEC"/>
+  <circle cx="348" cy="105" r="3.5" fill="#D6C2FF"/><circle cx="360" cy="105" r="3.5" fill="#B5D0FF"/><circle cx="372" cy="105" r="3.5" fill="#FFE08F"/>
+  <rect x="390" y="99" width="124" height="12" rx="6" fill="#F4F1FA"/>
   <rect x="344" y="122" width="242" height="96" rx="12" fill="url(#hb)"/>
   <rect x="360" y="140" width="112" height="10" rx="5" fill="#fff"/>
   <rect x="360" y="157" width="80" height="8" rx="4" fill="#fff" fill-opacity=".7"/>
-  <rect x="360" y="182" width="64" height="20" rx="10" fill="#D75FFF"/>
+  <rect x="360" y="182" width="64" height="20" rx="10" fill="#FFBE2E"/>
   <!-- the same mark, now living on the website -->
   <path d="M528.4 184.8C534 164.8 541.2 162.4 545.2 173.6C548.4 183.2 554 188 564.4 166.4" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="564.4" cy="166.4" r="4.5" fill="#D75FFF"/>
+  <circle cx="564.4" cy="166.4" r="4.5" fill="#FFBE2E"/>
   <g>
-    <rect x="344" y="232" width="74" height="66" rx="10" fill="#E0EDFF"/><rect x="354" y="242" width="54" height="26" rx="6" fill="#8AD2FD"/><rect x="354" y="278" width="40" height="6" rx="3" fill="#E3E7EF"/>
-    <rect x="428" y="232" width="74" height="66" rx="10" fill="#F2DDFF"/><rect x="438" y="242" width="54" height="26" rx="6" fill="#F2DDFF"/><rect x="438" y="278" width="40" height="6" rx="3" fill="#E3E7EF"/>
-    <rect x="512" y="232" width="74" height="66" rx="10" fill="#FCF7EE"/><rect x="522" y="242" width="54" height="26" rx="6" fill="#F2DDFF"/><rect x="522" y="278" width="40" height="6" rx="3" fill="#E3E7EF"/>
+    <rect x="344" y="232" width="74" height="66" rx="10" fill="#EEF4FF"/><rect x="354" y="242" width="54" height="26" rx="6" fill="#B5D0FF"/><rect x="354" y="278" width="40" height="6" rx="3" fill="#D3DCF0"/>
+    <rect x="428" y="232" width="74" height="66" rx="10" fill="#F5F0FF"/><rect x="438" y="242" width="54" height="26" rx="6" fill="#D6C2FF"/><rect x="438" y="278" width="40" height="6" rx="3" fill="#E2DEEC"/>
+    <rect x="512" y="232" width="74" height="66" rx="10" fill="#FFF9EB"/><rect x="522" y="242" width="54" height="26" rx="6" fill="#FFE08F"/><rect x="522" y="278" width="40" height="6" rx="3" fill="#F0E4C6"/>
   </g>
   <!-- cursor on the call to action -->
-  <path transform="translate(410 190)" d="M0 0V23L6 17.5L10.5 27L14.5 25L10 15.5H18Z" fill="#1F2A44" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+  <path transform="translate(410 190)" d="M0 0V23L6 17.5L10.5 27L14.5 25L10 15.5H18Z" fill="#1D1933" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
 
   <!-- phone -->
   <g filter="url(#sh2)"><rect x="560" y="196" width="74" height="146" rx="16" fill="#fff"/></g>
-  <rect x="561" y="197" width="72" height="144" rx="15" fill="none" stroke="#1F2A44" stroke-width="2"/>
-  <rect x="585" y="205" width="24" height="4" rx="2" fill="#1F2A44"/>
+  <rect x="561" y="197" width="72" height="144" rx="15" fill="none" stroke="#1D1933" stroke-width="2"/>
+  <rect x="585" y="205" width="24" height="4" rx="2" fill="#1D1933"/>
   <rect x="569" y="217" width="56" height="46" rx="8" fill="url(#hb)"/>
   <path d="M578 252C581 241 585 240 587 246C589 251 592 254 598 243" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-  <rect x="569" y="272" width="46" height="6" rx="3" fill="#E3E7EF"/>
-  <rect x="569" y="284" width="32" height="6" rx="3" fill="#E3E7EF"/>
-  <rect x="569" y="300" width="38" height="13" rx="6.5" fill="#D75FFF"/>
-  <rect x="569" y="320" width="56" height="12" rx="6" fill="#F2DDFF"/>
+  <rect x="569" y="272" width="46" height="6" rx="3" fill="#E2DEEC"/>
+  <rect x="569" y="284" width="32" height="6" rx="3" fill="#E2DEEC"/>
+  <rect x="569" y="300" width="38" height="13" rx="6.5" fill="#FFBE2E"/>
+  <rect x="569" y="320" width="56" height="12" rx="6" fill="#F5F0FF"/>
 
   <!-- sparkles -->
-  <use href="#st" transform="translate(286 46) scale(1.1)" fill="#D75FFF"/>
+  <use href="#st" transform="translate(286 46) scale(1.1)" fill="#F5A70A"/>
   <use href="#st" transform="translate(60 318) scale(.8)" fill="#8549FF"/>
   <use href="#st" transform="translate(604 140) scale(.6)" fill="#045FEA"/>
-  <use href="#st" transform="translate(312 330) scale(.55)" fill="#D75FFF"/>
+  <use href="#st" transform="translate(312 330) scale(.55)" fill="#F5A70A"/>
 </svg>
