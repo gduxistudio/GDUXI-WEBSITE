@@ -197,22 +197,26 @@ ul{margin:0;padding:0;list-style:none}
 .hero{position:relative;background:var(--dawn);padding:96px 0 104px;overflow:hidden}
 .hero-row{display:grid;grid-template-columns:1fr 540px;gap:80px;align-items:center}
 .hero-intro{display:flex;flex-direction:column;gap:28px;position:relative;min-width:0}
-.hero-art{width:100%;max-width:600px;height:auto;aspect-ratio:640/400;margin:-8px 0 -12px -12px}
+/* Hero layouts (Prm, 2026-11-05): .hv-a headline + graphic · .hv-b graphic leads, no visible headline · .hv-c centred stack · .hv-d graphic on a panel */
+.hero-h{font:700 var(--fs-h1)/1.04 var(--f-display);letter-spacing:-.025em;text-wrap:balance}
+.hero-h .gtext{display:block}
+.hero-intro .lead{max-width:520px}
+.hero-visual{position:relative;min-width:0;display:flex;justify-content:center}
+.hero-art{display:block;width:100%;height:auto;aspect-ratio:640/400}
 .actions{display:flex;gap:14px;flex-wrap:wrap}
-.compo{position:relative;display:flex;flex-direction:column;align-items:center}
-.compo .crop{inset:-22px -18px -22px -18px}
-.shot{width:100%;background:var(--mist);border:1px solid var(--line);border-radius:24px;padding:14px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;transition:transform .3s,box-shadow .3s}
-.shot:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft)}
-.shot .img{height:224px;border-radius:16px;overflow:hidden;background:#F4EDDD}
-.shot .img img{width:100%;height:100%;object-fit:cover}
-.shot .cap{display:flex;justify-content:space-between;align-items:center;padding:0 6px 2px}
-.shot .cap>span:first-child{font:600 var(--fs-h5)/1.35 var(--f-display);letter-spacing:-.01em}
-.flow{display:flex;align-items:center;gap:14px;padding:10px 0;font-size:14px;color:var(--muted);position:relative;z-index:1}
-.flow::before{content:"";width:2px;height:44px;background:linear-gradient(var(--p-600),var(--g-400));flex:none}
-.scroll-cue{position:absolute;left:56px;bottom:38px;width:16px;height:150px;z-index:1}
-.scroll-cue span{position:absolute;left:2px;top:7px;writing-mode:vertical-rl;transform:rotate(180deg);font:600 10px/1 var(--f-body);letter-spacing:3px;color:var(--muted)}
-.scroll-cue i{position:absolute;left:7.5px;top:78px;width:1px;height:56px;background:var(--p-600);opacity:.5}
-.scroll-cue b{position:absolute;left:5px;top:140px;width:6px;height:6px;border-radius:50%;background:var(--g-500);animation:cue 2.4s ease-in-out infinite}
+.hv-a .hero-row,.hv-d .hero-row{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px}
+.hv-b .hero-row{grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:48px}
+.hv-b .hero-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hv-b .hero-intro .lead{font:500 24px/1.45 var(--f-display);color:var(--ink);letter-spacing:-.01em}
+.hv-c .hero-row{grid-template-columns:1fr;justify-items:center;text-align:center;gap:24px}
+.hv-c{padding:64px 0 88px}
+.hv-c .hero-visual{order:-1;width:100%;max-width:600px}
+.hv-c .hero-intro{align-items:center}
+.hv-c .hero-intro .lead{max-width:640px}
+.hv-c .hero-h{font-size:var(--fs-h2)}
+.hv-c .hero-h .gtext{display:inline}
+.hv-c .eyebrow.line::after{content:"";width:40px;height:3px;border-radius:2px;background:var(--g-400);flex:none}
+.hv-d .hero-visual{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px 24px;box-shadow:var(--shadow-soft)}
 @keyframes cue{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 /* ---------- marquee ---------- */
@@ -511,17 +515,15 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 /* ---------- responsive ---------- */
 @media (max-width:1100px){
   :root{--gut:56px}
-  .hero-row{grid-template-columns:1fr 460px;gap:48px}
   :root{--fs-h1:60px;--fs-h2:44px}
   .why-row{grid-template-columns:1fr 1.2fr;gap:56px}
   .joint .ms .im{width:260px;height:260px}
   .joint .ms .im.full{width:569px}
   .fcols{gap:32px}.fbrand{width:340px}
-  .scroll-cue{left:18px}
 }
 @media (max-width:1020px){
-  .hero-row{grid-template-columns:1fr}
-  .compo{max-width:540px;width:100%;margin:0 auto}
+  .hero .hero-row{grid-template-columns:1fr;gap:40px}
+  .hero .hero-visual{max-width:640px;width:100%;justify-self:center}
   .joint{flex-direction:column;align-items:stretch}
   .joint .ms{justify-content:center}
   .joint .ms .im{flex:1;width:auto;max-width:330px}
@@ -565,10 +567,6 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .work-first .sec-head{margin-bottom:40px}
   :root{--fs-h1:42px;--fs-h2:34px;--fs-h3:27px;--fs-h4:20px;--fs-lead:17px}
   .hero{padding:56px 0 72px}
-  .hero-art{margin:-4px 0 -6px;max-width:none}
-  .scroll-cue{display:none}
-  .compo .crop{inset:-12px -8px}
-  .shot .img{height:auto;aspect-ratio:510/224}
   .svc-grid,.p-grid,.steps,.inc{grid-template-columns:1fr}
   .stats{grid-template-columns:1fr 1fr}
   .stats li{padding:0 16px}
@@ -627,6 +625,8 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .work-first{padding-bottom:56px}
   /* phones: the corner blob sits behind the eyebrow, so soften it to keep the 12px eyebrow above 4.5:1 */
   .hero>.blob:first-of-type,.phead>.blob:first-of-type{opacity:.45}
+  .hv-b .hero-intro .lead{font-size:20px}
+  .hv-c .eyebrow.line::before,.hv-c .eyebrow.line::after{width:24px}
   .pop,.hero .badge,.spark,.fcard .dots{display:none}
   .points li{gap:18px}
   .dlg{padding:32px 22px}
@@ -636,8 +636,6 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 }
 @media (max-width:520px){
   :root{--fs-h1:38px;--fs-h2:31px}
-  .shot .cap>span:first-child{font-size:15px}
-  .flow{font-size:12px}
 }
 /* Every project cover is a full 16:9 export, and the card frame is 16:9 too, so the whole image shows at every width */
 @media (max-width:760px){
@@ -657,6 +655,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
     </a>
     <div class="nav-right">
       <nav class="nav-links" aria-label="Main">
+        <a href="#home" data-route="home">Home</a>
         <a href="#work" data-route="work">Work</a>
         <a href="#studio" data-route="studio">Studio</a>
         <a href="#services" data-route="services">Services</a>
@@ -702,41 +701,21 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 
 <!-- ==================== HOME ==================== -->
 <div class="page" data-page="home">
-  <section class="hero" aria-labelledby="hero-h">
+  <section class="hero hv-a" aria-labelledby="hero-h">
     <svg class="blob" style="right:-166px;top:-190px;width:416px;height:304px" aria-hidden="true"><use href="#blob"/></svg>
-    <svg class="blob" style="left:-230px;bottom:-80px;width:390px;height:285px;opacity:.9;transform:scaleX(-1)" aria-hidden="true"><use href="#blob"/></svg>
-    <div class="glow" style="left:53%;top:120px;width:630px;height:630px"></div>
-    <div class="waves" data-wave="light" style="top:610px;height:480px;opacity:.4"></div>
     <div class="wrap hero-row">
       <div class="hero-intro">
         <p class="eyebrow line" data-c="home.hero_eyebrow">Brand + digital design studio</p>
-        <h1 class="sr-only" id="hero-h">GDUXI Studio: <span data-c="home.hero_title_1">Brand to screen.</span> <span data-c="home.hero_title_2">In one flow.</span></h1>
-        <img class="hero-art" data-ci="home.hero_graphic" src="assets/img/hero-studio.svg" alt="GDUXI Studio illustration: a gradient logo mark with its bezier anchor points overlaps a website window and a phone screen, joined by one flowing line, showing logo design and UX/UI design as one practice." width="640" height="400" fetchpriority="high">
+        <h1 class="hero-h" id="hero-h"><span data-c="home.hero_title_1">Brand to screen.</span> <span class="gtext" data-c="home.hero_title_2">In one flow.</span></h1>
         <p class="lead" data-c="home.hero_intro">We're GDUXI, a small studio where logo design and UX/UI design sit at the same table. We shape your mark and your website or app together, so everything your customers see feels like it came from one place.</p>
         <div class="actions">
           <a href="#work" data-route="work" class="btn btn-primary">See our work <span class="arr" aria-hidden="true">→</span></a>
         </div>
-        <span class="spark gold" style="right:-90px;top:60px;width:32px;height:32px" aria-hidden="true"><svg><use href="#star"/></svg></span>
-        <span class="spark" style="right:-4px;top:126px;width:28px;height:28px" aria-hidden="true"><svg><use href="#star"/></svg></span>
-        <span class="spark" style="right:30px;top:22px;width:16px;height:16px;opacity:.8" aria-hidden="true"><svg><use href="#star"/></svg></span>
       </div>
-      <div class="compo">
-        <div class="crop" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <figure class="shot" style="margin:0">
-          <div class="img"><img data-ci="home.hero_mark_image" data-alt="{name} logo: a road swoosh under the wordmark" src="assets/img/hero-mark.png" alt="RS Tour & Traveler logo: a road swoosh under the wordmark" width="510" height="224"></div>
-          <figcaption class="cap"><span data-c="home.hero_mark_label">01 · The mark</span><span class="tag id">Identity</span></figcaption>
-        </figure>
-        <p class="flow" data-c="home.hero_joiner">one brand, flowing from mark to screen</p>
-        <figure class="shot" style="margin:0">
-          <div class="img"><img data-ci="home.hero_site_image" data-alt="{name} website hero: Taxi &amp; tours across India" src="assets/img/hero-site.jpg" alt="RS Tour & Traveler website hero: Taxi & tours across India" width="510" height="224"></div>
-          <figcaption class="cap"><span data-c="home.hero_site_label">02 · The experience</span><span class="tag dg">Digital</span></figcaption>
-        </figure>
-        <div class="pop pop-wire" style="right:-24px;top:-72px;--r:6deg" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        <span class="spark" style="right:-60px;top:250px;width:18px;height:18px;opacity:.8" aria-hidden="true"><svg><use href="#star"/></svg></span>
-        <span class="spark" style="right:-50px;bottom:110px;width:20px;height:20px" aria-hidden="true"><svg><use href="#star"/></svg></span>
+      <div class="hero-visual">
+        <img class="hero-art" data-ci="home.hero_graphic" src="assets/img/hero-studio.svg" alt="GDUXI Studio illustration: a gradient logo mark with its bezier anchor points overlaps a website window and a phone screen, joined by one flowing line, showing logo design and UX/UI design as one practice." width="640" height="400" fetchpriority="high">
       </div>
     </div>
-    <div class="scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i><b></b></div>
   </section>
 
   <div class="marquee" role="group" aria-label="What we design"><div class="track" data-list="marquee"></div><button class="motion-btn" type="button" aria-pressed="false" aria-label="Pause animations" title="Pause animations"><svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/><rect x="8.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 1.8v10.4c0 .5.6.8 1 .5l8-5.2a.6.6 0 0 0 0-1l-8-5.2c-.4-.3-1 0-1 .5z" fill="currentColor"/></svg></button></div>
@@ -1062,7 +1041,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
         <p data-c="contact.footer_description">A brand and digital design studio in the Greater Toronto Area, working with startups and small businesses wherever they are.</p>
       </div>
       <div class="fcols">
-        <div><h2>Studio</h2><a href="#work" data-route="work">Work</a><a href="#studio" data-route="studio">Studio</a><a href="#services" data-route="services">Services</a><a href="#contact" data-route="contact">Contact</a></div>
+        <div><h2>Studio</h2><a href="#home" data-route="home">Home</a><a href="#work" data-route="work">Work</a><a href="#studio" data-route="studio">Studio</a><a href="#services" data-route="services">Services</a><a href="#contact" data-route="contact">Contact</a></div>
         <div data-list="footer-founders"><h2>Founders</h2></div>
         <div><h2>Say hello</h2><a href="mailto:gduxistudio@gmail.com" data-email-text>gduxistudio@gmail.com</a><p class="note" data-c="contact.footer_reply">We reply within two business days</p></div>
       </div>
