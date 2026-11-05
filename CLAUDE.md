@@ -443,3 +443,10 @@ The site follows the device's light/dark setting (`prefers-color-scheme`); there
 - Favicons: `favicon.svg` (the logo mark) plus `favicon.ico` (16/32/48), `favicon-32.png`, `favicon-192.png`, `favicon-512.png` and a full-bleed `apple-touch-icon.png` (180, iOS rounds it), all rendered from the SVG. Linked from `index.html` and `admin/index.html`.
 - Hero graphic (later): the mark is scaled to 0.8 around its centre so it sits fully inside the inner guide circle (r=104). Rejected tries: a 1.2x bigger mark, and shrinking the circle so it hid behind the mark. The phone outline is the same light 1px `#E2DEEC` stroke as the website window, not a dark frame.
 - Theme button hover (purple border, small turn) only applies on devices that can hover (`@media (hover:hover)`), so it doesn't stick after a tap on phones.
+
+## 22. Prototypes open inside the site (2026-11-05, experiments only)
+
+Prm chose option 1 of three (embed / clickable screens / rebuild): the "Prototype →" buttons (cards and the screens pop-up) are now `<button data-proto="i">` that open `<dialog id="protoDlg">` with the live Figma prototype in an iframe. `embedUrl()` turns the project's `figma` URL into `https://embed.figma.com/proto/...&embed-host=gduxi-studio`; non-Figma URLs still open in a new tab. The pop-up has a shimmer until the iframe loads, an "Open in Figma ↗" fallback link, the sticky ✕, and clears the iframe on close.
+- Visitors only see the prototype if each Figma file is shared as "Anyone with the link · can view" (still an open item).
+- Not verified against real Figma: the cloud sandbox can't reach embed.figma.com, so tests stub it. Check on the Netlify preview.
+- `tests/test_figma_links.py` now checks the embed URL and the Figma tab, and matches titles case-insensitively (the Title Case CSS had made the RS campaigns check fail). Both test files pass.
