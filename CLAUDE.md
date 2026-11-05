@@ -432,3 +432,7 @@ The site follows the device's light/dark setting (`prefers-color-scheme`); there
 - Dark values: page `#100E1E`, cards `#1B1832`, mist `#15122A`, line `#2F2A4C`, ink `#F2EFFA`, muted `#B2ABCA`, link `#C3B5F2`, lighter text gradient `#7FAEFF → #B4A2F0 → #E39BFA`. Bands, footer, gold buttons and the header gradient button stay as they are.
 - Component tweaks sit in a `@media (prefers-color-scheme:dark)` block at the end of the stylesheet: header logo uses its on-dark colours, Digital/Identity tags, dimmed blobs and glow, outline word, select arrow, form errors, signatures (inverted with `screen` blend), focus ring.
 - Checked: pixel-measured contrast 0 of 789 text items below AA in dark and in light; test_site.py all passed.
+
+## 21. Simpler hero graphic (2026-11-05, experiments only)
+
+Prm found the circles behind the hero graphic unattractive. `assets/img/hero-studio.svg` now holds only the logo mark, the website window and the phone: the two overlapping circles, the gold overlap, the construction lines, the bezier anchors, the dotted flow line and the sparkles were removed, and the viewBox is cropped to `62 70 590 296` (`.hero-art` aspect-ratio 590/296). `home.hero_graphic_alt` was updated to match.
