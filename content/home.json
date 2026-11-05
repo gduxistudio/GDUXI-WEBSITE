@@ -2,47 +2,95 @@
   "hero_eyebrow": "Brand + digital design studio",
   "hero_title_1": "Brand to screen.",
   "hero_title_2": "In one flow.",
-  "hero_intro": "GDUXI is a brand and digital design studio. We design the mark and the experience together, so your logo, your website and your app feel like one piece.",
+  "hero_intro": "We're GDUXI, a small studio where logo design and UX/UI design sit at the same table. We shape your mark and your website or app together, so everything your customers see feels like it came from one place.",
   "hero_project_name": "RS Tour & Traveler",
   "hero_mark_label": "01 · The mark",
   "hero_mark_image": "/assets/img/hero-mark.png",
   "hero_joiner": "one brand, flowing from mark to screen",
   "hero_site_label": "02 · The experience",
   "hero_site_image": "/assets/img/hero-site.jpg",
-  "marquee": ["Logos", "Identities", "Websites", "Apps", "UX research", "Brand systems", "Packaging", "Prototypes"],
-  "founders_eyebrow": "The founders",
+  "hero_graphic": "/assets/img/hero-studio.svg",
+  "hero_graphic_alt": "Illustration: a logo mark with its design anchor points overlaps a website window and a phone screen, all joined by one flowing line. Logo design and UX/UI design as one practice.",
+  "marquee": [
+    "Logos",
+    "Identities",
+    "Websites",
+    "Apps",
+    "UX research",
+    "Brand systems",
+    "Packaging",
+    "Prototypes"
+  ],
+  "founders_eyebrow": "Who you'll work with",
   "founders_title": "Two crafts. One studio.",
-  "founders_intro": "Equal partners with complementary skills. Navita leads the experience, Paramdeep leads the identity, and every project gets both of us.",
+  "founders_intro": "We're Navita and Paramdeep, equal partners with skills that fit together. Navita shapes how your product works and feels. Paramdeep shapes how your brand looks and lives. You work with both of us, from the first call to the final file.",
   "stats": [
-    { "number": "28+", "label": "businesses given a brand identity" },
-    { "number": "10+", "label": "end-to-end UX/UI case studies" },
-    { "number": "5+", "label": "industries: travel, education, retail, hospitality, finance" },
-    { "number": "1", "label": "team, one timeline, one invoice" }
+    {
+      "number": "28+",
+      "label": "businesses we've designed a brand identity for"
+    },
+    {
+      "number": "10+",
+      "label": "UX/UI projects taken from research to final screens"
+    },
+    {
+      "number": "5+",
+      "label": "industries so far: travel, education, retail, hospitality and finance"
+    },
+    {
+      "number": "1",
+      "label": "team to talk to, with one timeline and one invoice"
+    }
   ],
   "services_eyebrow": "What we do",
   "services_title": "Three ways to work with us",
-  "services_intro": "Hire either founder for their speciality, or both of us for the whole journey: a brand and a digital product designed as one system.",
+  "services_intro": "Come to us for a brand identity, a website or app, or both at once. However you start, you get the thinking of both crafts.",
   "work_eyebrow": "Selected work",
-  "work_title": "Six projects, shared equally",
-  "work_intro": "Two built together from mark to screen, plus identity and digital projects.",
+  "work_title": "A few projects we're proud of",
+  "work_intro": "Two brands we took all the way from logo to website, plus identity and digital projects we've each led.",
   "why_eyebrow": "Why one studio",
   "why_title": "Your brand shouldn't change at the browser.",
-  "why_intro": "Most small businesses hire a logo designer, then a web designer, and spend months making the two agree. We start them together.",
+  "why_intro": "Lots of small businesses hire a logo designer, then a web designer, and spend months getting the two to agree. We start both at the same time, so nothing has to catch up later.",
   "why_points": [
-    { "title": "One idea, every touchpoint", "body": "The mark, the colours and the interface come from the same thinking, so customers recognise you on a flyer, a phone and a checkout page." },
-    { "title": "Research meets craft", "body": "User research tells us what people need. Identity design makes it memorable. You get evidence and personality." },
-    { "title": "Fewer handoffs, faster launch", "body": "No briefing a second agency, no rebuilding the logo for screens. One team, one timeline, one invoice." }
+    {
+      "title": "One idea, everywhere",
+      "body": "Your mark, your colours and your interface grow from the same thinking, so people recognise you on a flyer, on their phone and at checkout."
+    },
+    {
+      "title": "Research meets craft",
+      "body": "Research tells us what your customers need. Identity design makes you memorable. You get the reasons and the personality."
+    },
+    {
+      "title": "Fewer handoffs, faster launch",
+      "body": "No briefing a second agency. No redrawing the logo so it works on screens. One team, one timeline, one invoice."
+    }
   ],
   "process_eyebrow": "How we work",
   "process_title": "From first call to launch",
-  "process_intro": "Clear milestones, one shared timeline, and you always know who is leading each stage.",
+  "process_intro": "Clear steps, one shared timeline, and you always know who's leading each stage and what comes next.",
   "steps": [
-    { "title": "Discover", "group": "bd", "body": "A kickoff call, stakeholder chats and quick user interviews. We agree on the problem before we draw anything." },
-    { "title": "Identity", "group": "id", "body": "Mood boards, sketches and two or three mark directions, refined into a logo and a brand guide." },
-    { "title": "Experience", "group": "dg", "body": "Information architecture, wireframes and hi-fi UI built on the new brand, then tested with real users." },
-    { "title": "Launch", "group": "bd", "body": "Final files, a working prototype or site, and a launch kit for socials and print." }
+    {
+      "title": "Discover",
+      "group": "bd",
+      "body": "It starts with a call, a few conversations with your team and quick interviews with your customers. We agree on the problem before anyone draws a thing."
+    },
+    {
+      "title": "Identity",
+      "group": "id",
+      "body": "Mood boards, sketches and two or three directions for your mark. We refine the strongest one into a logo and a brand guide."
+    },
+    {
+      "title": "Experience",
+      "group": "dg",
+      "body": "We map out the structure, sketch wireframes, then design the final screens in your new brand and test them with real people."
+    },
+    {
+      "title": "Launch",
+      "group": "bd",
+      "body": "You get the final files, a working prototype or site, and a launch kit for social media and print."
+    }
   ],
   "cta_eyebrow": "Let's work together",
   "cta_title": "Have a brand that needs a mark,\nand a site that needs to work?",
-  "cta_body": "Tell us about your project. You'll hear back from both of us within two business days."
+  "cta_body": "Tell us a little about what you're building. We'll both read it, and you'll hear back within two business days."
 }

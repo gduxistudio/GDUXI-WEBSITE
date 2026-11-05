@@ -144,7 +144,7 @@ def run(p):
         fill()
         page.click("#send")
         page.wait_for_selector("#sentDlg[open]")
-        check(page.is_visible("#sentOk") and "Jane" in page.inner_text("#sentOk"), "success dialog thanks the sender")
+        check(page.is_visible("#sentOk") and "jane" in page.inner_text("#sentOk").lower(), "success dialog thanks the sender")
         check(sent.get("body", {}).get("_subject") == "New project enquiry from the GDUXI website", "form sends the subject")
         page.click("#sentOk [data-route='home']")
         page.wait_for_timeout(200)
@@ -161,7 +161,7 @@ def run(p):
         check(page.is_visible("#sentFail"), "unactivated FormSubmit shows the fallback")
         check(page.get_attribute("#failMail", "href").startswith("mailto:gduxistudio@gmail.com?subject="), "fallback has a pre-filled mailto")
         check("mail.google.com" in page.get_attribute("#failGmail", "href"), "fallback has a Gmail link")
-        page.click("#sentDlg .x")
+        page.click("#sentDlg .dx")
         page.unroute("https://formsubmit.co/**")
 
         # external links

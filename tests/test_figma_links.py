@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Click every case-study card: Figma links must open their file in a new tab,
+"""Click every case-study card: "Prototype" must open the live Figma embed in the on-site pop-up
+(with an "Open in Figma" link to the same file in a new tab),
 "View screens" must show every hi-fi and lo-fi screen, and cards without a Figma link
 must open the pop-up with only that project's images.
 
@@ -23,6 +24,7 @@ with sync_playwright() as p:
     for width, label in [(1440, "desktop"), (390, "phone")]:
         ctx = browser.new_context(viewport={"width": width, "height": 900})
         ctx.route("https://www.figma.com/**", lambda r: r.fulfill(status=200, content_type="text/html", body="<title>Figma</title>"))
+        ctx.route("https://embed.figma.com/**", lambda r: r.fulfill(status=200, content_type="text/html", body="<title>Figma embed</title>"))
         ctx.route("https://fonts.googleapis.com/**", lambda r: r.fulfill(status=200, body=""))
         page = ctx.new_page()
         page.goto(URL)
@@ -37,7 +39,7 @@ with sync_playwright() as p:
             for i in range(cards.count()):
                 card = cards.nth(i)
                 title = card.locator(".h3,.h2").first.inner_text()
-                proj = next((x for x in PROJECTS if x["title"] == title), {})
+                proj = next((x for x in PROJECTS if x["title"].lower() == title.lower()), {})
                 want = proj.get("figma")
                 card.scroll_into_view_if_needed()
                 shots = proj.get("screens") or []
@@ -63,28 +65,34 @@ with sync_playwright() as p:
                     if not ok:
                         FAILS.append(f"{label} {title} screens")
                     page.click("#shotsDlg [data-close]")
-                    card = card.locator("a[target=_blank]")
+                    card = card.locator("[data-proto]")
                 if not want:
                     card.click()
                     page.wait_for_selector("#caseDlg[open]")
                     srcs = page.evaluate("[...document.querySelectorAll('#casePages img')].map(i=>i.getAttribute('src'))")
                     loaded = page.evaluate("Promise.all([...document.querySelectorAll('#casePages img')].map(i=>i.decode().then(()=>i.naturalWidth>0,()=>false)))")
                     exp = [x.lstrip("/") for x in proj.get("pages", [])]
-                    ok = page.inner_text("#case-h") == title and srcs == exp and all(loaded) and len(ctx.pages) == 1
+                    ok = page.inner_text("#case-h").lower() == title.lower() and srcs == exp and all(loaded) and len(ctx.pages) == 1
                     print(("  ok   " if ok else "  FAIL ") + f"{label} {route}: {title} -> pop-up with {len(srcs)} case-study image(s)")
                     if not ok:
                         FAILS.append(f"{label} {title}")
                     page.click("#caseDlg [data-close]")
                     continue
+                card.click()
+                page.wait_for_selector("#protoDlg[open]")
+                page.wait_for_selector("#protoBox.loaded", timeout=8000)
+                src = page.get_attribute("#protoFrame", "src") or ""
+                key = want.split("/proto/")[1].split("/")[0] if want and "/proto/" in want else "?"
                 with ctx.expect_page() as info:
-                    card.click()
+                    page.click("#protoOpen")
                 tab = info.value
                 tab.wait_for_load_state()
-                ok = want and tab.url == want
-                print(("  ok   " if ok else "  FAIL ") + f"{label} {route}: {title} -> {tab.url[:70]}")
+                ok = want and src.startswith("https://embed.figma.com/proto/" + key) and "embed-host=" in src and tab.url == want
+                print(("  ok   " if ok else "  FAIL ") + f"{label} {route}: {title} -> embed {src[:60]} + Figma tab")
                 if not ok:
                     FAILS.append(f"{label} {title}")
                 tab.close()
+                page.click("#protoDlg [data-close]")
         ctx.close()
     browser.close()
 

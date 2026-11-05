@@ -227,7 +227,7 @@ The logo:
 | Ek Oankar | Identity | No Figma link: opens the on-site pop-up with `assets/img/case-ek-oankar-1/2.jpg` (exported from Paramdeep's portfolio, case study 02, node `25:1051`) |
 | Artisan Crafts | Brand + Digital | `figma.com/design/17WEqDMeY9NPCAWhZvrvS1/...?node-id=0-1` (brand guide + lo/hi-fi file) |
 | Canada Bank | Digital | `figma.com/design/uO4KBkt4W3AKwAXOf16xPE/...?node-id=0-1` (fictional bank concept) |
-| RS Tour campaigns | Identity | No Figma link: opens the on-site pop-up with five labelled pieces in `assets/img/rs-campaigns/` (2 banners, 2 stories, 1 flyer, laid out as a grid) and `assets/img/case-rs-campaigns-2.jpg` (portfolio nodes `25:972` "Campaigns & print" and `25:1048` "Result") |
+| RS Tour & Traveler campaigns | Identity | No Figma link: opens the on-site pop-up with five labelled pieces in `assets/img/rs-campaigns/` (2 banners, 2 stories, 1 flyer, laid out as a grid) and `assets/img/case-rs-campaigns-2.jpg` (portfolio nodes `25:972` "Campaigns & print" and `25:1048` "Result") |
 
 The owner asked (2026-10-29) that these two cards show only their own project, not the rest of Paramdeep's portfolio file, so they no longer link to Figma. The full URLs for the other four are in `content/projects.json`. Each file must be shared as **"Anyone with the link · can view"**, or visitors see a request-access screen. The owners have to do this in Figma.
 
@@ -358,3 +358,102 @@ Last run, all passed:
 - **2026-10-29:** the original files were lost (the GitHub repo was empty), so the site was rebuilt from this document plus the desktop Figma frames. Images in `assets/img/` were exported from Figma at 1x (the Figma connector cannot reach figma.com asset URLs from the cloud sandbox), so photos and covers are 1x. Re-export at 2x from Figma when convenient and drop them in with the same file names.
 - Decorations that are in Figma but were left out on purpose, per section 8: the Pen tool (Pop/Bezier) and Palette (Pop/Swatch) cards, and both Pop/Toast pills ("Case study live", "We reply in 2 days").
 - Tests on that date: `test_site.py` all passed at 1440px and 390px (114 and 98 interactive elements, 0 overflow, 0 JS errors); `test_figma_links.py` 12 of 12 on desktop and phone (the Built together cards count separately from the grid cards). Run with `PW_CHROMIUM=/path/to/chrome` if Playwright's own browser is not installed.
+
+---
+
+## 14. Experiments branch redesign (2026-11-05, not on main)
+
+Prm asked for these on `experiments` only. They override sections 1, 4, 5 and 6 on this branch.
+
+- **Home order:** Hero → marquee → Selected work (`.work-first`, more padding) → Founders → stats → services → why → process → CTA.
+- **Hero:** the text headline is now a screen-reader-only `h1`; on screen it is replaced by `assets/img/hero-studio.svg` (logo mark with bezier anchors overlapping a website window and phone, joined by one line). Dashboard fields `home.hero_graphic` and `home.hero_graphic_alt`. Only the "See our work" button remains (gold primary); the hero "Start a project" button was removed at Prm's request.
+- **Fonts:** Bricolage Grotesque (display, 500–800) + Inter (body 400–700). Julius Sans One is loaded only as a `text=GDUXI` subset for the logo wordmark (`--f-logo`).
+- **Type scale** (desktop / ≤760px): H1 `.d-xl` 68/42 700 · H2 `.d-l` 48/34 700 · H3 `.h2` 34/27 650 · H4 `.h3` 22/20 600 display · H5 `.h4` 18 Inter 600 · lead 18/17 · body 16/1.65 · small 14 · caption `.eyebrow` 12 uppercase .16em · button 15 600. Sizes live in `--fs-*`.
+- **Palette (accented analogous):** blue → violet → orchid analogous base, gold accent (violet's complement). 60% neutrals, 30% purple (blue supports), 10% gold.
+  - Purple `--p-50…900` (softer violet, Prm's pick 2026-11-05 over the original vivid #8549FF): F5F2FD EBE5FB D8CEF5 BEAEEF A893EA **8A6FE0** 6F55C9 5B45AE 47378A 2F2560. The logo keeps its original gradient.
+  - Blue `--b-50…900`: EEF4FF DCE9FF B5D0FF 7FAEFF 3F7EFC **045FEA** 034FC4 033F9C 022F74 01204F
+  - Gold `--g-50…900`: FFF9EB FFF0C7 FFE08F FFCF57 **FFBE2E** F5A70A D18A00 A36A00 6E4700 3D2700
+  - Orchid (gradient end + Identity tag): FBEAFF D75FFF 8A1FAF
+  - Neutrals: FFFFFF, mist F4F1FA, ECE8F5, line E2DEEC, 9C97B0, muted 5E5874, 2E2948, ink 1D1933
+  - Bands 3F3D9E → 5A48B8 → 7158C6 (white text ≥ 5.3:1, gold-100 eyebrows 4.7:1; the old light bands were 2.7:1 and failed AA). Footer 2F2560 → 47378A → 3F3D9E.
+  - Roles: gold = primary CTA buttons, eyebrow rules, nav underline, highlights; purple 600/700 = links, secondary buttons, card buttons, active filters, Brand + Digital tag; blue 50/700 = Digital tag; orchid 100/700 = Identity tag.
+  - All text/background pairs checked to WCAG AA (script check, 0 failures on the four pages).
+- **Project cards:** "Open in Figma" and "Open the full Figma file" now read "View Prototype ↗". The Canada Bank "Concept" label and "concept" wording were removed (empty `label` is not rendered).
+- **Preview:** Netlify branch deploys are on (2026-11-05), so this branch builds at https://experiments--gduxistudio.netlify.app. Non-production deploys need a Netlify team login.
+- **Prototype links:** `figma` URLs now use `/proto/` with each file's desktop flow starting point (RS Tour 7:85, N'Cafe 2:319, Artisan 12:5, Canada Bank 30:2129), so visitors land in prototype view.
+
+## 15. Copy rewrite (2026-11-05, experiments only)
+
+Prm asked for all site copy to be rewritten by a UX writer: warm and human, still professional. Changed: hero intro, section intros, stats labels, why points, steps, values, service summaries, included items, FAQ answers, contact and footer lines, both founder bios (same length and structure, no pronouns), project summaries and descriptions, form labels, validation and sent/failed messages, page titles, meta and og descriptions, cover alt text and the lo-fi gallery note.
+
+Kept on purpose: "Two crafts. One studio.", "Brand to screen. In one flow.", "Where Graphic Design meets UX/uI", "Your brand shouldn't change at the browser.", all facts, numbers, credentials, project names, links and the form email subject. No "founder" wording was added; "Both founders read every message" now reads "We both read every message".
+
+- 2026-11-05: Prm asked for the spinning circle badge to read all capitals, so it is now "GD × UX/UI" (experiments only). The "Where Graphic Design meets UX/uI" heading keeps its casing.
+- 2026-11-05: on phones (760px and below) project thumbnails show the whole image at its own shape instead of a fixed 250px crop (experiments only).
+- 2026-11-05: proj-rs-tour.jpg and proj-artisan.jpg were cropped 358x250 exports; replaced with full 16:9 covers (1124x633) from each project file's cover frame (RS Tour 34:1449, Artisan 18:2241). On wider cards they anchor left so the title side shows.
+- **Casing (2026-11-05):** Prm asked for every "UX/UI" in capitals. This overrides the old "UX/uI" rule in section 8. Headings use Title Case through CSS `text-transform:capitalize`.
+- **Decorations stay inside the guidelines:** badges and pops sit inside `.wrap` (class `badge in-wrap`) or use `right:max(var(--gut),calc(50% - 600px))`, so none of them gets cut off at the screen edge. There is no badge on the purple CTA banner.
+- **Thumbnails (2026-11-05):** every `assets/img/proj-*.jpg` is now a full 16:9 cover at 1124x633 (Canada Bank from Figma node 21:3356, N'Cafe from 1:7 trimmed to 16:9, Ek Oankar cropped from case-ek-oankar-1.jpg, RS campaigns a collage of the five pieces on cream). `.proj .cover` is `aspect-ratio:16/9`, so the whole image shows at every width. Replacement covers must be 16:9.
+- On phones the "GDUXI" outline word sits at `right:var(--gut)` so the I stays on screen.
+- Later on 2026-11-05: Prm asked for single-image covers on two cards. Ek Oankar is back to its navy logo cover, now padded to 16:9. "RS Tour & Traveler campaigns" (renamed from "RS Tour campaigns") uses only the Visit the Taj Mahal banner, at full width over a blurred fill to 16:9.
+
+## 16. Version 2.0 (2026-11-05, experiments only)
+
+Prm named this state of `experiments` **2.0** and asked for an accessibility test. Snapshot branch: `release/2.0` (git tags can't be pushed from the sandbox).
+- Phones: the "GDUXI" outline word lines up with the text column above the eyebrow (Home founders and Studio founders), with less padding, so there's no empty gap.
+- Accessibility fixes: footer column titles are `h2` (were `h4`, which skipped levels); a screen-reader-only "Our services" `h2` on the Services page; marquee has `role="group"`; eyebrows use purple 700 (#5B45AE) so 12px text stays above 4.5:1 over the light gradients; on phones the top-right hero/page-header blob is at 45% opacity for the same reason; the "Layers" pop uses blue 700.
+- WCAG 2.2.2: a round pause button on the marquee (`.motion-btn`, `aria-pressed`) pauses every looping animation via `html.no-motion` and is remembered in localStorage. The marquee also pauses on hover or focus. Reduced-motion users get no animation and no button.
+- WCAG 2.5.8: footer "Back to top" and founder-card LinkedIn links are at least 24px tall; footer links use line-height 1.75.
+- Results: axe-core 4.10 (WCAG 2.0/2.1/2.2 A+AA + best practice) 0 violations in 19 views; pixel-measured contrast 0 of 805 text items below AA; keyboard focus ring on every stop; skip link works; no sideways scroll at 320px, 200% text or text-spacing overrides.
+
+## 17. Home hero, layout A (2026-11-05, experiments only)
+
+- Nav and footer have a "Home" link before Work (the phone menu already had one).
+- The hero's "01 · The mark" / "02 · The experience" pictures, crop marks, wireframe pop, scroll cue, glow, second blob and sparkles were removed to make the page less crowded. The CMS fields `home.hero_mark_*`, `hero_site_*`, `hero_joiner`, `hero_project_name` are now unused.
+- Prm compared four layouts (previews in /mnt/project-files/previews/hero-options-2026-11-05/) and chose **A**: eyebrow, the visible headline "Brand to screen." / "In one flow." (gradient second line, `.hero-h`), intro and "See our work" on the left; `hero-studio.svg` on the right (`.hero-visual`). Stacks to one column at 1020px and below.
+
+## 18. Header button in logo colours (2026-11-05, experiments only)
+
+Prm asked for the logo gradient on the header "Start a project" button only (`.nav-links+.btn-primary`): `90deg #045FEA → #8549FF 50% → #A22BD1` with white text (the logo's own #D75FFF end is 3.0:1 with white, so the last stop is the darker orchid, 5.5:1). Every other primary button stays gold. A first try that recoloured all buttons was rejected.
+
+## 19. Hero, pop-ups, parallax and skeletons (2026-11-05, experiments only)
+
+- Hero background ends in a softer cream (`#FFF9EE` instead of the dawn gradient's `#FFF5DE`), so the yellow corner is fainter. Page headers keep `--dawn`.
+- Every dialog (sent, case, screens) has one close button `.dx` as its first child: sticky in the top-right corner, so it stays put while the pop-up scrolls. The old `.x` buttons are gone (tests updated).
+- While any dialog is open the page behind can't scroll: `html:has(dialog[open]){overflow:hidden}` plus `overscroll-behavior:contain` on dialogs.
+- Parallax: blobs, waves, glows, dots, outline words and the hero art drift at their own speed on scroll (CSS `translate`, capped at ±60px, 60% on phones). Off with reduced motion and with the marquee pause button.
+- Skeletons: any image still loading gets class `ld` (shimmer placeholder, with a sensible aspect ratio in the screens and case pop-ups), added by a MutationObserver, removed on load or error.
+- Card buttons read "Screens →" (accessible name "View screens of <project>") and "Prototype ↗" (plus the sr-only new-tab note). A round arrow-only version was tried first and replaced at Prm's request.
+
+## 20. Dark mode (2026-11-05, experiments only)
+
+The site follows the device's light/dark setting (`prefers-color-scheme`); there is no toggle. Prm asked for it after a black bar showed in the screens pop-up (dialogs had no background of their own, so a dark device painted them black).
+- Surface tokens in `:root`: `--surface` (cards, dialogs, pills, was `#fff`), `--well`/`--well-2` (pop-up galleries), `--sk1`/`--sk2` (skeleton), `--hero-bg`, `--nav-bg`, plus `color-scheme`. Purple 700 as text or border now goes through `--link`. Use these tokens for new light surfaces, not `#fff`.
+- Dark values: page `#100E1E`, cards `#1B1832`, mist `#15122A`, line `#2F2A4C`, ink `#F2EFFA`, muted `#B2ABCA`, link `#C3B5F2`, lighter text gradient `#7FAEFF → #B4A2F0 → #E39BFA`. Bands, footer, gold buttons and the header gradient button stay as they are.
+- Component tweaks sit in a `@media (prefers-color-scheme:dark)` block at the end of the stylesheet: header logo uses its on-dark colours, Digital/Identity tags, dimmed blobs and glow, outline word, select arrow, form errors, signatures (inverted with `screen` blend), focus ring.
+- Checked: pixel-measured contrast 0 of 789 text items below AA in dark and in light; test_site.py all passed.
+
+
+## 21. Hero circles, ticker, motion and theme switch (2026-11-05, experiments only)
+
+- Hero graphic: only the two big filled circles (and their gold overlap) were removed from `hero-studio.svg`. The construction lines, bezier anchors, dotted flow line and sparkles stay (Prm rejected a version that removed them).
+- Marquee: four copies of the word list (three `aria-hidden`), 80s loop, so it never shows a gap even on wide screens. Hover/focus no longer pause it: focus stayed on the pause button after pressing play, so the strip never restarted. The pause button still stops every looping animation.
+- Subtle motion: hero text and graphic rise in on load, the hero art drifts slowly, sparkles twinkle, section headings, stats, steps, why points, values and FAQ rows reveal on scroll with a small stagger, and the stats count up once. All of it stops with reduced motion; looping parts stop with the pause button.
+- Light/dark switch: a small round moon/sun button (`#themeBtn`) after "Start a project" (next to the burger on phones). It sets `html[data-theme]` and remembers the choice in localStorage `gduxi-theme`; with no choice the site follows the device. Dark rules exist twice: inside `@media (prefers-color-scheme:dark)` guarded by `:not([data-theme="light"])`, and under `[data-theme="dark"]`. Edit both together.
+- Favicons: `favicon.svg` (the logo mark) plus `favicon.ico` (16/32/48), `favicon-32.png`, `favicon-192.png`, `favicon-512.png` and a full-bleed `apple-touch-icon.png` (180, iOS rounds it), all rendered from the SVG. Linked from `index.html` and `admin/index.html`.
+- Hero graphic (later): the mark is scaled to 0.8 around its centre so it sits fully inside the inner guide circle (r=104). Rejected tries: a 1.2x bigger mark, and shrinking the circle so it hid behind the mark. The phone outline is the same light 1px `#E2DEEC` stroke as the website window, not a dark frame.
+- Theme button hover (purple border, small turn) only applies on devices that can hover (`@media (hover:hover)`), so it doesn't stick after a tap on phones.
+
+## 22. Prototypes open inside the site (2026-11-05, experiments only)
+
+Prm chose option 1 of three (embed / clickable screens / rebuild): the "Prototype →" buttons (cards and the screens pop-up) are now `<button data-proto="i">` that open `<dialog id="protoDlg">` with the live Figma prototype in an iframe. `embedUrl()` turns the project's `figma` URL into `https://embed.figma.com/proto/...&embed-host=gduxi-studio`; non-Figma URLs still open in a new tab. The pop-up has a shimmer until the iframe loads, an "Open in Figma ↗" fallback link, the sticky ✕, and clears the iframe on close.
+- Visitors only see the prototype if each Figma file is shared as "Anyone with the link · can view" (still an open item).
+- Not verified against real Figma: the cloud sandbox can't reach embed.figma.com, so tests stub it. Check on the Netlify preview.
+- `tests/test_figma_links.py` now checks the embed URL and the Figma tab, and matches titles case-insensitively (the Title Case CSS had made the RS campaigns check fail). Both test files pass.
+
+## 23. Audit and merge to main (2026-11-05)
+
+Prm asked to merge `experiments` into main (the live site, https://gduxi.studio) after a full check, keeping the original safe. Backups of the old main (360f790): branches `backup/2026-11-04` and `backup/main-before-merge-2026-11-05`, plus /mnt/project-files/backups/2026-11-04/.
+- SEO additions: canonical `https://gduxi.studio/`, absolute `og:image`, og:type/url/site_name, Twitter card, JSON-LD `ProfessionalService` (founders, email, area served), `robots.txt` (admin disallowed) and `sitemap.xml`. `netlify.toml` caches `/assets/*` for 7 days and marks `/admin/*` noindex.
+- Fixes from Lighthouse: logo links and service cards no longer use an aria-label that differs from their visible text; founder photos and signatures lazy-load; the hero graphic is preloaded with high priority; the hero entrance animation starts at 1% opacity so it doesn't delay LCP.
+- Results (local server, Lighthouse 12.2.1, 4 pages): Accessibility 100, Best practices 100, SEO 100 on desktop and phone; Performance 98–99 desktop, 79–81 phone. The phone score is held down by things the local server lacks (text compression, cache headers), which Netlify provides, so the live score should be higher. axe-core: 0 violations in 16 views (light and dark). Alt text: every image has alt (descriptive or empty for decorative). One h1 per page, no skipped heading levels. No broken local links. Pixel contrast: 0 of 821 text items below AA in light and dark.
