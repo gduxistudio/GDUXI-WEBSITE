@@ -460,4 +460,4 @@ Prm asked to merge `experiments` into main (the live site, https://gduxi.studio)
 
 ## 24. Logo lockup alignment (2026-11-05, experiments only)
 
-Prm said "STUDIO" looked shifted out from "GDUXI". `.logo .st` is now Inter 600 10px with 10.25px tracking, `padding-left:1.5px` and `margin-right:-10.25px` (cancels the trailing tracking), so the STUDIO ink spans exactly from the left of the G to the right of the I (measured 2.0–90.0px vs 2.0–90.25px). Header, footer, phone menu and contact card all share it. If the wordmark size changes, re-measure with the ink script rather than guessing.
+Prm asked for "STUDIO" to sit under the "DUX" of GDUXI. `.logo .st` is Inter 600 10px with 3.75px tracking, `padding-left:25.75px` and `margin-right:-3.75px`, so the STUDIO ink runs from the left edge of the D to the right edge of the X (measured 26.25–82.0px under D 26.25 and X 82.0). An earlier try that stretched it from G to I was rejected. Header, footer, phone menu and contact card share it. If the wordmark size changes, re-measure the letter positions rather than guessing.
