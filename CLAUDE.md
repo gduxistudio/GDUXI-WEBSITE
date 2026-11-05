@@ -387,3 +387,5 @@ Prm asked for these on `experiments` only. They override sections 1, 4, 5 and 6 
 Prm asked for all site copy to be rewritten by a UX writer: warm and human, still professional. Changed: hero intro, section intros, stats labels, why points, steps, values, service summaries, included items, FAQ answers, contact and footer lines, both founder bios (same length and structure, no pronouns), project summaries and descriptions, form labels, validation and sent/failed messages, page titles, meta and og descriptions, cover alt text and the lo-fi gallery note.
 
 Kept on purpose: "Two crafts. One studio.", "Brand to screen. In one flow.", "Where Graphic Design meets UX/uI", "Your brand shouldn't change at the browser.", all facts, numbers, credentials, project names, links and the form email subject. No "founder" wording was added; "Both founders read every message" now reads "We both read every message".
+
+- 2026-11-05: Prm asked for the spinning circle badge to read all capitals, so it is now "GD × UX/UI" (experiments only). The "Where Graphic Design meets UX/uI" heading keeps its casing.
