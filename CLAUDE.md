@@ -396,3 +396,12 @@ Kept on purpose: "Two crafts. One studio.", "Brand to screen. In one flow.", "Wh
 - **Thumbnails (2026-11-05):** every `assets/img/proj-*.jpg` is now a full 16:9 cover at 1124x633 (Canada Bank from Figma node 21:3356, N'Cafe from 1:7 trimmed to 16:9, Ek Oankar cropped from case-ek-oankar-1.jpg, RS campaigns a collage of the five pieces on cream). `.proj .cover` is `aspect-ratio:16/9`, so the whole image shows at every width. Replacement covers must be 16:9.
 - On phones the "GDUXI" outline word sits at `right:var(--gut)` so the I stays on screen.
 - Later on 2026-11-05: Prm asked for single-image covers on two cards. Ek Oankar is back to its navy logo cover, now padded to 16:9. "RS Tour & Traveler campaigns" (renamed from "RS Tour campaigns") uses only the Visit the Taj Mahal banner, at full width over a blurred fill to 16:9.
+
+## 16. Version 2.0 (2026-11-05, experiments only)
+
+Prm named this state of `experiments` **2.0** and asked for an accessibility test. Snapshot branch: `release/2.0` (git tags can't be pushed from the sandbox).
+- Phones: the "GDUXI" outline word lines up with the text column above the eyebrow (Home founders and Studio founders), with less padding, so there's no empty gap.
+- Accessibility fixes: footer column titles are `h2` (were `h4`, which skipped levels); a screen-reader-only "Our services" `h2` on the Services page; marquee has `role="group"`; eyebrows use purple 700 (#5B45AE) so 12px text stays above 4.5:1 over the light gradients; on phones the top-right hero/page-header blob is at 45% opacity for the same reason; the "Layers" pop uses blue 700.
+- WCAG 2.2.2: a round pause button on the marquee (`.motion-btn`, `aria-pressed`) pauses every looping animation via `html.no-motion` and is remembered in localStorage. The marquee also pauses on hover or focus. Reduced-motion users get no animation and no button.
+- WCAG 2.5.8: footer "Back to top" and founder-card LinkedIn links are at least 24px tall; footer links use line-height 1.75.
+- Results: axe-core 4.10 (WCAG 2.0/2.1/2.2 A+AA + best practice) 0 violations in 19 views; pixel-measured contrast 0 of 805 text items below AA; keyboard focus ring on every stop; skip link works; no sideways scroll at 320px, 200% text or text-spacing overrides.

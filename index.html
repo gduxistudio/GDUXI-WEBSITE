@@ -66,7 +66,7 @@ ul{margin:0;padding:0;list-style:none}
 #contact,#built-together,#more-work,#main{scroll-margin-top:84px}
 
 /* ---------- type ---------- */
-.eyebrow{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--p-600)}
+.eyebrow{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--p-700)}
 .eyebrow.line{display:flex;align-items:center;gap:14px}
 .eyebrow.line::before{content:"";width:40px;height:3px;border-radius:2px;background:var(--g-400);flex:none}
 .on-band .eyebrow{color:var(--pale-pink)}
@@ -183,8 +183,8 @@ ul{margin:0;padding:0;list-style:none}
 .pop-layers p{font:600 9px/1 var(--f-body);letter-spacing:1.26px;color:var(--muted);margin:0 0 4px 6px}
 .pop-layers span{display:flex;gap:8px;align-items:center;padding:5px 6px;border-radius:7px;font:500 11px/1.2 var(--f-body);color:var(--ink-soft)}
 .pop-layers span em{font-style:normal;font-size:10px;color:var(--muted);width:10px}
-.pop-layers span.on{background:var(--sky-100);color:var(--blue);font-weight:600}
-.pop-layers span.on em{color:var(--blue)}
+.pop-layers span.on{background:var(--sky-100);color:var(--b-700);font-weight:600}
+.pop-layers span.on em{color:var(--b-700)}
 .outline-word{position:absolute;font:800 150px/1 var(--f-display);color:transparent;-webkit-text-stroke:1.2px rgba(4,95,234,.4);pointer-events:none;z-index:0;white-space:nowrap;letter-spacing:-.02em}
 .outline-word .u{-webkit-text-stroke-color:rgba(111,85,201,.45)}
 .swoosh{display:block;pointer-events:none}
@@ -223,6 +223,16 @@ ul{margin:0;padding:0;list-style:none}
 .marquee li{display:flex;align-items:center;gap:28px;font:500 20px/1 var(--f-display);letter-spacing:-.005em;color:var(--ink-soft);white-space:nowrap}
 .marquee li::after{content:"";width:18px;height:18px;background:var(--violet);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
 @keyframes marq{to{transform:translateX(-50%)}}
+/* WCAG 2.2.2: moving content can be paused (button on the marquee pauses every looping animation; hover/focus pauses the marquee) */
+.marquee{position:relative}
+.marquee:hover .track,.marquee:focus-within .track,html.no-motion *,html.no-motion *::before,html.no-motion *::after{animation-play-state:paused!important}
+.motion-btn{position:absolute;right:max(var(--gut),calc(50% - 600px));top:50%;transform:translateY(-50%);z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 10px #fff}
+.motion-btn:hover{border-color:var(--p-500);color:var(--p-700)}
+.motion-btn svg{width:14px;height:14px}
+.motion-btn .i-play{display:none}
+html.no-motion .motion-btn .i-play{display:block}
+html.no-motion .motion-btn .i-pause{display:none}
+@media (prefers-reduced-motion:reduce){.motion-btn{display:none}}
 :root{--star:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z'/%3E%3C/svg%3E")}
 
 /* ---------- founders ---------- */
@@ -489,12 +499,14 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 .fbrand p:last-child,.fcols p.note{font:500 var(--fs-small)/1.55 var(--f-body);color:rgba(255,255,255,.9)}
 .fcols{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
 .fcols div{display:flex;flex-direction:column;gap:12px;min-width:0}
-.fcols h4{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--pale-pink)}
-.fcols a{font:600 var(--fs-small)/1.5 var(--f-body);white-space:nowrap}
+.fcols h2{font:600 var(--fs-cap)/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--pale-pink)}
+.fcols a{font:600 var(--fs-small)/1.75 var(--f-body);white-space:nowrap}
 .fcols a:hover{color:var(--g-200);text-decoration:underline}
 .fdiv{height:1px;background:rgba(255,255,255,.25);margin:64px 0 40px}
 .fbot{display:flex;justify-content:space-between;align-items:center;font:500 var(--fs-small)/1.5 var(--f-body);color:rgba(255,255,255,.9)}
 .fbot button:hover{color:var(--g-200);text-decoration:underline}
+/* WCAG 2.5.8: small text links get at least a 24px tall target */
+.fbot button,.fcard>.link{min-height:24px;display:inline-flex;align-items:center}
 
 /* ---------- responsive ---------- */
 @media (max-width:1100px){
@@ -609,7 +621,12 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .fcols div:last-child{grid-column:1/-1}
   .fdiv{margin:40px 0 28px}
   .outline-word{font-size:72px}
-  .founders .outline-word,.fdetail .outline-word{right:var(--gut);top:10px}
+  /* phones: the outline word lines up with the text column and sits just above the eyebrow, so there is no empty gap beside it */
+  .founders .outline-word,.fdetail .outline-word{left:var(--gut);right:auto;top:36px;font-size:64px}
+  .section.founders,section.fdetail{padding-top:116px}
+  .work-first{padding-bottom:56px}
+  /* phones: the corner blob sits behind the eyebrow, so soften it to keep the 12px eyebrow above 4.5:1 */
+  .hero>.blob:first-of-type,.phead>.blob:first-of-type{opacity:.45}
   .pop,.hero .badge,.spark,.fcard .dots{display:none}
   .points li{gap:18px}
   .dlg{padding:32px 22px}
@@ -722,7 +739,7 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
     <div class="scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i><b></b></div>
   </section>
 
-  <div class="marquee" aria-label="What we design"><div class="track" data-list="marquee"></div></div>
+  <div class="marquee" role="group" aria-label="What we design"><div class="track" data-list="marquee"></div><button class="motion-btn" type="button" aria-pressed="false" aria-label="Pause animations" title="Pause animations"><svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/><rect x="8.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 1.8v10.4c0 .5.6.8 1 .5l8-5.2a.6.6 0 0 0 0-1l-8-5.2c-.4-.3-1 0-1 .5z" fill="currentColor"/></svg></button></div>
 
   <section class="section bg-mist work-first" aria-labelledby="sw-h">
     <div class="glow" style="left:-160px;top:-120px;width:588px;height:588px"></div>
@@ -945,9 +962,9 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
     </div>
   </section>
 
-  <section style="position:relative;padding:24px 0 88px;overflow:hidden" aria-label="Services">
+  <section style="position:relative;padding:24px 0 88px;overflow:hidden" aria-labelledby="svc-all-h">
     <div class="glow" style="right:-100px;top:-40px;width:546px;height:546px"></div>
-    <div class="wrap"><div class="svc-grid" data-list="services-full"></div></div>
+    <div class="wrap"><h2 class="sr-only" id="svc-all-h">Our services</h2><div class="svc-grid" data-list="services-full"></div></div>
   </section>
 
   <section class="bg-mist" style="position:relative;padding:88px 0;overflow:hidden" aria-labelledby="ic-h">
@@ -1045,9 +1062,9 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
         <p data-c="contact.footer_description">A brand and digital design studio in the Greater Toronto Area, working with startups and small businesses wherever they are.</p>
       </div>
       <div class="fcols">
-        <div><h4>Studio</h4><a href="#work" data-route="work">Work</a><a href="#studio" data-route="studio">Studio</a><a href="#services" data-route="services">Services</a><a href="#contact" data-route="contact">Contact</a></div>
-        <div data-list="footer-founders"><h4>Founders</h4></div>
-        <div><h4>Say hello</h4><a href="mailto:gduxistudio@gmail.com" data-email-text>gduxistudio@gmail.com</a><p class="note" data-c="contact.footer_reply">We reply within two business days</p></div>
+        <div><h2>Studio</h2><a href="#work" data-route="work">Work</a><a href="#studio" data-route="studio">Studio</a><a href="#services" data-route="services">Services</a><a href="#contact" data-route="contact">Contact</a></div>
+        <div data-list="footer-founders"><h2>Founders</h2></div>
+        <div><h2>Say hello</h2><a href="mailto:gduxistudio@gmail.com" data-email-text>gduxistudio@gmail.com</a><p class="note" data-c="contact.footer_reply">We reply within two business days</p></div>
       </div>
     </div>
     <div class="fdiv"></div>
@@ -1231,7 +1248,7 @@ function renderLists(){
   list("founders-studio",F.map(function(f){return founderCard(f,true)}).join(""));
   var em=ct.email||"";
   list("contact-rows",'<div class="row"><span>Email</span><a href="mailto:'+esc(em)+'" data-email-text>'+esc(em)+"</a></div>"+F.map(function(f){var u=safeUrl(f.linkedin);return'<div class="row"><span>'+esc(f.short||f.name)+' on LinkedIn</span><a href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+esc(u.replace(/^https?:\/\/(www\.)?/,"").replace(/\/$/,""))+NEWTAB+"</a></div>"}).join("")+'<div class="row"><span>Where</span><p>'+esc(ct.location)+"</p></div>");
-  list("footer-founders","<h4>Founders</h4>"+F.map(function(f){return'<a href="'+esc(safeUrl(f.linkedin))+'" target="_blank" rel="noopener noreferrer">'+esc(f.name)+" ↗"+NEWTAB+"</a>"}).join(""));
+  list("footer-founders","<h2>Founders</h2>"+F.map(function(f){return'<a href="'+esc(safeUrl(f.linkedin))+'" target="_blank" rel="noopener noreferrer">'+esc(f.name)+" ↗"+NEWTAB+"</a>"}).join(""));
   // projects
   $$("[data-projects]").forEach(function(el){
     var want=el.getAttribute("data-projects");
@@ -1385,6 +1402,10 @@ window.addEventListener("resize",function(){if(window.innerWidth>900)closeMenu(f
 $("#totop").addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});$("#main").focus({preventScroll:true})});
 
 /* ---------- reveal ---------- */
+(function(){var b=document.querySelector(".motion-btn");if(!b)return;var h=document.documentElement;
+function set(on){h.classList.toggle("no-motion",on);b.setAttribute("aria-pressed",on?"true":"false");b.title=on?"Play animations":"Pause animations"}
+try{if(localStorage.getItem("gduxi-no-motion")==="1")set(true)}catch(e){}
+b.addEventListener("click",function(){var on=!h.classList.contains("no-motion");set(on);try{localStorage.setItem("gduxi-no-motion",on?"1":"0")}catch(e){}})})();
 var io=("IntersectionObserver" in window)&&!matchMedia("(prefers-reduced-motion: reduce)").matches?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove("pre");io.unobserve(e.target)}})},{rootMargin:"0px 0px -40px 0px"}):null;
 function reveal(){
   if(!io)return;
