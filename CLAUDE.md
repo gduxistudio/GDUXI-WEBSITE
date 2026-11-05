@@ -379,4 +379,5 @@ Prm asked for these on `experiments` only. They override sections 1, 4, 5 and 6 
   - Roles: gold = primary CTA buttons, eyebrow rules, nav underline, highlights; purple 600/700 = links, secondary buttons, card buttons, active filters, Brand + Digital tag; blue 50/700 = Digital tag; orchid 100/700 = Identity tag.
   - All text/background pairs checked to WCAG AA (script check, 0 failures on the four pages).
 - **Project cards:** "Open in Figma" and "Open the full Figma file" now read "View Prototype ↗". The Canada Bank "Concept" label and "concept" wording were removed (empty `label` is not rendered).
+- **Preview:** Netlify branch deploys are on (2026-11-05), so this branch builds at https://experiments--gduxistudio.netlify.app. Non-production deploys need a Netlify team login.
 - **Prototype links:** `figma` URLs now use `/proto/` with each file's desktop flow starting point (RS Tour 7:85, N'Cafe 2:319, Artisan 12:5, Canada Bank 30:2129), so visitors land in prototype view.
