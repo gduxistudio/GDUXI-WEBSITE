@@ -381,3 +381,9 @@ Prm asked for these on `experiments` only. They override sections 1, 4, 5 and 6 
 - **Project cards:** "Open in Figma" and "Open the full Figma file" now read "View Prototype ↗". The Canada Bank "Concept" label and "concept" wording were removed (empty `label` is not rendered).
 - **Preview:** Netlify branch deploys are on (2026-11-05), so this branch builds at https://experiments--gduxistudio.netlify.app. Non-production deploys need a Netlify team login.
 - **Prototype links:** `figma` URLs now use `/proto/` with each file's desktop flow starting point (RS Tour 7:85, N'Cafe 2:319, Artisan 12:5, Canada Bank 30:2129), so visitors land in prototype view.
+
+## 15. Copy rewrite (2026-11-05, experiments only)
+
+Prm asked for all site copy to be rewritten by a UX writer: warm and human, still professional. Changed: hero intro, section intros, stats labels, why points, steps, values, service summaries, included items, FAQ answers, contact and footer lines, both founder bios (same length and structure, no pronouns), project summaries and descriptions, form labels, validation and sent/failed messages, page titles, meta and og descriptions, cover alt text and the lo-fi gallery note.
+
+Kept on purpose: "Two crafts. One studio.", "Brand to screen. In one flow.", "Where Graphic Design meets UX/uI", "Your brand shouldn't change at the browser.", all facts, numbers, credentials, project names, links and the form email subject. No "founder" wording was added; "Both founders read every message" now reads "We both read every message".
