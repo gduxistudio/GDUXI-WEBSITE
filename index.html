@@ -197,26 +197,14 @@ ul{margin:0;padding:0;list-style:none}
 .hero{position:relative;background:var(--dawn);padding:96px 0 104px;overflow:hidden}
 .hero-row{display:grid;grid-template-columns:1fr 540px;gap:80px;align-items:center}
 .hero-intro{display:flex;flex-direction:column;gap:28px;position:relative;min-width:0}
-/* Hero layouts (Prm, 2026-11-05): .hv-a headline + graphic · .hv-b graphic leads, no visible headline · .hv-c centred stack · .hv-d graphic on a panel */
+/* Hero (Prm picked layout A, 2026-11-05): headline + intro + button on the left, the hero graphic on the right */
 .hero-h{font:700 var(--fs-h1)/1.04 var(--f-display);letter-spacing:-.025em;text-wrap:balance}
 .hero-h .gtext{display:block}
 .hero-intro .lead{max-width:520px}
 .hero-visual{position:relative;min-width:0;display:flex;justify-content:center}
 .hero-art{display:block;width:100%;height:auto;aspect-ratio:640/400}
 .actions{display:flex;gap:14px;flex-wrap:wrap}
-.hv-a .hero-row,.hv-d .hero-row{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px}
-.hv-b .hero-row{grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr);gap:48px}
-.hv-b .hero-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.hv-b .hero-intro .lead{font:500 24px/1.45 var(--f-display);color:var(--ink);letter-spacing:-.01em}
-.hv-c .hero-row{grid-template-columns:1fr;justify-items:center;text-align:center;gap:24px}
-.hv-c{padding:64px 0 88px}
-.hv-c .hero-visual{order:-1;width:100%;max-width:600px}
-.hv-c .hero-intro{align-items:center}
-.hv-c .hero-intro .lead{max-width:640px}
-.hv-c .hero-h{font-size:var(--fs-h2)}
-.hv-c .hero-h .gtext{display:inline}
-.hv-c .eyebrow.line::after{content:"";width:40px;height:3px;border-radius:2px;background:var(--g-400);flex:none}
-.hv-d .hero-visual{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px 24px;box-shadow:var(--shadow-soft)}
+.hv-a .hero-row{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px}
 @keyframes cue{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 /* ---------- marquee ---------- */
@@ -625,8 +613,6 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .work-first{padding-bottom:56px}
   /* phones: the corner blob sits behind the eyebrow, so soften it to keep the 12px eyebrow above 4.5:1 */
   .hero>.blob:first-of-type,.phead>.blob:first-of-type{opacity:.45}
-  .hv-b .hero-intro .lead{font-size:20px}
-  .hv-c .eyebrow.line::before,.hv-c .eyebrow.line::after{width:24px}
   .pop,.hero .badge,.spark,.fcard .dots{display:none}
   .points li{gap:18px}
   .dlg{padding:32px 22px}

@@ -405,3 +405,9 @@ Prm named this state of `experiments` **2.0** and asked for an accessibility tes
 - WCAG 2.2.2: a round pause button on the marquee (`.motion-btn`, `aria-pressed`) pauses every looping animation via `html.no-motion` and is remembered in localStorage. The marquee also pauses on hover or focus. Reduced-motion users get no animation and no button.
 - WCAG 2.5.8: footer "Back to top" and founder-card LinkedIn links are at least 24px tall; footer links use line-height 1.75.
 - Results: axe-core 4.10 (WCAG 2.0/2.1/2.2 A+AA + best practice) 0 violations in 19 views; pixel-measured contrast 0 of 805 text items below AA; keyboard focus ring on every stop; skip link works; no sideways scroll at 320px, 200% text or text-spacing overrides.
+
+## 17. Home hero, layout A (2026-11-05, experiments only)
+
+- Nav and footer have a "Home" link before Work (the phone menu already had one).
+- The hero's "01 · The mark" / "02 · The experience" pictures, crop marks, wireframe pop, scroll cue, glow, second blob and sparkles were removed to make the page less crowded. The CMS fields `home.hero_mark_*`, `hero_site_*`, `hero_joiner`, `hero_project_name` are now unused.
+- Prm compared four layouts (previews in /mnt/project-files/previews/hero-options-2026-11-05/) and chose **A**: eyebrow, the visible headline "Brand to screen." / "In one flow." (gradient second line, `.hero-h`), intro and "See our work" on the left; `hero-studio.svg` on the right (`.hero-visual`). Stacks to one column at 1020px and below.
