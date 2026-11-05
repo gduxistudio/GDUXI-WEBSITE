@@ -76,10 +76,8 @@ ul{margin:0;padding:0;list-style:none}
 .h2{font:650 var(--fs-h3)/1.15 var(--f-display);letter-spacing:-.015em}
 .h3{font:600 var(--fs-h4)/1.25 var(--f-display);letter-spacing:-.01em}
 .h4{font:600 var(--fs-h5)/1.4 var(--f-body);letter-spacing:-.005em}
-/* all headings in capitals (Prm, 2026-11-05) */
-h1,h2,h3,h4,.d-xl,.d-l,.h2,.h3,.h4{text-transform:uppercase}
-.d-xl,.d-l,.h2,.h3{letter-spacing:.005em}
-.h4{letter-spacing:.02em}
+/* headings in Title Case: first letter of each word capital (Prm, 2026-11-05); acronyms like UX/UI keep their capitals */
+.d-xl,.d-l,.h2,.h3,.h4,main h1,main h2,main h3,dialog h2{text-transform:capitalize}
 .lead{font-size:var(--fs-lead);line-height:1.6;color:var(--muted)}
 .small{font-size:var(--fs-small);line-height:1.55}
 .muted{color:var(--muted)}
