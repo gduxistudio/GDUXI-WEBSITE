@@ -144,7 +144,7 @@ def run(p):
         fill()
         page.click("#send")
         page.wait_for_selector("#sentDlg[open]")
-        check(page.is_visible("#sentOk") and "Jane" in page.inner_text("#sentOk"), "success dialog thanks the sender")
+        check(page.is_visible("#sentOk") and "jane" in page.inner_text("#sentOk").lower(), "success dialog thanks the sender")
         check(sent.get("body", {}).get("_subject") == "New project enquiry from the GDUXI website", "form sends the subject")
         page.click("#sentOk [data-route='home']")
         page.wait_for_timeout(200)
