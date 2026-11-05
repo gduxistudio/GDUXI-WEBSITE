@@ -161,7 +161,7 @@ def run(p):
         check(page.is_visible("#sentFail"), "unactivated FormSubmit shows the fallback")
         check(page.get_attribute("#failMail", "href").startswith("mailto:gduxistudio@gmail.com?subject="), "fallback has a pre-filled mailto")
         check("mail.google.com" in page.get_attribute("#failGmail", "href"), "fallback has a Gmail link")
-        page.click("#sentDlg .x")
+        page.click("#sentDlg .dx")
         page.unroute("https://formsubmit.co/**")
 
         # external links

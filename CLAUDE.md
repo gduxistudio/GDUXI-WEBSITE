@@ -415,3 +415,12 @@ Prm named this state of `experiments` **2.0** and asked for an accessibility tes
 ## 18. Header button in logo colours (2026-11-05, experiments only)
 
 Prm asked for the logo gradient on the header "Start a project" button only (`.nav-links+.btn-primary`): `90deg #045FEA → #8549FF 50% → #A22BD1` with white text (the logo's own #D75FFF end is 3.0:1 with white, so the last stop is the darker orchid, 5.5:1). Every other primary button stays gold. A first try that recoloured all buttons was rejected.
+
+## 19. Hero, pop-ups, parallax and skeletons (2026-11-05, experiments only)
+
+- Hero background ends in a softer cream (`#FFF9EE` instead of the dawn gradient's `#FFF5DE`), so the yellow corner is fainter. Page headers keep `--dawn`.
+- Every dialog (sent, case, screens) has one close button `.dx` as its first child: sticky in the top-right corner, so it stays put while the pop-up scrolls. The old `.x` buttons are gone (tests updated).
+- While any dialog is open the page behind can't scroll: `html:has(dialog[open]){overflow:hidden}` plus `overscroll-behavior:contain` on dialogs.
+- Parallax: blobs, waves, glows, dots, outline words and the hero art drift at their own speed on scroll (CSS `translate`, capped at ±60px, 60% on phones). Off with reduced motion and with the marquee pause button.
+- Skeletons: any image still loading gets class `ld` (shimmer placeholder, with a sensible aspect ratio in the screens and case pop-ups), added by a MutationObserver, removed on load or error.
+- "View Prototype" buttons are now a round ↗ icon button (`.mbtn.ico`), with a "View prototype (opens in a new tab)" screen-reader label and tooltip.
