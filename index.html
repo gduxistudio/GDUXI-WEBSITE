@@ -615,7 +615,8 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
   .shot .cap>span:first-child{font-size:15px}
   .flow{font-size:12px}
 }
-/* Project thumbnails keep their own shape on tablets and phones (no side cropping) */
+/* Project thumbnails keep their own shape on phones (no side cropping); 16:9 covers keep their title side on wider cards */
+.proj .cover img[src*="proj-rs-tour"],.proj .cover img[src*="proj-artisan"]{object-position:left center}
 @media (max-width:760px){
   .proj .cover{height:auto}
   .proj .cover img{height:auto;display:block}
