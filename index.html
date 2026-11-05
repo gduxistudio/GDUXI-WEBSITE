@@ -735,7 +735,8 @@ img.ld{color:transparent;background:linear-gradient(100deg,var(--sk1) 30%,var(--
   html[data-theme="dark"] .fid .sig{mix-blend-mode:screen;filter:invert(1) hue-rotate(180deg)}
   html[data-theme="dark"] .hero-art{filter:brightness(.94)}
 .theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;margin-left:-24px;transition:border-color .2s,transform .3s}
-.theme-btn:hover{border-color:var(--p-500);transform:rotate(15deg)}
+@media (hover:hover){.theme-btn:hover{border-color:var(--p-500);transform:rotate(15deg)}}
+.theme-btn{-webkit-tap-highlight-color:transparent}
 .theme-btn svg{width:16px;height:16px}
 .theme-btn .i-sun{display:none}
 html[data-theme="dark"] .theme-btn .i-sun{display:block}
