@@ -450,3 +450,10 @@ Prm chose option 1 of three (embed / clickable screens / rebuild): the "Prototyp
 - Visitors only see the prototype if each Figma file is shared as "Anyone with the link · can view" (still an open item).
 - Not verified against real Figma: the cloud sandbox can't reach embed.figma.com, so tests stub it. Check on the Netlify preview.
 - `tests/test_figma_links.py` now checks the embed URL and the Figma tab, and matches titles case-insensitively (the Title Case CSS had made the RS campaigns check fail). Both test files pass.
+
+## 23. Audit and merge to main (2026-11-05)
+
+Prm asked to merge `experiments` into main (the live site, https://gduxi.studio) after a full check, keeping the original safe. Backups of the old main (360f790): branches `backup/2026-11-04` and `backup/main-before-merge-2026-11-05`, plus /mnt/project-files/backups/2026-11-04/.
+- SEO additions: canonical `https://gduxi.studio/`, absolute `og:image`, og:type/url/site_name, Twitter card, JSON-LD `ProfessionalService` (founders, email, area served), `robots.txt` (admin disallowed) and `sitemap.xml`. `netlify.toml` caches `/assets/*` for 7 days and marks `/admin/*` noindex.
+- Fixes from Lighthouse: logo links and service cards no longer use an aria-label that differs from their visible text; founder photos and signatures lazy-load; the hero graphic is preloaded with high priority; the hero entrance animation starts at 1% opacity so it doesn't delay LCP.
+- Results (local server, Lighthouse 12.2.1, 4 pages): Accessibility 100, Best practices 100, SEO 100 on desktop and phone; Performance 98–99 desktop, 79–81 phone. The phone score is held down by things the local server lacks (text compression, cache headers), which Netlify provides, so the live score should be higher. axe-core: 0 violations in 16 views (light and dark). Alt text: every image has alt (descriptive or empty for decorative). One h1 per page, no skipped heading levels. No broken local links. Pixel contrast: 0 of 821 text items below AA in light and dark.

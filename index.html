@@ -11,7 +11,14 @@
 <meta name="theme-color" content="#100E1E" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="GDUXI Studio · Brand to screen. In one flow.">
 <meta property="og:description" content="A brand and digital design studio. We design your mark and your website or app together, so they feel like one.">
-<meta property="og:image" content="assets/img/hero-site.jpg">
+<meta property="og:image" content="https://gduxi.studio/assets/img/hero-site.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gduxi.studio/">
+<meta property="og:site_name" content="GDUXI Studio">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://gduxi.studio/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"GDUXI Studio","url":"https://gduxi.studio/","logo":"https://gduxi.studio/favicon-512.png","image":"https://gduxi.studio/assets/img/hero-site.jpg","email":"gduxistudio@gmail.com","slogan":"Brand to screen. In one flow.","description":"A brand and digital design studio in the Greater Toronto Area. Logo and identity design together with UX/UI design for websites and apps.","areaServed":["Canada","India","Worldwide"],"address":{"@type":"PostalAddress","addressRegion":"ON","addressCountry":"CA"},"founder":[{"@type":"Person","name":"Navita Ramanand","jobTitle":"UX/UI Designer & Researcher","sameAs":"https://www.linkedin.com/in/navita-r-122158224/"},{"@type":"Person","name":"Paramdeep Singh","jobTitle":"Logo & Graphic Designer","sameAs":"https://www.linkedin.com/in/singh1313param/"}],"knowsAbout":["Logo design","Brand identity","UX research","UX/UI design","Web design","App design"]}</script>
+<link rel="preload" as="image" href="assets/img/hero-studio.svg" fetchpriority="high">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
@@ -250,7 +257,7 @@ ul{margin:0;padding:0;list-style:none}
 .actions{display:flex;gap:14px;flex-wrap:wrap}
 .hv-a .hero-row{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:56px}
 /* subtle motion: hero entrance, floating hero art, twinkling sparkles */
-@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:.01;transform:translateY(16px)}to{opacity:1;transform:none}}
 .hero-intro>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
 .hero-intro>:nth-child(2){animation-delay:.08s}.hero-intro>:nth-child(3){animation-delay:.16s}.hero-intro>:nth-child(4){animation-delay:.24s}
 .hero-visual{animation:rise 1s .2s cubic-bezier(.2,.7,.2,1) both}
@@ -760,9 +767,9 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
 
 <header class="nav">
   <div class="wrap">
-    <a href="#home" data-route="home" class="logo" aria-label="GDUXI Studio, home">
+    <a href="#home" data-route="home" class="logo">
       <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg-n" x1="0" x2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#D75FFF"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg-n)"/><path d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="31.5" cy="14" r="2.6" fill="#fff"/></svg>
-      <span class="word" aria-hidden="true"><span class="wm"><b>GD</b><i>UXI</i></span><span class="st">STUDIO</span></span>
+      <span class="word"><span class="wm"><b>GD</b><i>UXI</i></span><span class="st"><span class="sr-only"> </span>STUDIO</span></span><span class="sr-only">, home</span>
     </a>
     <div class="nav-right">
       <nav class="nav-links" aria-label="Main">
@@ -781,9 +788,9 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
 
 <div id="mmenu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <div class="mm-top">
-    <a href="#home" data-route="home" class="logo" aria-label="GDUXI Studio, home">
+    <a href="#home" data-route="home" class="logo">
       <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><use href="#logo-mark"/></svg>
-      <span class="word" aria-hidden="true"><span class="wm"><b>GD</b><i>UXI</i></span><span class="st">STUDIO</span></span>
+      <span class="word"><span class="wm"><b>GD</b><i>UXI</i></span><span class="st"><span class="sr-only"> </span>STUDIO</span></span><span class="sr-only">, home</span>
     </a>
     <button class="close" type="button" aria-label="Close menu" id="mclose">✕</button>
   </div>
@@ -825,7 +832,7 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
         </div>
       </div>
       <div class="hero-visual">
-        <img class="hero-art" data-ci="home.hero_graphic" src="assets/img/hero-studio.svg" alt="GDUXI Studio illustration: a gradient logo mark with its bezier anchor points overlaps a website window and a phone screen, joined by one flowing line, showing logo design and UX/UI design as one practice." width="640" height="400" fetchpriority="high">
+        <img class="hero-art" fetchpriority="high" data-ci="home.hero_graphic" src="assets/img/hero-studio.svg" alt="GDUXI Studio illustration: a gradient logo mark with its bezier anchor points overlaps a website window and a phone screen, joined by one flowing line, showing logo design and UX/UI design as one practice." width="640" height="400" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -1145,9 +1152,9 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
   <div class="wrap">
     <div class="ftop">
       <div class="fbrand">
-        <a href="#home" data-route="home" class="logo dark" aria-label="GDUXI Studio, home">
+        <a href="#home" data-route="home" class="logo dark">
           <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><use href="#logo-mark"/></svg>
-          <span class="word" aria-hidden="true"><span class="wm"><b>GD</b><i>UXI</i></span><span class="st">STUDIO</span></span>
+          <span class="word"><span class="wm"><b>GD</b><i>UXI</i></span><span class="st"><span class="sr-only"> </span>STUDIO</span></span><span class="sr-only">, home</span>
         </a>
         <p class="tag-l" data-c="contact.footer_tagline">Brand to screen. In one flow.</p>
         <p data-c="contact.footer_description">A brand and digital design studio in the Greater Toronto Area, working with startups and small businesses wherever they are.</p>
@@ -1306,7 +1313,7 @@ function list(sel,h){$$('[data-list="'+sel+'"]').forEach(function(el){el.innerHT
 function founderCard(f,detail){
   var skills=(f.skills||[]).map(function(s){return"<li>"+esc(s)+"</li>"}).join("");
   var li=safeUrl(f.linkedin);
-  var card='<article class="fcard rv"><div class="dots" aria-hidden="true"></div><div class="fhead"><div class="ph"><img src="'+esc(safeUrl(f.photo))+'" alt="Portrait of '+esc(f.name)+'" width="132" height="132"></div><div class="fid">'+(f.signature?'<img class="sig" src="'+esc(safeUrl(f.signature))+'" alt="" width="200" height="48">':"")+'<h3 class="h3">'+esc(f.name)+'</h3><p class="role">'+esc(f.role)+'</p></div></div><p class="bio">'+nl(f.bio)+'</p><div class="leads"><span>Leads</span>'+tag(f.leads)+'</div><ul class="skills">'+skills+"</ul>"+(li?'<a class="link" href="'+esc(li)+'" target="_blank" rel="noopener noreferrer">LinkedIn ↗'+NEWTAB+"</a>":"")+"</article>";
+  var card='<article class="fcard rv"><div class="dots" aria-hidden="true"></div><div class="fhead"><div class="ph"><img loading="lazy" src="'+esc(safeUrl(f.photo))+'" alt="Portrait of '+esc(f.name)+'" width="132" height="132"></div><div class="fid">'+(f.signature?'<img class="sig" loading="lazy" src="'+esc(safeUrl(f.signature))+'" alt="" width="200" height="48">':"")+'<h3 class="h3">'+esc(f.name)+'</h3><p class="role">'+esc(f.role)+'</p></div></div><p class="bio">'+nl(f.bio)+'</p><div class="leads"><span>Leads</span>'+tag(f.leads)+'</div><ul class="skills">'+skills+"</ul>"+(li?'<a class="link" href="'+esc(li)+'" target="_blank" rel="noopener noreferrer">LinkedIn ↗'+NEWTAB+"</a>":"")+"</article>";
   if(!detail)return card;
   var bg=(f.background||[]).map(function(b){return"<li><b>"+esc(b.title)+"</b><span>"+esc(b.detail)+"</span></li>"}).join("");
   return'<div class="fcol">'+card+'<div class="bgcard rv"><h4>Background · '+esc(f.short||f.name)+"</h4><ul>"+bg+"</ul></div></div>";
@@ -1314,7 +1321,7 @@ function founderCard(f,detail){
 function serviceCard(s,i,n){
   var feat=i===n-1;
   var items=(s.items||[]).map(function(x){return"<li>"+esc(x)+"</li>"}).join("");
-  return'<a class="svc rv'+(feat?" feat":"")+'" href="#contact" data-route="contact" data-need="'+esc(s.need||"n3")+'" aria-label="'+esc(s.title)+': start a project">'+(feat?'<div class="waves" data-wave="dark"></div><span class="spark" aria-hidden="true">'+STAR+"</span>":"")+'<div class="top"><span class="num">'+String(i+1).padStart(2,"0")+"</span>"+tag(s.group)+'</div><h3 class="h3">'+esc(s.title)+'</h3><p class="sum">'+nl(s.summary)+"</p><ul>"+items+'</ul><hr><p class="time">'+esc(s.timeline)+"</p></a>";
+  return'<a class="svc rv'+(feat?" feat":"")+'" href="#contact" data-route="contact" data-need="'+esc(s.need||"n3")+'">'+(feat?'<div class="waves" data-wave="dark"></div><span class="spark" aria-hidden="true">'+STAR+"</span>":"")+'<div class="top"><span class="num">'+String(i+1).padStart(2,"0")+"</span>"+tag(s.group)+'</div><h3 class="h3">'+esc(s.title)+'</h3><p class="sum">'+nl(s.summary)+"</p><ul>"+items+'</ul><hr><p class="time">'+esc(s.timeline)+"</p></a>";
 }
 function hasShots(p){return(p.screens||[]).some(function(s){return s&&s.image})}
 function plinks(p,i,u){return'<div class="plinks"><button type="button" class="mbtn pri" data-screens="'+i+'" aria-label="View screens of '+esc(p.title)+'">Screens <span aria-hidden="true">→</span></button>'+(u?'<button type="button" class="mbtn" data-proto="'+i+'" aria-label="View the '+esc(p.title)+' prototype">Prototype <span aria-hidden="true">→</span></button>':"")+"</div>"}
