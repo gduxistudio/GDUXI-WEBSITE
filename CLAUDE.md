@@ -391,3 +391,5 @@ Kept on purpose: "Two crafts. One studio.", "Brand to screen. In one flow.", "Wh
 - 2026-11-05: Prm asked for the spinning circle badge to read all capitals, so it is now "GD × UX/UI" (experiments only). The "Where Graphic Design meets UX/uI" heading keeps its casing.
 - 2026-11-05: on phones (760px and below) project thumbnails show the whole image at its own shape instead of a fixed 250px crop (experiments only).
 - 2026-11-05: proj-rs-tour.jpg and proj-artisan.jpg were cropped 358x250 exports; replaced with full 16:9 covers (1124x633) from each project file's cover frame (RS Tour 34:1449, Artisan 18:2241). On wider cards they anchor left so the title side shows.
+- **Casing (2026-11-05):** Prm asked for every "UX/UI" in capitals. This overrides the old "UX/uI" rule in section 8. Headings use Title Case through CSS `text-transform:capitalize`.
+- **Decorations stay inside the guidelines:** badges and pops sit inside `.wrap` (class `badge in-wrap`) or use `right:max(var(--gut),calc(50% - 600px))`, so none of them gets cut off at the screen edge. There is no badge on the purple CTA banner.
