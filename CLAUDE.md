@@ -424,3 +424,11 @@ Prm asked for the logo gradient on the header "Start a project" button only (`.n
 - Parallax: blobs, waves, glows, dots, outline words and the hero art drift at their own speed on scroll (CSS `translate`, capped at ±60px, 60% on phones). Off with reduced motion and with the marquee pause button.
 - Skeletons: any image still loading gets class `ld` (shimmer placeholder, with a sensible aspect ratio in the screens and case pop-ups), added by a MutationObserver, removed on load or error.
 - "View Prototype" buttons are now a round ↗ icon button (`.mbtn.ico`), with a "View prototype (opens in a new tab)" screen-reader label and tooltip.
+
+## 20. Dark mode (2026-11-05, experiments only)
+
+The site follows the device's light/dark setting (`prefers-color-scheme`); there is no toggle. Prm asked for it after a black bar showed in the screens pop-up (dialogs had no background of their own, so a dark device painted them black).
+- Surface tokens in `:root`: `--surface` (cards, dialogs, pills, was `#fff`), `--well`/`--well-2` (pop-up galleries), `--sk1`/`--sk2` (skeleton), `--hero-bg`, `--nav-bg`, plus `color-scheme`. Purple 700 as text or border now goes through `--link`. Use these tokens for new light surfaces, not `#fff`.
+- Dark values: page `#100E1E`, cards `#1B1832`, mist `#15122A`, line `#2F2A4C`, ink `#F2EFFA`, muted `#B2ABCA`, link `#C3B5F2`, lighter text gradient `#7FAEFF → #B4A2F0 → #E39BFA`. Bands, footer, gold buttons and the header gradient button stay as they are.
+- Component tweaks sit in a `@media (prefers-color-scheme:dark)` block at the end of the stylesheet: header logo uses its on-dark colours, Digital/Identity tags, dimmed blobs and glow, outline word, select arrow, form errors, signatures (inverted with `screen` blend), focus ring.
+- Checked: pixel-measured contrast 0 of 789 text items below AA in dark and in light; test_site.py all passed.
