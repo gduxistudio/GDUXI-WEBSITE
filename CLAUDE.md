@@ -411,3 +411,7 @@ Prm named this state of `experiments` **2.0** and asked for an accessibility tes
 - Nav and footer have a "Home" link before Work (the phone menu already had one).
 - The hero's "01 · The mark" / "02 · The experience" pictures, crop marks, wireframe pop, scroll cue, glow, second blob and sparkles were removed to make the page less crowded. The CMS fields `home.hero_mark_*`, `hero_site_*`, `hero_joiner`, `hero_project_name` are now unused.
 - Prm compared four layouts (previews in /mnt/project-files/previews/hero-options-2026-11-05/) and chose **A**: eyebrow, the visible headline "Brand to screen." / "In one flow." (gradient second line, `.hero-h`), intro and "See our work" on the left; `hero-studio.svg` on the right (`.hero-visual`). Stacks to one column at 1020px and below.
+
+## 18. Primary buttons in logo colours (2026-11-05, experiments only)
+
+Prm didn't like the gold primary buttons, so `.btn-primary` (nav and menu "Start a project", hero "See our work", "Send message", sent-dialog buttons) now uses the logo gradient with white text: `90deg #045FEA → #8549FF 50% → #A22BD1`. The logo's own pink end `#D75FFF` is only 3.0:1 with white, so the last stop uses the darker text-gradient orchid (5.5:1); every stop passes AA. Hover darkens slightly (`filter:brightness(.92)`) and lifts. On the purple CTA banner the button is white with purple 700 text, so it doesn't blend into the band. Gold stays for the eyebrow rule, nav underline and sparkles.
