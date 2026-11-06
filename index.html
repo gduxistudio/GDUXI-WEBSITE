@@ -282,13 +282,6 @@ ul{margin:0;padding:0;list-style:none}
 /* WCAG 2.2.2: moving content can be paused (button on the marquee pauses every looping animation; hover/focus pauses the marquee) */
 .marquee{position:relative}
 html.no-motion *,html.no-motion *::before,html.no-motion *::after{animation-play-state:paused!important}
-.motion-btn{position:absolute;right:max(var(--gut),calc(50% - 600px));top:50%;transform:translateY(-50%);z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 10px var(--surface)}
-.motion-btn:hover{border-color:var(--p-500);color:var(--link)}
-.motion-btn svg{width:14px;height:14px}
-.motion-btn .i-play{display:none}
-html.no-motion .motion-btn .i-play{display:block}
-html.no-motion .motion-btn .i-pause{display:none}
-@media (prefers-reduced-motion:reduce){.motion-btn{display:none}}
 :root{--star:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z'/%3E%3C/svg%3E")}
 
 /* ---------- founders ---------- */
@@ -839,7 +832,7 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
     </div>
   </section>
 
-  <div class="marquee" role="group" aria-label="What we design"><div class="track" data-list="marquee"></div><button class="motion-btn" type="button" aria-pressed="false" aria-label="Pause animations" title="Pause animations"><svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/><rect x="8.5" y="1.5" width="3" height="11" rx="1" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 14 14" aria-hidden="true"><path d="M3.5 1.8v10.4c0 .5.6.8 1 .5l8-5.2a.6.6 0 0 0 0-1l-8-5.2c-.4-.3-1 0-1 .5z" fill="currentColor"/></svg></button></div>
+  <div class="marquee" role="group" aria-label="What we design"><div class="track" data-list="marquee"></div></div>
 
   <section class="section bg-mist work-first" aria-labelledby="sw-h">
     <div class="glow" style="left:-160px;top:-120px;width:588px;height:588px"></div>
@@ -1533,10 +1526,7 @@ window.addEventListener("resize",function(){if(window.innerWidth>900)closeMenu(f
 $("#totop").addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});$("#main").focus({preventScroll:true})});
 
 /* ---------- reveal ---------- */
-(function(){var b=document.querySelector(".motion-btn");if(!b)return;var h=document.documentElement;
-function set(on){h.classList.toggle("no-motion",on);b.setAttribute("aria-pressed",on?"true":"false");b.title=on?"Play animations":"Pause animations"}
-try{if(localStorage.getItem("gduxi-no-motion")==="1")set(true)}catch(e){}
-b.addEventListener("click",function(){var on=!h.classList.contains("no-motion");set(on);try{localStorage.setItem("gduxi-no-motion",on?"1":"0")}catch(e){}})})();
+
 /* ---------- light / dark switch (defaults to the device setting) ---------- */
 (function(){var b=$("#themeBtn");if(!b)return;var h=document.documentElement,mq=matchMedia("(prefers-color-scheme: dark)");
   function cur(){return h.getAttribute("data-theme")||(mq.matches?"dark":"light")}
