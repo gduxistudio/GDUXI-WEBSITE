@@ -461,3 +461,7 @@ Prm asked to merge `experiments` into main (the live site, https://gduxi.studio)
 ## 24. Logo lockup alignment (2026-11-05, experiments only)
 
 Prm asked for "STUDIO" under "GDU", starting slightly inside the G (about a quarter in), with the space under "XI" left open. `.logo .st` is Inter 600 10px with 4.15px tracking, `padding-left:5.25px` and `margin-right:-4.15px`, plus `.logo .st::first-letter{margin-right:-1.25px}` so the S sits a touch closer to the T (Prm: "S is a bit off"). The STUDIO ink runs 5.75–62.5px: from a quarter into the G (G is 2.0–17.0) to the U's right edge (62.5). Rejected tries on the way: STUDIO stretched from G to I, under D to X, centred under GDUXI, from the G's left edge to the U, and from the middle of the G ("half is too much"). Header, footer, phone menu and contact card share it. If the wordmark size changes, re-measure the ink rather than guessing.
+
+## 25. Ticker pause button removed (2026-11-06, live)
+
+Prm asked to remove the round pause button from the marquee (ticker). Its markup, `.motion-btn` styles and script are gone; the unused `html.no-motion` rules stay harmless. Visitors with reduced motion set on their device still get no animation. Note: this drops the WCAG 2.2.2 pause control from section 16, so an automated audit may now flag the endlessly moving ticker; re-add a control only if Prm asks.
