@@ -227,7 +227,7 @@ The logo:
 | Ek Oankar | Identity | No Figma link: opens the on-site pop-up with `assets/img/case-ek-oankar-1/2.jpg` (exported from Paramdeep's portfolio, case study 02, node `25:1051`) |
 | Artisan Crafts | Brand + Digital | `figma.com/design/17WEqDMeY9NPCAWhZvrvS1/...?node-id=0-1` (brand guide + lo/hi-fi file) |
 | Canada Bank | Digital | `figma.com/design/uO4KBkt4W3AKwAXOf16xPE/...?node-id=0-1` (fictional bank concept) |
-| Highway Coaches | Identity | No Figma link: opens the on-site pop-up with eight labelled pieces in `assets/img/highway-coaches/` (catalog cover, intro, three fleet pages, team, enquiries, one promo-film frame), rendered from the client's 11-page Canva catalog |
+| Highway Coaches | Identity | No Figma link: opens the on-site pop-up with four labelled pieces in `assets/img/highway-coaches/` (catalog cover, intro and services, the 49–53 seater fleet page, Our Team; Prm asked for 4 in total), rendered from the client's 11-page Canva catalog |
 | RS Tour & Traveler campaigns | Identity | No Figma link: opens the on-site pop-up with five labelled pieces in `assets/img/rs-campaigns/` (2 banners, 2 stories, 1 flyer, laid out as a grid) and `assets/img/case-rs-campaigns-2.jpg` (portfolio nodes `25:972` "Campaigns & print" and `25:1048` "Result") |
 
 The owner asked (2026-10-29) that these two cards show only their own project, not the rest of Paramdeep's portfolio file, so they no longer link to Figma. The full URLs for the other four are in `content/projects.json`. Each file must be shared as **"Anyone with the link · can view"**, or visitors see a request-access screen. The owners have to do this in Figma.
@@ -470,7 +470,7 @@ Prm asked to remove the round pause button from the marquee (ticker). Its markup
 ## 26. Highway Coaches project (2026-11-15)
 
 Prm asked to add the Highway Coaches client work (a fleet catalog for a London coach company, plus a promo film) to the site.
-- New `id` project before "RS Tour & Traveler campaigns" in `content/projects.json`, using the existing `pieces` and `facts` fields (no new fields). Cover `assets/img/proj-highway-coaches.jpg` is a 16:9 crop of the catalog cover.
+- New `id` project, first in `content/projects.json` because it is the most recent work (Prm's request), so it leads Home "Selected work" and Work "More projects". Its pop-up shows 4 catalog pages only (Prm: not all pages), using the existing `pieces` and `facts` fields (no new fields). Cover `assets/img/proj-highway-coaches.jpg` is a 16:9 crop of the catalog cover.
 - Home "Selected work" now shows at most 6 cards (`data-max="6"` on the grid) so the 3-column grid stays full; with Highway Coaches inserted, "RS Tour & Traveler campaigns" shows only on the Work page. Remove or raise `data-max` to show all.
 - Work "More projects" has 5 cards (last one sits alone on the left). Filter counts: Identity · 3, All work · 7. `tests/test_site.py` counts updated.
 - Case-study PDF and its HTML source: /mnt/project-files/portfolio/highway-coaches/ (not in the repo).
