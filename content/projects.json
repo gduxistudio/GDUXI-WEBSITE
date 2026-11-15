@@ -534,6 +534,76 @@
       "facts": []
     },
     {
+      "title": "Highway Coaches",
+      "figma": "",
+      "group": "id",
+      "label": "2026",
+      "cover": "/assets/img/proj-highway-coaches.jpg",
+      "logo": "",
+      "screen": "",
+      "pages": [],
+      "pieces": [
+        {
+          "kind": "Cover",
+          "label": "Three coaches in livery",
+          "image": "/assets/img/highway-coaches/01-cover.jpg"
+        },
+        {
+          "kind": "Introduction",
+          "label": "Because Service Matters, and seven services",
+          "image": "/assets/img/highway-coaches/02-intro-services.jpg"
+        },
+        {
+          "kind": "Fleet page",
+          "label": "16–19 seater executive mini-bus",
+          "image": "/assets/img/highway-coaches/03-fleet-16-19-minibus.jpg"
+        },
+        {
+          "kind": "Fleet page",
+          "label": "49–53 seater executive coach",
+          "image": "/assets/img/highway-coaches/04-fleet-49-53-coach.jpg"
+        },
+        {
+          "kind": "Fleet page",
+          "label": "80 seater double-deck coach",
+          "image": "/assets/img/highway-coaches/05-fleet-80-double-deck.jpg"
+        },
+        {
+          "kind": "People",
+          "label": "Our team",
+          "image": "/assets/img/highway-coaches/06-our-team.jpg"
+        },
+        {
+          "kind": "Contact",
+          "label": "Enquiries",
+          "image": "/assets/img/highway-coaches/07-enquiries.jpg"
+        },
+        {
+          "kind": "Promo film",
+          "label": "Seven ways to travel, 34 seconds in three formats",
+          "image": "/assets/img/highway-coaches/08-film-fleet-scene.jpg"
+        }
+      ],
+      "screens": [],
+      "short": "A fleet catalog and promo film for a family-run London coach company, so twenty years of good service finally has something to hand over.",
+      "who": "Catalog & motion",
+      "description": "Highway Coaches has run coaches from a depot four miles from Heathrow since 2005, for schools, airports, embassies and UK tours. We designed an 11-page fleet catalog with one clear template for all seven vehicles, then turned it into a 34-second promo film for social media and the web.",
+      "facts": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Deliverables",
+          "value": "11-page fleet catalog (print & PDF), promo film in 16:9, 1:1 and 9:16"
+        },
+        {
+          "label": "Skills",
+          "value": "Editorial layout, information design, typography, art direction, photo retouching, motion design"
+        }
+      ]
+    },
+    {
       "title": "RS Tour & Traveler campaigns",
       "figma": "",
       "group": "id",
