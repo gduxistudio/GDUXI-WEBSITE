@@ -23,12 +23,12 @@
         {
           "kind": "Fleet page",
           "label": "49–53 seater executive coach",
-          "image": "/assets/img/highway-coaches/04-fleet-49-53-coach.jpg"
+          "image": "/assets/img/highway-coaches/03-fleet-49-53-coach.jpg"
         },
         {
-          "kind": "People",
-          "label": "Our team",
-          "image": "/assets/img/highway-coaches/06-our-team.jpg"
+          "kind": "Contact",
+          "label": "Enquiries",
+          "image": "/assets/img/highway-coaches/04-enquiries.jpg"
         }
       ],
       "screens": [],

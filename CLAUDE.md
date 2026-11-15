@@ -227,7 +227,7 @@ The logo:
 | Ek Oankar | Identity | No Figma link: opens the on-site pop-up with `assets/img/case-ek-oankar-1/2.jpg` (exported from Paramdeep's portfolio, case study 02, node `25:1051`) |
 | Artisan Crafts | Brand + Digital | `figma.com/design/17WEqDMeY9NPCAWhZvrvS1/...?node-id=0-1` (brand guide + lo/hi-fi file) |
 | Canada Bank | Digital | `figma.com/design/uO4KBkt4W3AKwAXOf16xPE/...?node-id=0-1` (fictional bank concept) |
-| Highway Coaches | Identity | No Figma link: opens the on-site pop-up with four labelled pieces in `assets/img/highway-coaches/` (catalog cover, intro and services, the 49–53 seater fleet page, Our Team; Prm asked for 4 in total), rendered from the client's 11-page Canva catalog |
+| Highway Coaches | Identity | No Figma link: opens the on-site pop-up with four labelled pieces in `assets/img/highway-coaches/` (catalog cover, intro and services, the 49–53 seater fleet page, Enquiries (the last page); Prm asked for 4 in total), rendered from the client's 11-page Canva catalog |
 | RS Tour & Traveler campaigns | Identity | No Figma link: opens the on-site pop-up with five labelled pieces in `assets/img/rs-campaigns/` (2 banners, 2 stories, 1 flyer, laid out as a grid) and `assets/img/case-rs-campaigns-2.jpg` (portfolio nodes `25:972` "Campaigns & print" and `25:1048` "Result") |
 
 The owner asked (2026-10-29) that these two cards show only their own project, not the rest of Paramdeep's portfolio file, so they no longer link to Figma. The full URLs for the other four are in `content/projects.json`. Each file must be shared as **"Anyone with the link · can view"**, or visitors see a request-access screen. The owners have to do this in Figma.
