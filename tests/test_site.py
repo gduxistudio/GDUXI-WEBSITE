@@ -100,7 +100,7 @@ def run(p):
         # filters
         page.evaluate("location.hash='#work'")
         page.wait_for_timeout(250)
-        for f, bt, mw, cards in [("bd", True, False, 0), ("dg", False, True, 2), ("id", False, True, 2), ("all", True, True, 4)]:
+        for f, bt, mw, cards in [("bd", True, False, 0), ("dg", False, True, 2), ("id", False, True, 3), ("all", True, True, 5)]:
             page.click(f"[data-filter='{f}']")
             page.wait_for_timeout(150)
             check(page.is_visible("#built-together") == bt and page.is_visible("#more-work") == mw, f"filter {f}: sections")
