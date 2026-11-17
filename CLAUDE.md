@@ -474,3 +474,7 @@ Prm asked to add the Highway Coaches client work (a fleet catalog for a London c
 - Home "Selected work" now shows at most 6 cards (`data-max="6"` on the grid) so the 3-column grid stays full; with Highway Coaches inserted, "RS Tour & Traveler campaigns" shows only on the Work page. Remove or raise `data-max` to show all.
 - Work "More projects" has 5 cards (last one sits alone on the left). Filter counts: Identity · 3, All work · 7. `tests/test_site.py` counts updated.
 - Case-study PDF and its HTML source: /mnt/project-files/portfolio/highway-coaches/ (not in the repo).
+
+## 27. Link preview image (2026-11-17)
+
+Links to gduxi.studio on LinkedIn and elsewhere showed the RS Tour website screenshot (`hero-site.jpg`). Prm asked for the GDUXI logo instead. `og:image`, `twitter:image` and the JSON-LD `image` now point to `assets/img/og-image.jpg` (1200x627: colour logo lockup, gold rule, "Brand to screen. In one flow." on the hero gradient), with width, height, type and alt tags. Source HTML and render script: /mnt/project-files/brand-kit/06-social-preview/ (`node r.js og.html out.png`). LinkedIn caches previews: after a change, re-inspect the URL at https://www.linkedin.com/post-inspector/.
