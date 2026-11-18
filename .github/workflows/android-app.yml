@@ -1,0 +1,35 @@
+# Builds the Android app (test version) whenever android/ changes.
+# Download it from the run's "Artifacts" section on GitHub → Actions.
+name: Android app
+
+on:
+  push:
+    paths:
+      - "android/**"
+      - ".github/workflows/android-app.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build test APK
+        run: ./gradlew assembleDebug lintDebug --stacktrace
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gduxi-studio-test-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lint-report
+          path: android/app/build/reports/lint-results-debug.html

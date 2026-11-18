@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GDUXI Studio</string>
+    <string name="offline_title">You\'re offline</string>
+    <string name="offline_body">Connect to Wi-Fi or mobile data, then try again to see our work.</string>
+    <string name="offline_retry">Try again</string>
+</resources>

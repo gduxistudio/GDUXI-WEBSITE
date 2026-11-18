@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="page">#100E1E</color>
+    <color name="ink">#F2EFFA</color>
+    <color name="muted">#B2ABCA</color>
+    <color name="purple">#C3B5F2</color>
+    <color name="splash">#100E1E</color>
+</resources>
