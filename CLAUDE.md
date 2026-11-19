@@ -11,8 +11,8 @@ Read this whole file before changing anything. The **Rules** section lists thing
 | | |
 |---|---|
 | Studio email | gduxistudio@gmail.com |
-| Navita LinkedIn | https://www.linkedin.com/in/navita-r-122158224/ |
-| Paramdeep LinkedIn | https://www.linkedin.com/in/singh1313param/ |
+| Navita LinkedIn | https://www.linkedin.com/in/navrgduxi/ |
+| Paramdeep LinkedIn | https://www.linkedin.com/in/prmsgduxi/ |
 | Location line | Greater Toronto Area · remote worldwide |
 | Hosting plan | Netlify (static, no build command), connected to a GitHub repo |
 | Dashboard | Decap CMS 3 at `/admin`, GitHub backend with Netlify as the OAuth provider |
