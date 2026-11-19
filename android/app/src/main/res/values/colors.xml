@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light mode. Dark mode values are in values-night/colors.xml -->
+    <color name="page">#FFFFFF</color>
+    <color name="ink">#1D1933</color>
+    <color name="muted">#5E5874</color>
+    <color name="purple">#6F55C9</color>
+    <color name="gold">#FFBE2E</color>
+    <color name="gold_text">#1D1933</color>
+    <color name="splash">#FFFFFF</color>
+</resources>

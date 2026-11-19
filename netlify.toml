@@ -15,3 +15,10 @@
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# The Android app's source code lives in this repo but isn't part of the website.
+[[redirects]]
+  from = "/android/*"
+  to = "/404"
+  status = 404
+  force = true
