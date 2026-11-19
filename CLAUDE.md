@@ -485,3 +485,9 @@ Links to gduxi.studio on LinkedIn and elsewhere showed the RS Tour website scree
 - `privacy/index.html` (served at https://gduxi.studio/privacy/): a standalone privacy policy page, needed for Google Play. It isn't in the dashboard; edit the HTML directly. It describes the contact form, FormSubmit, Gmail, Netlify, Google Fonts, Figma embeds, the theme setting in localStorage, and the app. Update it if the site adds analytics, a newsletter or other services. Linked from the footer's Studio column and listed in `sitemap.xml`.
 - Copyright (2026-11-19): `copyright/index.html` (https://gduxi.studio/copyright/), same template as the privacy page, says who owns the site's work, that client logos belong to clients, and what needs permission. Footer copyright line (`contact.copyright`) reads "© 2026 GDUXI Studio. All rights reserved."; "Copyright" link after "Privacy" in the footer's Studio column. The app's offline screen shows the same © line. Update the year in all of these each January.
 
+
+## 29. Gradient end colour #BB58FF (2026-11-19)
+
+Prm asked to swap the pink/purple shade in the site gradient for `#BB58FF`. It replaces the orchid end `#D75FFF` of the brand gradient (`--grad`, the logo mark SVGs, the "UXI" wordmark, the wave lines, `hero-studio.svg`, and the logos on /privacy/ and /copyright/), and the end of the gradient text `--grad-text` (light `#A22BD1` and dark `#E39BFA`). That text is only used at 42px and up, where #BB58FF passes the 3:1 large-text rule (3.5:1 on white, 5.4:1 on the dark page).
+- Kept on purpose: the header "Start a project" button still ends in `#A22BD1`, because white 15px text on #BB58FF is only 3.5–3.8:1 (fails AA). The Identity tag token `--o-500` and the small decorative dots stay `#D75FFF`.
+- Not yet changed: favicons, app icons, the Android app drawables, og-image.jpg and the brand kit still use #D75FFF.

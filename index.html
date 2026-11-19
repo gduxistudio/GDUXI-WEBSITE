@@ -51,8 +51,8 @@
   --accent:var(--g-400);--accent-hover:var(--g-300);--on-accent:var(--n-900);--link:var(--p-700);
   --ink:var(--n-900);--ink-soft:var(--n-800);--muted:var(--n-600);--line:var(--n-200);--paper:#FFF;--cream:var(--g-50);--mist:var(--n-50);
   --band-1:#3F3D9E;--band-2:#5A48B8;--band-3:#7158C6;--pale-pink:var(--g-100);
-  --grad:linear-gradient(90deg,#045FEA,#8549FF 50%,#D75FFF);
-  --grad-text:linear-gradient(90deg,#045FEA,#6F55C9 50%,#A22BD1);
+  --grad:linear-gradient(90deg,#045FEA,#8549FF 50%,#BB58FF);
+  --grad-text:linear-gradient(90deg,#045FEA,#6F55C9 50%,#BB58FF);
   --grad-ink:linear-gradient(90deg,#045FEA,#6F55C9 55%,#8A1FAF);
   --dawn:linear-gradient(150deg,#ECF2FF 10%,#F4F0FD 55%,#FFF5DE 100%);
   --band:linear-gradient(150deg,var(--band-1) 10%,var(--band-2) 55%,var(--band-3) 95%);
@@ -83,7 +83,7 @@
     --hero-bg:linear-gradient(150deg,#141A36 10%,#18142F 60%,#1E1828 100%);
     --soft:linear-gradient(138deg,#161B36 15%,#14112A 50%,#1B1534 85%);
     --nav-bg:rgba(16,14,30,.88);
-    --grad-text:linear-gradient(90deg,#7FAEFF,#B4A2F0 50%,#E39BFA);
+    --grad-text:linear-gradient(90deg,#7FAEFF,#B4A2F0 50%,#BB58FF);
     --shadow-soft:0 12px 32px rgba(0,0,0,.35);
     --shadow-lift:0 4px 12px rgba(0,0,0,.3),0 18px 44px -4px rgba(0,0,0,.45);
     --shadow-card:0 12px 16px rgba(0,0,0,.28);
@@ -98,7 +98,7 @@
     --hero-bg:linear-gradient(150deg,#141A36 10%,#18142F 60%,#1E1828 100%);
     --soft:linear-gradient(138deg,#161B36 15%,#14112A 50%,#1B1534 85%);
     --nav-bg:rgba(16,14,30,.88);
-    --grad-text:linear-gradient(90deg,#7FAEFF,#B4A2F0 50%,#E39BFA);
+    --grad-text:linear-gradient(90deg,#7FAEFF,#B4A2F0 50%,#BB58FF);
     --shadow-soft:0 12px 32px rgba(0,0,0,.35);
     --shadow-lift:0 4px 12px rgba(0,0,0,.3),0 18px 44px -4px rgba(0,0,0,.45);
     --shadow-card:0 12px 16px rgba(0,0,0,.28);
@@ -181,7 +181,7 @@ ul{margin:0;padding:0;list-style:none}
 .logo .word{display:flex;flex-direction:column;gap:2px;line-height:1}
 .logo .wm{font:400 24px/1 var(--f-logo);letter-spacing:3.36px}
 .logo .wm b{font-weight:400;color:var(--blue)}
-.logo .wm i{font-style:normal;background:linear-gradient(90deg,#8549FF,#D75FFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo .wm i{font-style:normal;background:linear-gradient(90deg,#8549FF,#BB58FF);-webkit-background-clip:text;background-clip:text;color:transparent}
 /* STUDIO starts a quarter of the way into the G and ends at the right edge of the U, XI left open, Prm 2026-11-06 */
 .logo .st{font:600 10px/1 var(--f-body);letter-spacing:4.15px;padding-left:5.25px;margin-right:-4.15px;color:var(--ink)}
 .logo .st::first-letter{margin-right:-1.25px} /* optical kern: S sits a touch closer to T */
@@ -770,7 +770,7 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
 <header class="nav">
   <div class="wrap">
     <a href="#home" data-route="home" class="logo">
-      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg-n" x1="0" x2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#D75FFF"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg-n)"/><path d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="31.5" cy="14" r="2.6" fill="#fff"/></svg>
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg-n" x1="0" x2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#BB58FF"/></linearGradient></defs><rect width="40" height="40" rx="12" fill="url(#lg-n)"/><path d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="31.5" cy="14" r="2.6" fill="#fff"/></svg>
       <span class="word"><span class="wm"><b>GD</b><i>UXI</i></span><span class="st"><span class="sr-only"> </span>STUDIO</span></span><span class="sr-only">, home</span>
     </a>
     <div class="nav-right">
@@ -809,7 +809,7 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="lg-s" x1="0" x2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#D75FFF"/></linearGradient>
+    <linearGradient id="lg-s" x1="0" x2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#BB58FF"/></linearGradient>
     <symbol id="logo-mark" viewBox="0 0 40 40"><rect width="40" height="40" rx="12" fill="url(#lg-s)"/><path d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="31.5" cy="14" r="2.6" fill="#fff"/></symbol>
     <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z"/></symbol>
     <symbol id="swoosh" viewBox="0 0 520 30" preserveAspectRatio="none"><path d="M3 22C70 30 120 6 210 10s150 18 220 10 60-14 87-16" fill="none" stroke="url(#lg-s)" stroke-width="3" stroke-linecap="round"/></symbol>
@@ -1296,7 +1296,7 @@ function waveSVG(kind,n){
     var t=i/(n-1),y=H*.5+t*150,a=60+t*120,b=30+t*70;
     d+='<path d="M-20 '+(y+30).toFixed(1)+" C "+(W*.18)+" "+(y-a).toFixed(1)+", "+(W*.36)+" "+(y-a*.2).toFixed(1)+", "+(W*.5)+" "+(y+b*.6).toFixed(1)+" S "+(W*.82)+" "+(y-b*1.6).toFixed(1)+", "+(W+20)+" "+(y-b*.5).toFixed(1)+'"/>';
   }
-  var g=kind==="dark"?'<stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#FFE1FF" stop-opacity=".9"/>':'<stop offset="0" stop-color="#3F7EFC"/><stop offset=".5" stop-color="#8A6FE0"/><stop offset="1" stop-color="#D75FFF"/>';
+  var g=kind==="dark"?'<stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#FFE1FF" stop-opacity=".9"/>':'<stop offset="0" stop-color="#3F7EFC"/><stop offset=".5" stop-color="#8A6FE0"/><stop offset="1" stop-color="#BB58FF"/>';
   return'<svg viewBox="0 0 '+W+" "+H+'" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" x2="1">'+g+'</linearGradient></defs><g fill="none" stroke="url(#'+id+')" stroke-width="1" stroke-opacity=".7" vector-effect="non-scaling-stroke">'+d+"</g></svg>";
 }
 
