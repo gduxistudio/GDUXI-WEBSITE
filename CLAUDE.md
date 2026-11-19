@@ -478,3 +478,9 @@ Prm asked to add the Highway Coaches client work (a fleet catalog for a London c
 ## 27. Link preview image (2026-11-17)
 
 Links to gduxi.studio on LinkedIn and elsewhere showed the RS Tour website screenshot (`hero-site.jpg`). Prm asked for the GDUXI logo instead. `og:image`, `twitter:image` and the JSON-LD `image` now point to `assets/img/og-image.jpg` (1200x627: colour logo lockup, gold rule, "Brand to screen. In one flow." on the hero gradient), with width, height, type and alt tags. Source HTML and render script: /mnt/project-files/brand-kit/06-social-preview/ (`node r.js og.html out.png`). LinkedIn caches previews: after a change, re-inspect the URL at https://www.linkedin.com/post-inspector/.
+
+## 28. Android app and privacy policy (2026-11-18/19)
+
+- `android/`: a Kotlin Android app (app id `studio.gduxi.app`) that shows https://gduxi.studio full screen, with splash, adaptive icon, offline screen, and outside links opening in their own apps. `.github/workflows/android-app.yml` builds a test APK on GitHub Actions whenever `android/` changes (download it from the run's Artifacts). Google Play icon and banner are in `android/play-store/`. `netlify.toml` returns 404 for `/android/*` so the app's code isn't served as part of the site.
+- `privacy/index.html` (served at https://gduxi.studio/privacy/): a standalone privacy policy page, needed for Google Play. It isn't in the dashboard; edit the HTML directly. It describes the contact form, FormSubmit, Gmail, Netlify, Google Fonts, Figma embeds, the theme setting in localStorage, and the app. Update it if the site adds analytics, a newsletter or other services. Linked from the footer's Studio column and listed in `sitemap.xml`.
+
