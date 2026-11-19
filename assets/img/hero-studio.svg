@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
   <!-- GDUXI hero graphic: the logo craft (GD, left) and the screen craft (UXI, right) overlap, and one gold-tipped line flows from the mark into the website. -->
   <defs>
-    <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#D75FFF"/></linearGradient>
+    <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#BB58FF"/></linearGradient>
     <linearGradient id="hb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3F3D9E"/><stop offset=".6" stop-color="#5A48B8"/><stop offset="1" stop-color="#7158C6"/></linearGradient>
     <linearGradient id="fl" x1="0" x2="1"><stop offset="0" stop-color="#8A6FE0"/><stop offset=".55" stop-color="#A893EA"/><stop offset="1" stop-color="#F5A70A"/></linearGradient>
     <linearGradient id="ca" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#EBE5FB"/><stop offset="1" stop-color="#F5F2FD"/></linearGradient>
