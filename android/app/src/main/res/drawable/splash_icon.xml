@@ -9,7 +9,7 @@
                 <gradient android:type="linear" android:startX="0" android:startY="20" android:endX="40" android:endY="20">
                     <item android:offset="0" android:color="#FF045FEA" />
                     <item android:offset="0.5" android:color="#FF8549FF" />
-                    <item android:offset="1" android:color="#FFD75FFF" />
+                    <item android:offset="1" android:color="#FFBB58FF" />
                 </gradient>
             </aapt:attr>
         </path>

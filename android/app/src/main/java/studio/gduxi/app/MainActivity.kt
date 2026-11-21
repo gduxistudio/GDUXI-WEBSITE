@@ -1,8 +1,10 @@
 package studio.gduxi.app
 
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.drawable.Animatable
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -18,7 +20,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
-import android.widget.ProgressBar
+import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
@@ -29,7 +31,7 @@ import androidx.core.view.isVisible
 
 /**
  * The whole app is one screen: the live GDUXI Studio website (https://gduxi.studio)
- * shown full-screen, with a branded splash, a loading bar, an offline screen,
+ * shown full-screen, with a branded splash, the wave loader, an offline screen,
  * and outside links (Figma, LinkedIn, email) opening in the right app.
  *
  * Website changes show up in the app straight away. There is nothing to rebuild.
@@ -37,10 +39,11 @@ import androidx.core.view.isVisible
 class MainActivity : ComponentActivity() {
 
     private lateinit var webView: WebView
-    private lateinit var progress: ProgressBar
+    private lateinit var loader: View
+    private lateinit var loaderWave: ImageView
     private lateinit var offline: View
 
-    /** Keeps the splash screen up until the first page has drawn (at most 3 seconds). */
+    /** Keeps the splash screen up only briefly; the wave loader takes over from it. */
     private var firstPageReady = false
     private val startedAt = SystemClock.uptimeMillis()
 
@@ -49,14 +52,15 @@ class MainActivity : ComponentActivity() {
         val splash = installSplashScreen()
         super.onCreate(savedInstanceState)
         splash.setKeepOnScreenCondition {
-            !firstPageReady && SystemClock.uptimeMillis() - startedAt < 3000
+            !firstPageReady && SystemClock.uptimeMillis() - startedAt < 400
         }
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
         webView = findViewById(R.id.web)
-        progress = findViewById(R.id.progress)
+        loader = findViewById(R.id.loader)
+        loaderWave = findViewById(R.id.loader_wave)
         offline = findViewById(R.id.offline)
         findViewById<Button>(R.id.retry).setOnClickListener { retry() }
 
@@ -80,12 +84,7 @@ class MainActivity : ComponentActivity() {
         // The Figma prototypes inside the site's pop-ups need their own cookies.
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true)
 
-        webView.webChromeClient = object : WebChromeClient() {
-            override fun onProgressChanged(view: WebView, newProgress: Int) {
-                progress.progress = newProgress
-                progress.isVisible = newProgress < 100
-            }
-        }
+        webView.webChromeClient = WebChromeClient()
         webView.webViewClient = SiteClient()
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
@@ -147,8 +146,33 @@ class MainActivity : ComponentActivity() {
         offline.isVisible = show
         webView.isVisible = !show
         if (show) {
-            progress.isVisible = false
+            showLoader(false)
             firstPageReady = true
+        }
+    }
+
+    /**
+     * The wave loader. With animations turned off on the phone (Settings > Accessibility
+     * > Remove animations) it shows the still logo instead of moving.
+     */
+    private fun showLoader(show: Boolean) {
+        if (show) {
+            loader.animate().cancel()
+            if (!loader.isVisible) {
+                if (ValueAnimator.areAnimatorsEnabled()) {
+                    loaderWave.setImageResource(R.drawable.wave_loader)
+                    (loaderWave.drawable as? Animatable)?.start()
+                } else {
+                    loaderWave.setImageResource(R.drawable.splash_icon)
+                }
+            }
+            loader.alpha = 1f
+            loader.isVisible = true
+        } else if (loader.isVisible) {
+            loader.animate().alpha(0f).setDuration(250).withEndAction {
+                loader.isVisible = false
+                (loaderWave.drawable as? Animatable)?.stop()
+            }.start()
         }
     }
 
@@ -186,12 +210,18 @@ class MainActivity : ComponentActivity() {
         }
 
         override fun onPageStarted(view: WebView, url: String?, favicon: Bitmap?) {
-            progress.isVisible = true
+            showLoader(true)
+        }
+
+        // The page has drawn. The website shows the same wave until its content is in.
+        override fun onPageCommitVisible(view: WebView, url: String?) {
+            firstPageReady = true
+            showLoader(false)
         }
 
         override fun onPageFinished(view: WebView, url: String?) {
             firstPageReady = true
-            progress.isVisible = false
+            showLoader(false)
         }
 
         override fun onReceivedError(view: WebView, request: WebResourceRequest, error: WebResourceError) {

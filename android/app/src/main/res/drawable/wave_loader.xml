@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Wave loader: the logo mark whose white swoosh draws itself, the dot pops,
+  then the line flows away, on a 1.8 s loop. Same timing as the website loader.
+  Framed like splash_icon.xml (108 viewport, mark scaled 1.2 in the middle) so it
+  lines up with the splash screen when shown at 240dp.
+-->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:width="108dp" android:height="108dp"
+            android:viewportWidth="108" android:viewportHeight="108">
+            <group android:translateX="30" android:translateY="30" android:scaleX="1.2" android:scaleY="1.2">
+                <path android:pathData="M12,0 H28 A12,12 0 0 1 40,12 V28 A12,12 0 0 1 28,40 H12 A12,12 0 0 1 0,28 V12 A12,12 0 0 1 12,0 Z">
+                    <aapt:attr name="android:fillColor">
+                        <gradient android:type="linear" android:startX="0" android:startY="20" android:endX="40" android:endY="20">
+                            <item android:offset="0" android:color="#FF045FEA" />
+                            <item android:offset="0.5" android:color="#FF8549FF" />
+                            <item android:offset="1" android:color="#FFBB58FF" />
+                        </gradient>
+                    </aapt:attr>
+                </path>
+                <path android:name="swoosh"
+                    android:pathData="M9,25.5C12.5,13 17,11.5 19.5,18.5C21.5,24.5 25,27.5 31.5,14"
+                    android:strokeColor="#FFFFFFFF" android:strokeWidth="3.6" android:strokeLineCap="round"
+                    android:trimPathEnd="0" />
+                <group android:name="dot" android:pivotX="31.5" android:pivotY="14" android:scaleX="0" android:scaleY="0">
+                    <path android:pathData="M31.5,14m-2.6,0a2.6,2.6 0 1,0 5.2,0a2.6,2.6 0 1,0 -5.2,0" android:fillColor="#FFFFFFFF" />
+                </group>
+            </group>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="swoosh">
+        <aapt:attr name="android:animation">
+            <objectAnimator android:duration="1800" android:repeatCount="infinite" android:repeatMode="restart"
+                android:interpolator="@android:interpolator/linear">
+                <propertyValuesHolder android:propertyName="trimPathEnd">
+                    <keyframe android:fraction="0" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="0.46" android:value="1" android:valueType="floatType"
+                        android:interpolator="@android:interpolator/fast_out_slow_in" />
+                    <keyframe android:fraction="1" android:value="1" android:valueType="floatType" />
+                </propertyValuesHolder>
+                <propertyValuesHolder android:propertyName="trimPathStart">
+                    <keyframe android:fraction="0" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="0.58" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="1" android:value="1" android:valueType="floatType"
+                        android:interpolator="@android:interpolator/fast_out_slow_in" />
+                </propertyValuesHolder>
+            </objectAnimator>
+        </aapt:attr>
+    </target>
+
+    <target android:name="dot">
+        <aapt:attr name="android:animation">
+            <objectAnimator android:duration="1800" android:repeatCount="infinite" android:repeatMode="restart"
+                android:interpolator="@android:interpolator/linear">
+                <propertyValuesHolder android:propertyName="scaleX">
+                    <keyframe android:fraction="0" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="0.36" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="0.46" android:value="1.3" android:valueType="floatType" />
+                    <keyframe android:fraction="0.54" android:value="1" android:valueType="floatType" />
+                    <keyframe android:fraction="0.84" android:value="1" android:valueType="floatType" />
+                    <keyframe android:fraction="0.97" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="1" android:value="0" android:valueType="floatType" />
+                </propertyValuesHolder>
+                <propertyValuesHolder android:propertyName="scaleY">
+                    <keyframe android:fraction="0" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="0.36" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="0.46" android:value="1.3" android:valueType="floatType" />
+                    <keyframe android:fraction="0.54" android:value="1" android:valueType="floatType" />
+                    <keyframe android:fraction="0.84" android:value="1" android:valueType="floatType" />
+                    <keyframe android:fraction="0.97" android:value="0" android:valueType="floatType" />
+                    <keyframe android:fraction="1" android:value="0" android:valueType="floatType" />
+                </propertyValuesHolder>
+            </objectAnimator>
+        </aapt:attr>
+    </target>
+</animated-vector>

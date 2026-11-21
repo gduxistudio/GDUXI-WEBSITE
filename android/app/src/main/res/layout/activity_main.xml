@@ -11,17 +11,25 @@
         android:layout_height="match_parent"
         android:background="@color/page" />
 
-    <!-- Thin loading bar along the top, in the brand purple -->
-    <ProgressBar
-        android:id="@+id/progress"
-        style="?android:attr/progressBarStyleHorizontal"
+    <!-- Wave loader: the logo's swoosh drawing itself while a page loads.
+         Same size and place as the splash icon, so the splash hands over to it seamlessly. -->
+    <FrameLayout
+        android:id="@+id/loader"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:indeterminate="false"
-        android:max="100"
-        android:progressTint="@color/purple"
-        android:progressBackgroundTint="@android:color/transparent"
-        android:visibility="gone" />
+        android:layout_height="match_parent"
+        android:background="@color/splash"
+        android:clickable="true"
+        android:focusable="false"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/loader_wave"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/loading"
+            android:src="@drawable/wave_loader" />
+    </FrameLayout>
 
     <!-- Shown when there is no internet -->
     <LinearLayout

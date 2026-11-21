@@ -9,12 +9,11 @@ final class SiteViewController: UIViewController {
     static let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0"
 
     private var webView: WKWebView!
-    private let progress = UIProgressView(progressViewStyle: .bar)
+    private let loader = WaveLoaderView()
     private let offline = OfflineView()
     private let refresh = UIRefreshControl()
     private let monitor = NWPathMonitor()
     private var isOnline = true
-    private var progressObserver: NSKeyValueObservation?
 
     private let page = UIColor(named: "Page") ?? .systemBackground
     private let purple = UIColor(named: "AccentColor") ?? .systemPurple
@@ -42,14 +41,12 @@ final class SiteViewController: UIViewController {
         refresh.addTarget(self, action: #selector(pulledToRefresh), for: .valueChanged)
         webView.scrollView.refreshControl = refresh
 
-        progress.progressTintColor = purple
-        progress.trackTintColor = .clear
-        progress.isHidden = true
+        loader.isHidden = false   // covers the blank page until the site has drawn
 
         offline.isHidden = true
         offline.retry.addTarget(self, action: #selector(retry), for: .touchUpInside)
 
-        for v in [webView!, progress, offline] as [UIView] {
+        for v in [webView!, loader, offline] as [UIView] {
             v.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(v)
         }
@@ -59,22 +56,15 @@ final class SiteViewController: UIViewController {
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            progress.topAnchor.constraint(equalTo: safe.topAnchor),
-            progress.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            progress.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            progress.heightAnchor.constraint(equalToConstant: 3),
+            loader.topAnchor.constraint(equalTo: view.topAnchor),
+            loader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loader.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            loader.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             offline.topAnchor.constraint(equalTo: view.topAnchor),
             offline.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             offline.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             offline.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-
-        progressObserver = webView.observe(\.estimatedProgress, options: [.new]) { [weak self] web, _ in
-            guard let self else { return }
-            let value = Float(web.estimatedProgress)
-            self.progress.setProgress(value, animated: value > self.progress.progress)
-            self.progress.isHidden = value >= 1
-        }
 
         monitor.pathUpdateHandler = { [weak self] path in
             DispatchQueue.main.async { self?.isOnline = path.status == .satisfied }
@@ -104,7 +94,21 @@ final class SiteViewController: UIViewController {
     private func showOffline(_ show: Bool) {
         offline.isHidden = !show
         webView.isHidden = show
-        if show { progress.isHidden = true }
+        if show { showLoader(false) }
+    }
+
+    /// The wave loader covers the page while it loads; the website then shows the same wave
+    /// until its content is in, so the hand-over is seamless.
+    private func showLoader(_ show: Bool) {
+        if show {
+            loader.layer.removeAllAnimations()
+            loader.alpha = 1
+            loader.isHidden = false
+        } else if !loader.isHidden {
+            UIView.animate(withDuration: 0.25, animations: { self.loader.alpha = 0 }) { done in
+                if done { self.loader.isHidden = true }
+            }
+        }
     }
 
     // MARK: - Links
@@ -142,12 +146,17 @@ extension SiteViewController: WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        progress.isHidden = false
+        // Pull to refresh already shows its own spinner.
+        if !refresh.isRefreshing { showLoader(true) }
+    }
+
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        showLoader(false)
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         refresh.endRefreshing()
-        progress.isHidden = true
+        showLoader(false)
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
@@ -160,6 +169,7 @@ extension SiteViewController: WKNavigationDelegate {
 
     private func handle(_ error: Error) {
         refresh.endRefreshing()
+        showLoader(false)
         let ns = error as NSError
         if ns.domain == NSURLErrorDomain && ns.code == NSURLErrorCancelled { return }   // a link we sent outside
         if ns.domain == "WebKitErrorDomain" && ns.code == 102 { return }                 // frame load interrupted
