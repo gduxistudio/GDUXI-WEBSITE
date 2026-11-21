@@ -1,17 +1,18 @@
 import UIKit
 
-/// The wave loader: the logo mark whose white swoosh draws itself, the dot pops,
-/// then the line flows away, on a 1.8 s loop. Same look and timing as the website
-/// and Android loaders. Sits where the launch screen's logo sits (72 pt, centred),
-/// so the launch screen hands over to it seamlessly.
+/// The wave loader: the logo's swoosh on its own (no square), in the brand gradient.
+/// It draws itself, the dot pops, then the line flows away, on a 1.8 s loop. Same look
+/// and timing as the website and Android loaders. Drawn in a 96 pt box in the centre,
+/// exactly like the launch screen's LaunchWave image, so the hand-over is seamless.
 /// With Reduce Motion on, it shows the still logo instead.
 final class WaveLoaderView: UIView {
 
-    private let mark = UIView()
+    private let box = UIView()
     private let gradient = CAGradientLayer()
+    private let shapes = CALayer()          // swoosh + dot, used as the gradient's mask
     private let swoosh = CAShapeLayer()
     private let dot = CAShapeLayer()
-    private static let size: CGFloat = 72
+    private static let size: CGFloat = 96
     private static let duration: CFTimeInterval = 1.8
 
     override init(frame: CGRect) {
@@ -22,24 +23,24 @@ final class WaveLoaderView: UIView {
         accessibilityTraits = .updatesFrequently
 
         let s = Self.size / 40   // the logo is drawn on a 40 x 40 grid
-        mark.translatesAutoresizingMaskIntoConstraints = false
-        mark.layer.cornerRadius = 12 * s
-        mark.layer.cornerCurve = .continuous
-        mark.clipsToBounds = true
-        addSubview(mark)
+        box.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(box)
         NSLayoutConstraint.activate([
-            mark.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mark.centerYAnchor.constraint(equalTo: centerYAnchor),
-            mark.widthAnchor.constraint(equalToConstant: Self.size),
-            mark.heightAnchor.constraint(equalToConstant: Self.size),
+            box.centerXAnchor.constraint(equalTo: centerXAnchor),
+            box.centerYAnchor.constraint(equalTo: centerYAnchor),
+            box.widthAnchor.constraint(equalToConstant: Self.size),
+            box.heightAnchor.constraint(equalToConstant: Self.size),
         ])
 
         gradient.colors = [UIColor(rgb: 0x045FEA).cgColor, UIColor(rgb: 0x8549FF).cgColor, UIColor(rgb: 0xBB58FF).cgColor]
         gradient.locations = [0, 0.5, 1]
-        gradient.startPoint = CGPoint(x: 0, y: 0.5)
-        gradient.endPoint = CGPoint(x: 1, y: 0.5)
+        // Runs from the start of the swoosh (x 9) to just past the dot (x 34), like the website.
+        gradient.startPoint = CGPoint(x: 9.0 / 40, y: 0.5)
+        gradient.endPoint = CGPoint(x: 34.0 / 40, y: 0.5)
         gradient.frame = CGRect(x: 0, y: 0, width: Self.size, height: Self.size)
-        mark.layer.addSublayer(gradient)
+        shapes.frame = gradient.bounds
+        gradient.mask = shapes
+        box.layer.addSublayer(gradient)
 
         let path = UIBezierPath()
         path.move(to: CGPoint(x: 9 * s, y: 25.5 * s))
@@ -49,17 +50,17 @@ final class WaveLoaderView: UIView {
                       controlPoint1: CGPoint(x: 21.5 * s, y: 24.5 * s), controlPoint2: CGPoint(x: 25 * s, y: 27.5 * s))
         swoosh.path = path.cgPath
         swoosh.fillColor = nil
-        swoosh.strokeColor = UIColor.white.cgColor
+        swoosh.strokeColor = UIColor.black.cgColor   // mask: only the shape matters
         swoosh.lineWidth = 3.6 * s
         swoosh.lineCap = .round
-        mark.layer.addSublayer(swoosh)
+        shapes.addSublayer(swoosh)
 
         let r = 2.6 * s
         dot.bounds = CGRect(x: 0, y: 0, width: r * 2, height: r * 2)
         dot.position = CGPoint(x: 31.5 * s, y: 14 * s)
         dot.path = UIBezierPath(ovalIn: dot.bounds).cgPath
-        dot.fillColor = UIColor.white.cgColor
-        mark.layer.addSublayer(dot)
+        dot.fillColor = UIColor.black.cgColor
+        shapes.addSublayer(dot)
 
         NotificationCenter.default.addObserver(self, selector: #selector(restart),
                                                name: UIAccessibility.reduceMotionStatusDidChangeNotification, object: nil)

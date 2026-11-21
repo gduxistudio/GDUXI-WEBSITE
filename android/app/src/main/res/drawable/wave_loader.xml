@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Wave loader: the logo mark whose white swoosh draws itself, the dot pops,
+  Wave loader: the logo's swoosh on its own (no square), in the brand gradient. It draws itself, the dot pops,
   then the line flows away, on a 1.8 s loop. Same timing as the website loader.
-  Framed like splash_icon.xml (108 viewport, mark scaled 1.2 in the middle) so it
+  Framed like splash_icon.xml (108 viewport, wave scaled 1.6 in the middle) so it
   lines up with the splash screen when shown at 240dp.
 -->
 <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,22 +11,21 @@
         <vector
             android:width="108dp" android:height="108dp"
             android:viewportWidth="108" android:viewportHeight="108">
-            <group android:translateX="30" android:translateY="30" android:scaleX="1.2" android:scaleY="1.2">
-                <path android:pathData="M12,0 H28 A12,12 0 0 1 40,12 V28 A12,12 0 0 1 28,40 H12 A12,12 0 0 1 0,28 V12 A12,12 0 0 1 12,0 Z">
-                    <aapt:attr name="android:fillColor">
-                        <gradient android:type="linear" android:startX="0" android:startY="20" android:endX="40" android:endY="20">
+            <group android:translateX="19.6" android:translateY="22.8" android:scaleX="1.6" android:scaleY="1.6">
+                <path android:name="swoosh"
+                    android:pathData="M9,25.5C12.5,13 17,11.5 19.5,18.5C21.5,24.5 25,27.5 31.5,14"
+                    android:strokeWidth="3.6" android:strokeLineCap="round"
+                    android:trimPathEnd="0">
+                    <aapt:attr name="android:strokeColor">
+                        <gradient android:type="linear" android:startX="9" android:startY="0" android:endX="34" android:endY="0">
                             <item android:offset="0" android:color="#FF045FEA" />
                             <item android:offset="0.5" android:color="#FF8549FF" />
                             <item android:offset="1" android:color="#FFBB58FF" />
                         </gradient>
                     </aapt:attr>
                 </path>
-                <path android:name="swoosh"
-                    android:pathData="M9,25.5C12.5,13 17,11.5 19.5,18.5C21.5,24.5 25,27.5 31.5,14"
-                    android:strokeColor="#FFFFFFFF" android:strokeWidth="3.6" android:strokeLineCap="round"
-                    android:trimPathEnd="0" />
                 <group android:name="dot" android:pivotX="31.5" android:pivotY="14" android:scaleX="0" android:scaleY="0">
-                    <path android:pathData="M31.5,14m-2.6,0a2.6,2.6 0 1,0 5.2,0a2.6,2.6 0 1,0 -5.2,0" android:fillColor="#FFFFFFFF" />
+                    <path android:pathData="M31.5,14m-2.6,0a2.6,2.6 0 1,0 5.2,0a2.6,2.6 0 1,0 -5.2,0" android:fillColor="#FFBB58FF" />
                 </group>
             </group>
         </vector>
