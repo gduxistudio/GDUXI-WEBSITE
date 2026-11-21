@@ -2,7 +2,7 @@
 <html lang="en" class="cms-loading">
 <head>
 <meta charset="utf-8">
-<script>try{var t=localStorage.getItem("gduxi-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script>if(/GDUXIApp/.test(navigator.userAgent))document.documentElement.classList.add("in-app");try{var t=localStorage.getItem("gduxi-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GDUXI Studio · Brand to screen. In one flow.</title>
 <meta name="description" content="GDUXI Studio is a brand and digital design studio in the Greater Toronto Area, run by Navita Ramanand (UX/UI design and research) and Paramdeep Singh (logo and graphic design). We design logos, identities, websites and apps that work as one.">
@@ -68,6 +68,8 @@
   --r-card:24px;--max:1200px;--gut:120px;
   /* surfaces (swapped in dark mode) */
   color-scheme:light;
+  --wl-img:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cstyle%3Epath%7Bfill:none;stroke:url(%23g);stroke-width:3.6;stroke-linecap:round%7Dpath%7Bstroke-dasharray:100 100;animation:s 1.8s cubic-bezier(.65,0,.35,1) infinite%7Dcircle%7Btransform-origin:31.5px 14px;animation:d 1.8s cubic-bezier(.65,0,.35,1) infinite%7D%40keyframes s%7B0%25%7Bstroke-dashoffset:100%7D46%25,58%25%7Bstroke-dashoffset:0%7D100%25%7Bstroke-dashoffset:-100%7D%7D%40keyframes d%7B0%25,36%25%7Btransform:scale(0)%7D46%25%7Btransform:scale(1.3)%7D54%25,84%25%7Btransform:scale(1)%7D97%25,100%25%7Btransform:scale(0)%7D%7D%40media (prefers-reduced-motion:reduce)%7Bpath,circle%7Banimation:none;stroke-dashoffset:0;transform:none%7D%7D%3C/style%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='9' x2='34'%3E%3Cstop offset='0' stop-color='%23045FEA'/%3E%3Cstop offset='.5' stop-color='%238549FF'/%3E%3Cstop offset='1' stop-color='%23BB58FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath pathLength='100' d='M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14'/%3E%3Ccircle cx='31.5' cy='14' r='2.6' fill='%23BB58FF'/%3E%3C/svg%3E");
+  --wl-still:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cstyle%3Epath%7Bfill:none;stroke:url(%23g);stroke-width:3.6;stroke-linecap:round%7D%3C/style%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='9' x2='34'%3E%3Cstop offset='0' stop-color='%23045FEA'/%3E%3Cstop offset='.5' stop-color='%238549FF'/%3E%3Cstop offset='1' stop-color='%23BB58FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath pathLength='100' d='M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14'/%3E%3Ccircle cx='31.5' cy='14' r='2.6' fill='%23BB58FF'/%3E%3C/svg%3E");
   --surface:#FFF;--well:#F2F6F9;--well-2:#EEF2F8;--sk1:#ECE8F5;--sk2:#F7F5FC;
   --hero-bg:linear-gradient(150deg,#ECF2FF 10%,#F4F0FD 60%,#FFF9EE 100%);
   --nav-bg:rgba(255,255,255,.92);
@@ -493,13 +495,24 @@ dialog::backdrop{background:rgba(31,42,68,.45);backdrop-filter:blur(4px)}
 .dx:hover{background:var(--p-50);transform:scale(1.05)}
 dialog{overscroll-behavior:contain}
 html:has(dialog[open]){overflow:hidden}
-@keyframes sk{from{background-position:150% 0}to{background-position:-50% 0}}
-img.ld{color:transparent;background:linear-gradient(100deg,var(--sk1) 30%,var(--sk2) 50%,var(--sk1) 70%) 0 0/200% 100%!important;animation:sk 1.3s linear infinite}
+img.ld{color:transparent;background:var(--wl-img) center/min(56px,30%) auto no-repeat,var(--sk1)!important}
 .shots.desktop img.ld,.cpages img.ld{aspect-ratio:16/10}
 .shots.mobile img.ld{aspect-ratio:9/19}
 .cpieces img.ld{aspect-ratio:4/3}
 .hero-art.ld{aspect-ratio:640/400;border-radius:24px}
-@media (prefers-reduced-motion:reduce){img.ld{animation:none}}
+/* Wave loader: the logo's swoosh (line only, no square) draws itself, the dot pops, then the line flows away. Used for every loading state. */
+.wl{display:block;overflow:visible}
+.wl .wl-s{fill:none;stroke-linecap:round;stroke-dasharray:100 100;animation:wl-s 1.8s cubic-bezier(.65,0,.35,1) infinite}
+.wl .wl-d{transform-origin:31.5px 14px;animation:wl-d 1.8s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes wl-s{0%{stroke-dashoffset:100}46%,58%{stroke-dashoffset:0}100%{stroke-dashoffset:-100}}
+@keyframes wl-d{0%,36%{transform:scale(0)}46%{transform:scale(1.3)}54%,84%{transform:scale(1)}97%,100%{transform:scale(0)}}
+.boot{position:fixed;inset:0;z-index:300;display:grid;place-items:center;align-content:center;gap:18px;background:var(--paper);color:var(--muted);font:500 13px/1.4 var(--f-body);letter-spacing:.16em;text-transform:uppercase;opacity:0;animation:boot-in .3s .25s forwards}
+.boot .wl{width:96px;height:96px}
+html:not(.cms-loading) .boot{animation:none;opacity:0;visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+@keyframes boot-in{to{opacity:1}}
+.in-app .boot{animation:none;opacity:1}
+.btn .wl{width:22px;height:22px;margin:-4px 0}
+@media (prefers-reduced-motion:reduce){.wl .wl-s,.wl .wl-d{animation:none;stroke-dashoffset:0;transform:none}.boot{animation:none;opacity:1}img.ld{background-image:var(--wl-still)!important}}
 .dlg .ok-ic{width:56px;height:56px;border-radius:18px;background:var(--grad-ink);color:#fff;display:grid;place-items:center;font-size:26px}
 .dlg .actions{margin-top:8px}
 .dlg .mail{font-weight:600;color:var(--link);word-break:break-all}
@@ -520,7 +533,8 @@ img.ld{color:transparent;background:linear-gradient(100deg,var(--sk1) 30%,var(--
 .proto-frame{position:relative;height:min(76vh,820px);margin:0 16px;border-radius:16px;overflow:hidden;background:var(--well);border:1px solid var(--line)}
 .proto-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0;transition:opacity .4s}
 .proto-frame.loaded iframe{opacity:1}
-.proto-sk{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(100deg,var(--sk1) 30%,var(--sk2) 50%,var(--sk1) 70%) 0 0/200% 100%;animation:sk 1.3s linear infinite;color:var(--muted);font:500 14px/1.4 var(--f-body)}
+.proto-sk{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:16px;background:var(--well);color:var(--muted);font:500 14px/1.4 var(--f-body)}
+.proto-sk .wl{width:72px;height:72px}
 .proto-frame.loaded .proto-sk{display:none}
 .proto-note{padding:12px 32px 22px;margin:0;font-size:13px;color:var(--muted)}
 @media (max-width:760px){.proto-head{padding:20px 68px 14px 20px;gap:10px}.proto-frame{height:72vh;margin:0 8px;border-radius:12px}.proto-note{padding:10px 20px 18px}}
@@ -765,6 +779,8 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="wl-grad" gradientUnits="userSpaceOnUse" x1="9" x2="34" y1="0" y2="0"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#BB58FF"/></linearGradient></defs></svg>
+<div class="boot" role="status"><svg class="wl" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path class="wl-s" pathLength="100" d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" stroke="url(#wl-grad)" stroke-width="3.6"/><circle class="wl-d" cx="31.5" cy="14" r="2.6" fill="#BB58FF"/></svg><span>Loading</span></div>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav">
@@ -1233,7 +1249,7 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
     <h2 class="h3" id="proto-h"></h2>
     <a class="mbtn" id="protoOpen" href="#" target="_blank" rel="noopener noreferrer">Open in Figma <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
   </div>
-  <div class="proto-frame" id="protoBox"><div class="proto-sk" aria-hidden="true"><span>Loading the prototype…</span></div><iframe id="protoFrame" title="Prototype" allow="fullscreen" allowfullscreen></iframe></div>
+  <div class="proto-frame" id="protoBox"><div class="proto-sk" aria-hidden="true"><svg class="wl" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path class="wl-s" pathLength="100" d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" stroke="url(#wl-grad)" stroke-width="3.6"/><circle class="wl-d" cx="31.5" cy="14" r="2.6" fill="#BB58FF"/></svg><span>Loading the prototype…</span></div><iframe id="protoFrame" title="Prototype" allow="fullscreen" allowfullscreen></iframe></div>
   <p class="proto-note">Click or tap inside to move through the screens. If it doesn't load, open it in Figma.</p>
 </dialog>
 
@@ -1614,7 +1630,7 @@ form.addEventListener("submit",function(e){
   var need=(form.querySelector('input[name="need"]:checked')||{}).value||"";
   var data={name:name,email:email,need:need,budget:form.budget.value||"Not given",timeline:form.timeline.value||"Not given",message:msg,_subject:"New project enquiry from the GDUXI website",_template:"table",_replyto:email};
   var to=get("contact.email");
-  var btn=$("#send");btn.disabled=true;var label=btn.innerHTML;btn.innerHTML="Sending…";
+  var btn=$("#send");btn.disabled=true;var label=btn.innerHTML;btn.innerHTML='<svg class="wl" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path class="wl-s" pathLength="100" d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" stroke="currentColor" stroke-width="3.6"/><circle class="wl-d" cx="31.5" cy="14" r="2.6" fill="currentColor"/></svg>Sending…';
   var ctrl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctrl)ctrl.abort()},12000);
   fetch("https://formsubmit.co/ajax/"+encodeURIComponent(to),{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data),signal:ctrl?ctrl.signal:undefined})
     .then(function(r){return r.json().catch(function(){return{}}).then(function(j){return r.ok&&j.success!=="false"&&j.success!==false})})

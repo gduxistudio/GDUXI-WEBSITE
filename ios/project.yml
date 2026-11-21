@@ -1,0 +1,32 @@
+# XcodeGen recipe for the GDUXI Studio iPhone app.
+# Turn it into an Xcode project with:  brew install xcodegen && xcodegen generate
+# (GitHub Actions does this automatically, see .github/workflows/ios-app.yml)
+name: GDUXIStudio
+options:
+  bundleIdPrefix: studio.gduxi
+  deploymentTarget:
+    iOS: "16.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  GDUXIStudio:
+    type: application
+    platform: iOS
+    scheme: {}
+    sources:
+      - path: GDUXIStudio
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: studio.gduxi.app
+        PRODUCT_NAME: GDUXI Studio
+        INFOPLIST_FILE: GDUXIStudio/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic
+        # Set your own Team in Xcode (Signing & Capabilities) before running on an iPhone.
+        DEVELOPMENT_TEAM: ""

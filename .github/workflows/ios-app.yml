@@ -1,0 +1,73 @@
+# Builds the iPhone app whenever ios/ changes, on a Mac that GitHub provides.
+# Download the results from the run's "Artifacts" section on GitHub → Actions:
+#   gduxi-studio-unsigned-ipa   the app file to put on an iPhone with Sideloadly (see ios/README.md)
+#   simulator-screenshot        a picture of the app running on a simulated iPhone
+name: iOS app
+
+on:
+  push:
+    paths:
+      - "ios/**"
+      - ".github/workflows/ios-app.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: ios
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make the Xcode project
+        run: |
+          brew install xcodegen
+          xcodegen generate
+          xcodebuild -version
+
+      - name: Build for the iPhone simulator
+        run: |
+          xcodebuild -project GDUXIStudio.xcodeproj -scheme GDUXIStudio \
+            -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build/sim CODE_SIGNING_ALLOWED=NO build
+
+      - name: Build for real iPhones (unsigned)
+        run: |
+          xcodebuild -project GDUXIStudio.xcodeproj -scheme GDUXIStudio \
+            -configuration Release -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build/device \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+          mkdir -p out/Payload
+          cp -R "build/device/Build/Products/Release-iphoneos/GDUXI Studio.app" out/Payload/
+          cd out && zip -qry GDUXI-Studio-unsigned.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gduxi-studio-unsigned-ipa
+          path: ios/out/GDUXI-Studio-unsigned.ipa
+
+      - name: Run it on a simulated iPhone and take a screenshot
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          DEVICE=$(xcrun simctl list devices available -j | python3 -c "import json,sys; d=json.load(sys.stdin)['devices']; print(next(x['udid'] for r in sorted(d, reverse=True) if 'iOS' in r for x in d[r] if x['name'].startswith('iPhone')))")
+          echo "Simulator: $DEVICE"
+          xcrun simctl boot "$DEVICE"
+          xcrun simctl bootstatus "$DEVICE"
+          xcrun simctl install "$DEVICE" "build/sim/Build/Products/Debug-iphonesimulator/GDUXI Studio.app"
+          xcrun simctl launch "$DEVICE" studio.gduxi.app
+          sleep 20
+          xcrun simctl io "$DEVICE" screenshot out/simulator-light.png
+          xcrun simctl ui "$DEVICE" appearance dark
+          sleep 6
+          xcrun simctl io "$DEVICE" screenshot out/simulator-dark.png
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: simulator-screenshot
+          path: ios/out/*.png
+          if-no-files-found: ignore

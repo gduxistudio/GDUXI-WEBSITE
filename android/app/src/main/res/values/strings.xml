@@ -4,5 +4,6 @@
     <string name="offline_title">You\'re offline</string>
     <string name="offline_body">Connect to Wi-Fi or mobile data, then try again to see our work.</string>
     <string name="offline_retry">Try again</string>
+    <string name="loading">Loading</string>
     <string name="copyright">© 2026 GDUXI Studio. All rights reserved.</string>
 </resources>
