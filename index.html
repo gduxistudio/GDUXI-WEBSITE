@@ -774,19 +774,18 @@ html:not(.cms-loading) .boot{animation:none;opacity:0;visibility:hidden;transiti
 /* ---------- holiday theme (html.holiday, see SEASON in the first script) ---------- */
 html:not(.holiday) .snow-btn,#snow{display:none}
 html.holiday .logo .mark{overflow:visible}
-html.holiday .nav{overflow-x:clip}
 html.holiday .snow-btn{display:grid;margin-left:-32px}
 .snow-btn svg{width:16px;height:16px}
 .snow-btn[aria-pressed="false"] svg{opacity:.45}
 #snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:120}
 html.holiday #snow{display:block}
-.sleigh{position:absolute;top:6px;left:100%;width:96px;height:34px;pointer-events:none;z-index:3;animation:sleigh 14s linear forwards}
+.sleigh{position:absolute;top:4px;left:100%;width:96px;height:34px;pointer-events:none;z-index:3;animation:sleigh 14s linear forwards}
 .sleigh::after{content:"";position:absolute;inset:0;background:url(assets/img/holiday-sleigh.svg) no-repeat center/contain;animation:sleigh-bob 1.4s ease-in-out infinite}
 @keyframes sleigh-bob{50%{transform:translateY(4px) rotate(-2deg)}}
 @keyframes sleigh{from{transform:translateX(0)}to{transform:translateX(calc(-100vw - 140px))}}
 .gift{position:absolute;width:10px;height:10px;border-radius:2px;pointer-events:none;z-index:2;background:linear-gradient(90deg,transparent 40%,#FFE08F 40% 60%,transparent 60%),linear-gradient(transparent 40%,#FFE08F 40% 60%,transparent 60%),var(--c,#045FEA);animation:gift 1.6s cubic-bezier(.45,0,.9,.6) forwards}
-@keyframes gift{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(-26px,var(--fall,70px)) rotate(-200deg);opacity:0}}
-@media (max-width:900px){.sleigh{width:72px;height:26px;top:4px}}
+@keyframes gift{0%{transform:translate(0,0) rotate(0)}65%{transform:translate(-22px,var(--fall,30px)) rotate(-180deg);opacity:1}100%{transform:translate(-22px,var(--fall,30px)) rotate(-180deg);opacity:0}}
+@media (max-width:900px){.sleigh{width:80px;height:28px}}
 @media (prefers-reduced-motion:reduce){html.holiday .snow-btn,html.holiday #snow{display:none}}
 @media (max-width:900px){html.holiday .theme-btn{margin-right:0}html.holiday .snow-btn{margin-left:-32px;margin-right:-28px}}
 .theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;margin-left:-24px;transition:border-color .2s,transform .3s}
@@ -849,7 +848,6 @@ html[data-theme="dark"] .theme-btn .i-moon{display:none}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="lg-hat" gradientUnits="userSpaceOnUse" x1="0" x2="40" y1="0" y2="0"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#BB58FF"/></linearGradient>
     <linearGradient id="lg-s" x1="0" x2="1"><stop offset="0" stop-color="#045FEA"/><stop offset=".5" stop-color="#8549FF"/><stop offset="1" stop-color="#BB58FF"/></linearGradient>
     <symbol id="logo-mark" viewBox="0 0 40 40"><rect width="40" height="40" rx="12" fill="url(#lg-s)"/><path d="M9 25.5C12.5 13 17 11.5 19.5 18.5C21.5 24.5 25 27.5 31.5 14" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="31.5" cy="14" r="2.6" fill="#fff"/></symbol>
     <symbol id="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z"/></symbol>
@@ -1582,20 +1580,20 @@ $("#totop").addEventListener("click",function(){window.scrollTo({top:0,behavior:
   b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";h.setAttribute("data-theme",n);try{localStorage.setItem("gduxi-theme",n)}catch(e){}label()});
   mq.addEventListener&&mq.addEventListener("change",label);label();
 })();
-/* ---------- holiday Santa hat: grows out of the mark's top-left corner, in the mark's own gradient ---------- */
+/* ---------- holiday Santa hat: red, on the mark's top-left corner ---------- */
 (function(){if(!document.documentElement.classList.contains("holiday"))return;
-  var hat='<g class="hat" transform="translate(3 8.5) rotate(-22)"><g fill="url(#lg-hat)"><path d="M0 0C0.5 -8 5 -13.5 11.5 -14C17 -14.4 21.5 -9 22 0Z"/><path d="M12 -14C6 -14.2 -0.5 -10.5 -5.6 -4.6L-2.4 -2.4C1.5 -7 5.5 -9.8 9.8 -10.4Z"/><circle cx="-5" cy="-3.4" r="3.1"/></g><path d="M0.4 0H21.6" fill="none" stroke="#fff" stroke-width="4.4" stroke-linecap="round"/></g>';
+  var hat='<g class="hat" transform="translate(3 8.5) rotate(-22)"><path d="M0 0C0.5 -8 5 -13.5 11.5 -14C17 -14.4 21.5 -9 22 0Z" fill="#D7263D"/><path d="M11.5 -14C17 -14.4 21.5 -9 22 0L15 0C15.5 -6 14 -11 11.5 -14Z" fill="#B81E35"/><path d="M12 -14C6 -14.2 -0.5 -10.5 -5.6 -4.6L-2.4 -2.4C1.5 -7 5.5 -9.8 9.8 -10.4Z" fill="#D7263D"/><circle cx="-5" cy="-3.4" r="3.1" fill="#B81E35"/><path d="M0.4 0H21.6" fill="none" stroke="#A3192E" stroke-width="4.4" stroke-linecap="round"/></g>';
   document.querySelectorAll(".logo svg.mark").forEach(function(m){m.insertAdjacentHTML("beforeend",hat)});
 })();
-/* ---------- holiday sleigh: flies right to left across the top bar, dropping presents ---------- */
-(function(){var h=document.documentElement,nav=$(".nav");
+/* ---------- holiday sleigh: flies right to left along the ticker strip, dropping presents ---------- */
+(function(){var h=document.documentElement,nav=$(".marquee");
   if(!h.classList.contains("holiday")||!nav||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
   var cols=["#045FEA","#8A6FE0","#BB58FF","#F5A70A"],busy=false;
   function fly(){if(busy||document.hidden||h.classList.contains("snow-off"))return;busy=true;
     var s=document.createElement("span");s.className="sleigh";s.setAttribute("aria-hidden","true");nav.appendChild(s);
     var n=0,t=setInterval(function(){if(!s.isConnected){clearInterval(t);busy=false;return}var r=s.getBoundingClientRect(),nr=nav.getBoundingClientRect();if(r.right<0){return}
       if(r.left<innerWidth-40&&r.left>0&&n++%2===0){var g=document.createElement("span");g.className="gift";g.setAttribute("aria-hidden","true");
-        g.style.left=(r.left-nr.left+r.width*.78)+"px";g.style.top=(r.top-nr.top+r.height*.5)+"px";g.style.setProperty("--c",cols[Math.random()*4|0]);g.style.setProperty("--fall",(nr.height-r.top+nr.top+10+Math.random()*30)+"px");
+        g.style.left=(r.left-nr.left+r.width*.78)+"px";g.style.top=(r.top-nr.top+r.height*.5)+"px";g.style.setProperty("--c",cols[Math.random()*4|0]);g.style.setProperty("--fall",(nr.height-(r.top-nr.top+r.height*.5)-12)+"px");
         nav.appendChild(g);setTimeout(function(){g.remove()},1700)}},450);
     s.addEventListener("animationend",function(e){if(e.target!==s)return;clearInterval(t);s.remove();busy=false})}
   setTimeout(fly,2500);setInterval(fly,45000);

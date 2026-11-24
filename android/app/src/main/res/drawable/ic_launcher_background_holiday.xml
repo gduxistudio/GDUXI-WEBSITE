@@ -13,10 +13,10 @@
             </gradient>
         </aapt:attr>
     </path>
-    <path android:fillColor="#99FFFFFF" android:pathData="M30,34m-1.6,0a1.6,1.6 0 1,0 3.2,0a1.6,1.6 0 1,0 -3.2,0" />
-    <path android:fillColor="#99FFFFFF" android:pathData="M44,27m-1.1,0a1.1,1.1 0 1,0 2.2,0a1.1,1.1 0 1,0 -2.2,0" />
-    <path android:fillColor="#99FFFFFF" android:pathData="M80,76m-1.4,0a1.4,1.4 0 1,0 2.8,0a1.4,1.4 0 1,0 -2.8,0" />
-    <path android:fillColor="#99FFFFFF" android:pathData="M66,84m-1.1,0a1.1,1.1 0 1,0 2.2,0a1.1,1.1 0 1,0 -2.2,0" />
-    <path android:fillColor="#99FFFFFF" android:pathData="M29,80m-1.2,0a1.2,1.2 0 1,0 2.4,0a1.2,1.2 0 1,0 -2.4,0" />
-    <path android:fillColor="#99FFFFFF" android:pathData="M48,86m-0.9,0a0.9,0.9 0 1,0 1.8,0a0.9,0.9 0 1,0 -1.8,0" />
+    <path android:fillColor="#99FFFFFF" android:pathData="M73.8,30.6m-1.62,0a1.62,1.62 0 1,0 3.24,0a1.62,1.62 0 1,0 -3.24,0" />
+    <path android:fillColor="#99FFFFFF" android:pathData="M61.2,27.0m-1.08,0a1.08,1.08 0 1,0 2.16,0a1.08,1.08 0 1,0 -2.16,0" />
+    <path android:fillColor="#99FFFFFF" android:pathData="M81.0,73.8m-1.44,0a1.44,1.44 0 1,0 2.88,0a1.44,1.44 0 1,0 -2.88,0" />
+    <path android:fillColor="#99FFFFFF" android:pathData="M67.5,81.9m-1.08,0a1.08,1.08 0 1,0 2.16,0a1.08,1.08 0 1,0 -2.16,0" />
+    <path android:fillColor="#99FFFFFF" android:pathData="M27.9,79.2m-1.26,0a1.26,1.26 0 1,0 2.52,0a1.26,1.26 0 1,0 -2.52,0" />
+    <path android:fillColor="#99FFFFFF" android:pathData="M48.6,82.8m-0.90,0a0.90,0.90 0 1,0 1.80,0a0.90,0.90 0 1,0 -1.80,0" />
 </vector>
