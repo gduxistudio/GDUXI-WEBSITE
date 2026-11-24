@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Holiday launcher icon: the logo swoosh (a little smaller, lower right) with a red Santa hat
-     on the icon's top-left edge. Used only while AndroidManifest.xml points at @mipmap/ic_launcher_holiday.
+<!-- Holiday launcher icon: the logo swoosh with a red Santa hat sitting on
+     its first curve. Used only while AndroidManifest.xml points at @mipmap/ic_launcher_holiday.
      Same layout as ios AppIconHoliday: 40-unit artwork mapped to 18..90 (translate 18, scale 1.8). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
     <group android:translateX="18" android:translateY="18" android:scaleX="1.8" android:scaleY="1.8">
-        <group android:translateX="4" android:translateY="6" android:scaleX="0.85" android:scaleY="0.85">
+        <group android:translateY="3">
             <path android:pathData="M9,25.5C12.5,13 17,11.5 19.5,18.5C21.5,24.5 25,27.5 31.5,14"
                 android:strokeColor="#FFFFFFFF" android:strokeWidth="3.6" android:strokeLineCap="round" />
             <path android:pathData="M31.5,14m-2.6,0a2.6,2.6 0 1,0 5.2,0a2.6,2.6 0 1,0 -5.2,0" android:fillColor="#FFFFFFFF" />
-        </group>
-        <group android:translateX="8.5" android:translateY="15" android:rotation="-25">
+        <group android:translateX="9.2" android:translateY="12.4" android:rotation="-10">
             <group android:scaleX="0.5" android:scaleY="0.5">
                 <path android:fillColor="#FFD7263D"
                     android:pathData="M0,0C0.5,-8 5,-13.5 11.5,-14C17,-14.4 21.5,-9 22,0Z" />
@@ -23,6 +22,7 @@
                     android:pathData="M-8.1,-3.4a3.1,3.1 0 1,0 6.2,0a3.1,3.1 0 1,0 -6.2,0" />
                 <path android:pathData="M0.4,0H21.6" android:strokeColor="#FFA3192E" android:strokeWidth="4.4" android:strokeLineCap="round" />
             </group>
+        </group>
         </group>
     </group>
 </vector>
