@@ -24,7 +24,8 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: studio.gduxi.app
         PRODUCT_NAME: GDUXI Studio
         INFOPLIST_FILE: GDUXIStudio/Info.plist
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        # Holiday season: AppIconHoliday (logo with a Santa hat). Set back to AppIcon after the holidays.
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIconHoliday
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         TARGETED_DEVICE_FAMILY: "1,2"
         CODE_SIGN_STYLE: Automatic

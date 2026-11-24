@@ -4,10 +4,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!-- Holiday season: icon/roundIcon use @mipmap/ic_launcher_holiday (logo with a Santa hat).
+         After the holidays, set both back to @mipmap/ic_launcher and rebuild. -->
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_holiday"
+        android:roundIcon="@mipmap/ic_launcher_holiday"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.GDUXI.Starting">
