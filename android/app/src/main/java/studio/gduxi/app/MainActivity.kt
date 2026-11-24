@@ -89,11 +89,16 @@ class MainActivity : ComponentActivity() {
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
+                // Pop-ups on the site (screens, prototype, case study, menu) add a history entry,
+                // so going back in the WebView closes them instead of leaving the app.
                 if (!offline.isVisible && webView.canGoBack()) {
                     webView.goBack()
                 } else {
                     isEnabled = false
                     onBackPressedDispatcher.onBackPressed()
+                    // Android 12+ keeps the app in memory after back on the home screen;
+                    // switch this back on so back still closes pop-ups when the app is reopened.
+                    isEnabled = true
                 }
             }
         })

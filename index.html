@@ -1435,8 +1435,9 @@ function applyFilter(f){
 }
 
 /* ---------- routing ---------- */
-var ROUTES=["home","work","studio","services","contact"];
+var ROUTES=["home","work","studio","services","contact"],shownRoute=null;
 function show(route,need){
+  shownRoute=route;
   var page=route==="contact"?"services":route;
   $$(".page").forEach(function(p){p.hidden=p.getAttribute("data-page")!==page});
   $$(".nav-links a").forEach(function(a){var r=a.getAttribute("data-route");if(r===route||(r==="services"&&route==="contact"&&false))a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
@@ -1450,15 +1451,51 @@ function show(route,need){
 function fromHash(){
   var h=location.hash.slice(1);
   if(h.indexOf("screens/")===0){var sp=h.slice(8).split("/"),i=projIndex(sp[0]);if(i>-1){if(!$("#shotsDlg").open)show("work");openShots(i,true,sp[1]);return}}
-  if(ROUTES.indexOf(h)>-1)show(h);else if(!h)show("home");
+  var r=ROUTES.indexOf(h)>-1?h:!h?"home":null;
+  /* same page already showing (e.g. back just closed a pop-up): stay at the same spot */
+  if(r&&r!==shownRoute)show(r);
 }
+
+/* ---------- pop-ups and the phone's back button ----------
+   Opening a pop-up (case, screens, prototype, message sent, phone menu) adds one history entry,
+   so the back button (browser or Android app) closes it instead of leaving the site.
+   Closing with ✕ or Escape steps back over that entry, so history stays in sync. */
+var MSTACK=[];
+function mIndex(id){for(var k=MSTACK.length-1;k>=0;k--)if(MSTACK[k].id===id)return k;return -1}
+function mOpen(id,hash){
+  if(mIndex(id)>-1)return;
+  history.pushState({m:id,d:MSTACK.length+1},"",hash||location.href);
+  MSTACK.push({id:id,len:history.length});
+}
+function mClosed(id){
+  /* a pop-up closed by ✕/Escape: drop its entry (and any the Figma frame added after it) */
+  var k=mIndex(id);if(k<0)return;
+  var top=MSTACK[MSTACK.length-1],extra=Math.max(0,history.length-top.len);
+  var n=MSTACK.length-k;MSTACK.length=k;
+  history.go(-(n+extra));
+}
+function mShut(id){if(id==="mmenu")closeMenu();else{var d=$("#"+id);if(d&&d.open)d.close()}}
+function mForget(){
+  /* a link inside a pop-up goes to another page: the new page replaces the pop-up's entry */
+  var ids=MSTACK.map(function(x){return x.id});MSTACK.length=0;
+  ids.reverse().forEach(mShut);
+  return ids.length>0;
+}
+window.addEventListener("popstate",function(e){
+  var d=(e.state&&e.state.d)||0;
+  while(MSTACK.length>d)mShut(MSTACK.pop().id);
+  /* screens opened from a link or forward button carry no entry of their own */
+  var sd=$("#shotsDlg");if(sd.open&&mIndex("shotsDlg")<0&&location.hash.indexOf("#screens/")!==0)sd.close();
+});
 document.addEventListener("click",function(e){
   var a=e.target.closest("[data-route]");
   if(a&&!e.defaultPrevented&&!(e.metaKey||e.ctrlKey||e.shiftKey)){
     e.preventDefault();
     var r=a.getAttribute("data-route");
-    closeMenu(false);
-    if(location.hash!=="#"+r)history.pushState(null,"","#"+r);
+    var inPop=MSTACK.length>0&&history.state&&history.state.m;
+    mForget();closeMenu(false);
+    if(inPop)history.replaceState(null,"","#"+r);
+    else if(location.hash!=="#"+r)history.pushState(null,"","#"+r);
     show(r,a.getAttribute("data-need"));
     var dlg=a.closest("dialog");if(dlg)dlg.close();
     return;
@@ -1493,7 +1530,7 @@ function openCase(i){
     if(im.complete)shape();else im.addEventListener("load",shape);
   });
   $("#caseDlg").classList.toggle("has-pages",pg.length+pc.length>0);
-  $("#caseDlg").showModal();
+  if(!$("#caseDlg").open){$("#caseDlg").showModal();mOpen("caseDlg")}
   $("#caseDlg").scrollTop=0;
 }
 
@@ -1506,14 +1543,19 @@ function openProto(i){
   var p=((C.projects||{}).projects||[])[i];if(!p)return;
   var u=safeUrl(p.figma),e=embedUrl(u);if(!u)return;
   if(!e){window.open(u,"_blank","noopener");return}
-  var d=$("#protoDlg"),f=$("#protoFrame"),box=$("#protoBox");
+  var d=$("#protoDlg"),f=$("#protoFrame"),nf=f.cloneNode(false),box=$("#protoBox");
+  /* a fresh frame, given its address before it joins the page, loads without adding a history entry */
+  nf.removeAttribute("src");
   $("#protoTag").innerHTML=tag(p.group);$("#proto-h").textContent=p.title+" · prototype";
-  $("#protoOpen").href=u;f.title=p.title+" prototype";
-  box.classList.remove("loaded");f.onload=function(){if(f.getAttribute("src"))box.classList.add("loaded")};
-  f.setAttribute("src",e);
-  if(!d.open)d.showModal();d.scrollTop=0;
+  $("#protoOpen").href=u;
+  box.classList.remove("loaded");
+  nf.title=p.title+" prototype";nf.onload=function(){if(nf.getAttribute("src"))box.classList.add("loaded")};
+  nf.setAttribute("src",e);f.replaceWith(nf);
+  if(!d.open){d.showModal();mOpen("protoDlg")}d.scrollTop=0;
 }
-$("#protoDlg").addEventListener("close",function(){var f=$("#protoFrame");f.removeAttribute("src");$("#protoBox").classList.remove("loaded")});
+$("#protoDlg").addEventListener("close",function(){var f=$("#protoFrame"),b=f.cloneNode(false);b.removeAttribute("src");f.replaceWith(b);$("#protoBox").classList.remove("loaded");mClosed("protoDlg")});
+$("#caseDlg").addEventListener("close",function(){mClosed("caseDlg")});
+$("#sentDlg").addEventListener("close",function(){mClosed("sentDlg")});
 
 /* ---------- screens gallery ---------- */
 var shotsP=null,shotsBack=null,shotsStage="hifi",shotsDev="desktop",DEVS={desktop:"Desktop",mobile:"Mobile"},STAGES={hifi:["Hi-fi"," designs"],lofi:["Lo-fi"," wireframes"]};
@@ -1540,7 +1582,7 @@ function renderShots(dev){
 function setStage(st){
   if(!shotsIn(st).length)st="hifi";
   shotsStage=st;renderBar();renderShots(shotsDev);
-  if(location.hash.indexOf("#screens/")===0)history.replaceState(null,"",shotsHash());
+  if(location.hash.indexOf("#screens/")===0)history.replaceState(history.state,"",shotsHash());
 }
 function openShots(i,fromHash,stage){
   var p=((C.projects||{}).projects||[])[i];if(!p||!hasShots(p))return;
@@ -1550,15 +1592,21 @@ function openShots(i,fromHash,stage){
   $("#shotsDesc").innerHTML=nl(p.short||p.description)+" "+esc([hi?hi+" hi-fi screen"+(hi>1?"s":""):"",lo?lo+" lo-fi wireframe"+(lo>1?"s":""):""].filter(Boolean).join(" · ")+".");
   $("#shotsFigma").innerHTML=u?'<button type="button" class="mbtn" data-proto="'+i+'">Prototype <span aria-hidden="true">→</span></button>':"";
   renderBar();renderShots(shotsDev);
-  if(!fromHash){shotsBack=location.hash||"#work";history.replaceState(null,"",shotsHash())}else shotsBack="#work";
-  var d=$("#shotsDlg");if(!d.open)d.showModal();d.scrollTop=0;
+  var d=$("#shotsDlg"),fresh=!d.open;
+  if(fresh)d.showModal();d.scrollTop=0;
+  if(!fromHash){shotsBack=location.hash||"#work";if(fresh)mOpen("shotsDlg",shotsHash());else history.replaceState(history.state,"",shotsHash())}
+  else if(fresh)shotsBack="#work";
 }
-$("#shotsDlg").addEventListener("close",function(){if(location.hash.indexOf("#screens/")===0)history.replaceState(null,"",shotsBack||"#work");shotsBack=null});
+$("#shotsDlg").addEventListener("close",function(){
+  if(mIndex("shotsDlg")>-1)mClosed("shotsDlg");
+  else if(location.hash.indexOf("#screens/")===0)history.replaceState(null,"",shotsBack||"#work");
+  shotsBack=null;
+});
 
 /* ---------- mobile menu ---------- */
 var mm=$("#mmenu"),burger=$("#burger"),lastFocus=null;
-function openMenu(){lastFocus=document.activeElement;mm.hidden=false;burger.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";$("#mclose").focus()}
-function closeMenu(refocus){if(mm.hidden)return;mm.hidden=true;burger.setAttribute("aria-expanded","false");document.body.style.overflow="";if(refocus!==false&&lastFocus)lastFocus.focus()}
+function openMenu(){lastFocus=document.activeElement;mm.hidden=false;mOpen("mmenu");burger.setAttribute("aria-expanded","true");document.body.style.overflow="hidden";$("#mclose").focus()}
+function closeMenu(refocus){if(mm.hidden)return;mm.hidden=true;mClosed("mmenu");burger.setAttribute("aria-expanded","false");document.body.style.overflow="";if(refocus!==false&&lastFocus)lastFocus.focus()}
 burger.addEventListener("click",openMenu);
 $("#mclose").addEventListener("click",function(){closeMenu()});
 mm.addEventListener("keydown",function(e){
@@ -1711,7 +1759,7 @@ function sentDialog(ok,d,to){
     $("#failGmail").href="https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(to)+"&su="+encodeURIComponent(sub)+"&body="+encodeURIComponent(body);
     fixMailTargets();
   }
-  $("#sentDlg").showModal();
+  if(!$("#sentDlg").open){$("#sentDlg").showModal();mOpen("sentDlg")}
 }
 ["name","email","message"].forEach(function(n){form[n].addEventListener("input",function(){var f=this.closest(".field");if(f.classList.contains("bad")){f.classList.remove("bad");f.querySelector(".err").textContent=""}})});
 

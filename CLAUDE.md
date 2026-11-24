@@ -520,3 +520,12 @@ Prm asked for Christmas touches "like Apple": snowfall, a Santa hat on the logo,
   - iOS: `AppIconHoliday` is an alternate icon (`ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES` in `project.yml`); `SeasonalIcon.swift` calls `setAlternateIconName` 1.5 s after the screen appears. iOS shows its own "You have changed the icon" note on the two switch days.
   - Android test APKs are signed with the committed `android/app/debug.keystore` (test key only, force-added past `*.keystore` in android/.gitignore), so each new build installs over the last one as an update.
   - Change the window in `SeasonalIcon.kt`, `SeasonalIcon.swift` and `SEASON` in `index.html` together.
+
+## 32. Back button closes pop-ups (2026-11-24)
+
+Prm: on a phone, pressing back with the screens pop-up or prototype open left the site (and the Android app). Now every pop-up (case study, screens, prototype, message sent, phone menu) adds one history entry when it opens (`mOpen` in `index.html`), so back closes just that pop-up and the page stays at the same scroll spot. Pop-ups stack: back from a prototype opened inside the screens closes only the prototype.
+- ✕ and Escape still close; their `close` handler calls `mClosed`, which steps history back over the pop-up's entry, so the next back goes to the previous page. A page link inside a pop-up replaces the pop-up's entry instead of adding one.
+- `fromHash()` no longer re-shows (and scrolls to the top of) the page that is already showing.
+- The prototype `<iframe>` is replaced by a fresh one on each open and close, so loading Figma doesn't add a history entry of its own.
+- Android app: back already goes through WebView history; `MainActivity` now re-enables its back handler after leaving, so it still works when the app is reopened from memory. Needs a new APK build to take effect in the app.
+- Test: `python3 tests/test_back_button.py http://localhost:8000/index.html` (phone and desktop).
