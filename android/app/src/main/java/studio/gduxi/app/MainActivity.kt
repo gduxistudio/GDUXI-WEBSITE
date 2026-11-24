@@ -125,6 +125,12 @@ class MainActivity : ComponentActivity() {
         super.onPause()
     }
 
+    override fun onStop() {
+        super.onStop()
+        // Holiday icon on/off by date; done in the background so it never interrupts the screen.
+        runCatching { SeasonalIcon.apply(this) }
+    }
+
     private fun openStart(intent: Intent?) {
         val link = intent?.data
         val url = if (link != null && isSiteLink(link)) link.toString() else HOME

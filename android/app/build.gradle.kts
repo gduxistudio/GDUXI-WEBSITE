@@ -17,6 +17,17 @@ android {
         versionName = "1.0"
     }
 
+    // A fixed test-signing key, so each new test APK from GitHub Actions installs over the
+    // old one as an update (no uninstall). Test builds only; Play uploads use your own key.
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
