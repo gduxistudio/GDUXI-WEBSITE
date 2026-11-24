@@ -779,13 +779,14 @@ html.holiday .snow-btn{display:grid;margin-left:-32px}
 .snow-btn[aria-pressed="false"] svg{opacity:.45}
 #snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:120}
 html.holiday #snow{display:block}
-.sleigh{position:absolute;top:4px;left:100%;width:96px;height:34px;pointer-events:none;z-index:3;animation:sleigh 14s linear forwards}
+html.holiday .marquee{overflow-x:clip;overflow-y:visible}
+.sleigh{position:absolute;top:-31px;left:100%;width:96px;height:34px;pointer-events:none;z-index:3;animation:sleigh 14s linear forwards}
 .sleigh::after{content:"";position:absolute;inset:0;background:url(assets/img/holiday-sleigh.svg) no-repeat center/contain;animation:sleigh-bob 1.4s ease-in-out infinite}
 @keyframes sleigh-bob{50%{transform:translateY(4px) rotate(-2deg)}}
 @keyframes sleigh{from{transform:translateX(0)}to{transform:translateX(calc(-100vw - 140px))}}
 .gift{position:absolute;width:10px;height:10px;border-radius:2px;pointer-events:none;z-index:2;background:linear-gradient(90deg,transparent 40%,#FFE08F 40% 60%,transparent 60%),linear-gradient(transparent 40%,#FFE08F 40% 60%,transparent 60%),var(--c,#045FEA);animation:gift 1.6s cubic-bezier(.45,0,.9,.6) forwards}
 @keyframes gift{0%{transform:translate(0,0) rotate(0)}65%{transform:translate(-22px,var(--fall,30px)) rotate(-180deg);opacity:1}100%{transform:translate(-22px,var(--fall,30px)) rotate(-180deg);opacity:0}}
-@media (max-width:900px){.sleigh{width:80px;height:28px}}
+@media (max-width:900px){.sleigh{width:80px;height:28px;top:-25px}}
 @media (prefers-reduced-motion:reduce){html.holiday .snow-btn,html.holiday #snow{display:none}}
 @media (max-width:900px){html.holiday .theme-btn{margin-right:0}html.holiday .snow-btn{margin-left:-32px;margin-right:-28px}}
 .theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;margin-left:-24px;transition:border-color .2s,transform .3s}
