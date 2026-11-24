@@ -18,6 +18,12 @@ final class SiteViewController: UIViewController {
     private let page = UIColor(named: "Page") ?? .systemBackground
     private let purple = UIColor(named: "AccentColor") ?? .systemPurple
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Holiday icon on/off by date, a moment after the app is on screen (iOS needs it active).
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { SeasonalIcon.apply() }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = page
