@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Holiday launcher icon: the logo swoosh with a Santa hat on its dot.
+     Used only while AndroidManifest.xml points at @mipmap/ic_launcher_holiday. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <group android:translateX="16.6" android:translateY="26.5" android:scaleX="1.7" android:scaleY="1.7">
+        <path android:pathData="M9,25.5C12.5,13 17,11.5 19.5,18.5C21.5,24.5 25,27.5 31.5,14"
+            android:strokeColor="#FFFFFFFF" android:strokeWidth="3.6" android:strokeLineCap="round" />
+        <path android:pathData="M31.5,14m-2.6,0a2.6,2.6 0 1,0 5.2,0a2.6,2.6 0 1,0 -5.2,0" android:fillColor="#FFFFFFFF" />
+        <group android:translateX="23.6" android:translateY="0.6" android:pivotX="5" android:pivotY="9" android:rotation="18">
+            <group android:scaleX="0.42" android:scaleY="0.42">
+                <path android:fillColor="#FFD7263D"
+                    android:pathData="M3,21C3.5,12 8.5,4.5 16,3.4C22.5,2.5 27.5,6.5 29.5,13.5C30.2,16 30.4,18.5 30.2,21.5L27.2,21.5C27,18.8 26.4,16.4 25.4,14.6C25,17 25,19 25.2,21Z" />
+                <path android:fillColor="#FFAE1D33"
+                    android:pathData="M16,3.4C22.5,2.5 27.5,6.5 29.5,13.5C30.2,16 30.4,18.5 30.2,21.5L27.2,21.5C27,18.8 26.4,16.4 25.4,14.6C23.4,10 20,6 16,3.4Z" />
+                <path android:fillColor="#FFFFFFFF" android:strokeColor="#1F1D1933" android:strokeWidth="0.5"
+                    android:pathData="M4,19h19.5a3.5,3.5 0 0,1 0,7h-19.5a3.5,3.5 0 0,1 0,-7z" />
+                <path android:fillColor="#FFFFFFFF" android:strokeColor="#1F1D1933" android:strokeWidth="0.5"
+                    android:pathData="M25.5,23.6a3.3,3.3 0 1,0 6.6,0a3.3,3.3 0 1,0 -6.6,0" />
+            </group>
+        </group>
+    </group>
+</vector>
