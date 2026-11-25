@@ -530,11 +530,11 @@ Prm: on a phone, pressing back with the screens pop-up or prototype open left th
 - Android app: back already goes through WebView history; `MainActivity` now re-enables its back handler after leaving, so it still works when the app is reopened from memory. Needs a new APK build to take effect in the app.
 - Test: `python3 tests/test_back_button.py http://localhost:8000/index.html` (phone and desktop).
 
-## 33. Fluid cursor trail (2026-11-25)
+## 33. Cursor trail (2026-11-25)
 
-Prm asked for a smoky fluid trail behind the cursor (like the "Smoky Fluid Cursor" demo) on the site and in the apps, in the brand blue-to-pink gradient, subtle but clear, and following a finger on phones.
-- Our own small WebGL fluid simulation (no library) in the script block "fluid cursor trail" in `index.html`, drawn on `<canvas id="fluid">` (fixed, `pointer-events:none`, z-index 110: above the nav, below snow and pop-ups). The apps load the site, so they get it with no app change.
-- Colour drifts along `#045FEA → #8549FF → #BB58FF` as the pointer travels. Light mode canvas opacity .62, dark .8 (both dark-mode rule copies, as in section 21).
-- Mouse and pen follow `pointermove`; touch uses passive `touchstart`/`touchmove`, so scrolling is never blocked. A tap makes a small puff.
-- Tuning lives in `CFG` (sim/dye resolution, dissipation, curl, radius, force, amount). Smaller textures and fewer pressure passes on phones. It stops drawing 6 s after the last movement and when the tab is hidden.
-- Off with reduced motion (no canvas). Browsers without WebGL half-float support just don't show it.
+Prm asked for a trail behind the cursor on the site and in the apps, in the brand blue-to-pink gradient, subtle but clear, and following a finger on phones. A first try with WebGL smoke (like the "Smoky Fluid Cursor" demo) was replaced at Prm's request with **one smooth line** whose head stays steady while the tail fades and thins from the back.
+- Script block "cursor trail" in `index.html`, drawn with canvas 2D on `<canvas id="fluid">` (fixed, `pointer-events:none`, z-index 110: above the nav, below snow and pop-ups). The apps load the site, so they get it with no app change.
+- Gradient along the line: blue `#045FEA` at the tail, violet `#8549FF`, pink `#BB58FF` at the head, with a faint wide glow under a solid core. Canvas opacity .85 in light mode, 1 in dark (both dark-mode rule copies, as in section 21).
+- `LIFE` (650 ms: how long a point stays) and `WIDTH` (6px, 7px on phones) are the knobs.
+- Mouse and pen follow `pointermove`; touch uses passive `touchstart`/`touchmove`, so scrolling is never blocked. Drawing stops when the line has faded and when the tab is hidden.
+- Off with reduced motion (no canvas).
