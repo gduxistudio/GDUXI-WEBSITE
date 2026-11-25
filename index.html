@@ -1743,21 +1743,25 @@ $("#totop").addEventListener("click",function(){window.scrollTo({top:0,behavior:
   /* brand gradient: blue #045FEA, violet #8549FF, pink #BB58FF; the colour drifts along it as the pointer travels */
   var STOPS=[[.016,.373,.918],[.522,.286,1],[.733,.345,1]],ph=0;
   function colour(m){var t=.5-.5*Math.cos(ph),s=t*2,i=s<1?0:1,f=s-i,a=STOPS[i],b=STOPS[i+1];return[(a[0]+(b[0]-a[0])*f)*m,(a[1]+(b[1]-a[1])*f)*m,(a[2]+(b[2]-a[2])*f)*m]}
-  var raf=0,last=0,lastIn=0,px=null,py=null;
-  function frame(t){if(!ready){raf=0;return}var dt=Math.min((t-(last||t))/1000,1/60);last=t;step(dt);draw();
+  /* constant smoke: movement is queued, and each frame lays evenly spaced puffs from the last point to the pointer,
+     each with the same amount of colour and the same push, so slow and fast strokes look alike */
+  var raf=0,last=0,lastIn=0,px=null,py=null,tx=null,ty=null,GAP=.006,PUSH=phone?30:26;
+  function emit(){if(tx===null||px===null)return;var a=W/Hh,dx=tx-px,dy=ty-py,ax=dx*(a>1?a:1),ay=dy/(a>1?1:a),d=Math.sqrt(ax*ax+ay*ay);
+    if(d<GAP*.5)return;var n=Math.min(30,Math.ceil(d/GAP)),k=Math.min(1.5,(d/n)/GAP),ux=ax/d,uy=ay/d;
+    for(var i=1;i<=n;i++){var f=i/n;ph+=d/n*2.4;splat(px+dx*f,py+dy*f,ux*PUSH,uy*PUSH,colour(CFG.amount*.42*k))}px=tx;py=ty}
+  function frame(t){if(!ready){raf=0;return}var dt=Math.min((t-(last||t))/1000,1/60);last=t;emit();step(dt);draw();
     if(t-lastIn>6000){raf=0;gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);return}raf=requestAnimationFrame(frame)}
   function wake(){lastIn=performance.now();if(!raf&&!document.hidden){last=0;raf=requestAnimationFrame(frame)}}
-  function move(cx,cy){if(rm.matches||!ready)return;var x=cx/W,y=1-cy/Hh;if(px===null){px=x;py=y;return}
-    var dx=x-px,dy=y-py,a=W/Hh;px=x;py=y;if(!dx&&!dy)return;if(Math.abs(dx)>.25||Math.abs(dy)>.25)return;
-    ph+=Math.sqrt(dx*dx+dy*dy)*2.4;if(a<1)dx*=a;else dy/=a;splat(x,y,dx*CFG.force,dy*CFG.force,colour(CFG.amount));wake()}
-  function puff(cx,cy){if(rm.matches||!ready)return;var x=cx/W,y=1-cy/Hh,an=Math.random()*6.283;px=x;py=y;ph+=.6;splat(x,y,Math.cos(an)*260,Math.sin(an)*260,colour(CFG.amount*4));wake()}
+  function move(cx,cy){if(rm.matches||!ready)return;var x=cx/W,y=1-cy/Hh;
+    if(px===null||Math.abs(x-(tx===null?x:tx))>.25||Math.abs(y-(ty===null?y:ty))>.25){px=x;py=y}tx=x;ty=y;wake()}
+  function puff(cx,cy){if(rm.matches||!ready)return;var x=cx/W,y=1-cy/Hh,an=Math.random()*6.283;px=tx=x;py=ty=y;ph+=.6;splat(x,y,Math.cos(an)*260,Math.sin(an)*260,colour(CFG.amount*4));wake()}
   size();
   addEventListener("resize",size);
   addEventListener("pointermove",function(e){if(e.pointerType!=="touch")move(e.clientX,e.clientY)},{passive:true});
-  document.addEventListener("mouseleave",function(){px=null});
+  document.addEventListener("mouseleave",function(){px=tx=null});
   addEventListener("touchstart",function(e){var t=e.touches[0];if(t)puff(t.clientX,t.clientY)},{passive:true});
   addEventListener("touchmove",function(e){var t=e.touches[0];if(t)move(t.clientX,t.clientY)},{passive:true});
-  addEventListener("touchend",function(){px=null},{passive:true});
+  addEventListener("touchend",function(){px=tx=null},{passive:true});
   document.addEventListener("visibilitychange",function(){if(document.hidden){cancelAnimationFrame(raf);raf=0}});
   rm.addEventListener&&rm.addEventListener("change",function(){if(rm.matches){cancelAnimationFrame(raf);raf=0;c.style.display="none"}});
   c.addEventListener("webglcontextlost",function(e){e.preventDefault();cancelAnimationFrame(raf);raf=0;ready=false});

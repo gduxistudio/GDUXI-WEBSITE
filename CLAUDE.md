@@ -536,6 +536,7 @@ Prm asked for a smoky fluid trail behind the cursor (like the "Smoky Fluid Curso
 - Our own small WebGL fluid simulation (no library) in the script block "fluid cursor trail" in `index.html`, drawn on `<canvas id="fluid">` (fixed, `pointer-events:none`, z-index 110: above the nav, below snow and pop-ups). The apps load the site, so they get it with no app change.
 - Colour drifts along `#045FEA → #8549FF → #BB58FF` as the pointer travels. Light mode canvas opacity .62, dark .8 (both dark-mode rule copies, as in section 21).
 - Mouse and pen follow `pointermove`; touch uses passive `touchstart`/`touchmove`, so scrolling is never blocked. A tap makes a small puff.
+- Constant smoke (Prm, 2026-11-25): movement is queued and each frame lays evenly spaced puffs (`GAP`) from the last point to the pointer, each with the same colour amount and the same push (`PUSH`), so slow and fast strokes give the same steady stream.
 - Tuning lives in `CFG` (sim/dye resolution, dissipation, curl, radius, force, amount). Smaller textures and fewer pressure passes on phones. It stops drawing 6 s after the last movement and when the tab is hidden.
 - Off with reduced motion (no canvas). Browsers without WebGL half-float support just don't show it.
 - 2026-11-25: a single gradient line (steady head, tail fading from the back) was tried and rejected; Prm wants the smoke. Keep it smoky.
