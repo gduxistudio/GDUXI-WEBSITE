@@ -529,3 +529,12 @@ Prm: on a phone, pressing back with the screens pop-up or prototype open left th
 - The prototype `<iframe>` is replaced by a fresh one on each open and close, so loading Figma doesn't add a history entry of its own.
 - Android app: back already goes through WebView history; `MainActivity` now re-enables its back handler after leaving, so it still works when the app is reopened from memory. Needs a new APK build to take effect in the app.
 - Test: `python3 tests/test_back_button.py http://localhost:8000/index.html` (phone and desktop).
+
+## 33. Fluid cursor trail (2026-11-25)
+
+Prm asked for a smoky fluid trail behind the cursor (like the "Smoky Fluid Cursor" demo) on the site and in the apps, in the brand blue-to-pink gradient, subtle but clear, and following a finger on phones.
+- Our own small WebGL fluid simulation (no library) in the script block "fluid cursor trail" in `index.html`, drawn on `<canvas id="fluid">` (fixed, `pointer-events:none`, z-index 110: above the nav, below snow and pop-ups). The apps load the site, so they get it with no app change.
+- Colour drifts along `#045FEA → #8549FF → #BB58FF` as the pointer travels. Light mode canvas opacity .62, dark .8 (both dark-mode rule copies, as in section 21).
+- Mouse and pen follow `pointermove`; touch uses passive `touchstart`/`touchmove`, so scrolling is never blocked. A tap makes a small puff.
+- Tuning lives in `CFG` (sim/dye resolution, dissipation, curl, radius, force, amount). Smaller textures and fewer pressure passes on phones. It stops drawing 6 s after the last movement and when the tab is hidden.
+- Off with reduced motion (no canvas). Browsers without WebGL half-float support just don't show it.
