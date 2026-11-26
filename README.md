@@ -1,6 +1,6 @@
 # GDUXI Studio website
 
-The website for GDUXI Studio, a brand and digital design studio run by Navita Ramanand and Paramdeep Singh.
+The website for GDUXI Studio, a brand and digital design studio.
 
 It is a static, single-page site (no build step) with four pages (Home, Work, Studio, Services & contact), an editing dashboard at `/admin`, and a contact form that emails the studio. Developers and AI assistants should read `CLAUDE.md` first.
 
@@ -20,14 +20,14 @@ Then open http://localhost:8000. (Opening `index.html` straight from the folder 
 
 ## Turn on the dashboard (`/admin`)
 
-The dashboard lets either founder change text, projects, photos and the FAQ without touching code. Saving publishes straight away.
+The dashboard lets the studio change text, projects, photos and the FAQ without touching code. Saving publishes straight away.
 
 1. On GitHub, go to **Settings → Developer settings → OAuth Apps → New OAuth App**.
    - Homepage URL: your Netlify address
    - Authorization callback URL: `https://api.netlify.com/auth/done`
 2. Copy the **Client ID** and generate a **Client secret**.
 3. In Netlify, open **Project configuration → Access & security → OAuth → Install provider → GitHub**, and paste both values.
-4. Visit `https://<your-site>/admin`, sign in with GitHub, and edit. Each founder needs write access to the GitHub repository.
+4. Visit `https://<your-site>/admin`, sign in with GitHub, and edit. Everyone who edits needs write access to the GitHub repository.
 
 To try the dashboard on your own computer without logging in: run `npx decap-server` in this folder, start the local server above, and open http://localhost:8000/admin.
 

@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FILES = ["home", "work", "studio", "services", "contact", "founders", "projects"]
+FILES = ["home", "work", "studio", "services", "contact", "crafts", "projects"]
 
 
 def main() -> int:

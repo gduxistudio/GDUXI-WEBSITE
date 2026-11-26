@@ -540,3 +540,11 @@ Prm asked for a smoky fluid trail behind the cursor (like the "Smoky Fluid Curso
 - Tuning lives in `CFG` (sim/dye resolution, dissipation, curl, radius, force, amount). Smaller textures and fewer pressure passes on phones. It stops drawing 6 s after the last movement and when the tab is hidden.
 - Off with reduced motion (no canvas). Browsers without WebGL half-float support just don't show it.
 - 2026-11-25: a single gradient line (steady head, tail fading from the back) was tried and rejected; Prm wants the smoke. Keep it smoky.
+
+## 34. Studio-only version (2026-11-26, own branch, not merged)
+
+Prm asked for a neutral version of the site that presents GDUXI as a studio, with no owner names, portraits, signatures, bios or personal LinkedIn links. It lives on branch `claude/project-thread-fftoyu` (draft PR, not merged). On this branch it overrides sections 3, 4, 8 and 9 where they mention founders.
+- `content/founders.json` is replaced by `content/crafts.json`: two craft cards (Graphic design, UX/UI design) with `title`, `role`, `icon` (`pen` or `screen`, inline SVGs in `CRAFT_ICON`), `body`, `group`, `skills`, `includes[{title,detail}]`. Rendered by `craftCard()`; the Studio page's "Background" cards became "What you get". Home keys `founders_*` are now `crafts_*` in home.json and studio.json; admin/config.yml matches.
+- Portraits and signatures deleted. Contact card rows: Email and Where only. Footer "Founders" column replaced by "Services" (Brand identity, UX/UI & digital, Brand + digital, each pre-selecting the form).
+- Copy: "We both read every message" → "We read every message"; FAQ "Can we hire you for just one craft?"; meta description and JSON-LD have no names or `founder` entries; privacy page no longer mentions LinkedIn.
+- netlify.toml returns 404 for /CLAUDE.md, /README.md, /tests/* and /tools/* (on main these files are publicly served and name the owners).

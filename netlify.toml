@@ -29,3 +29,28 @@
   to = "/404"
   status = 404
   force = true
+
+# Notes, tests and tools for the people who build the site aren't part of it.
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tests/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/tools/*"
+  to = "/404"
+  status = 404
+  force = true

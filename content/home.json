@@ -21,9 +21,9 @@
     "Packaging",
     "Prototypes"
   ],
-  "founders_eyebrow": "Who you'll work with",
-  "founders_title": "Two crafts. One studio.",
-  "founders_intro": "We're Navita and Paramdeep, equal partners with skills that fit together. Navita shapes how your product works and feels. Paramdeep shapes how your brand looks and lives. You work with both of us, from the first call to the final file.",
+  "crafts_eyebrow": "What we bring",
+  "crafts_title": "Two crafts. One studio.",
+  "crafts_intro": "GDUXI pairs graphic design with UX/UI design under one roof. One craft shapes how your brand looks and lives. The other shapes how your website or app works and feels. You work with one team, from the first call to the final file.",
   "stats": [
     {
       "number": "28+",
@@ -47,7 +47,7 @@
   "services_intro": "Come to us for a brand identity, a website or app, or both at once. However you start, you get the thinking of both crafts.",
   "work_eyebrow": "Selected work",
   "work_title": "A few projects we're proud of",
-  "work_intro": "Two brands we took all the way from logo to website, plus identity and digital projects we've each led.",
+  "work_intro": "Two brands we took all the way from logo to website, plus identity and digital projects that stand on their own.",
   "why_eyebrow": "Why one studio",
   "why_title": "Your brand shouldn't change at the browser.",
   "why_intro": "Lots of small businesses hire a logo designer, then a web designer, and spend months getting the two to agree. We start both at the same time, so nothing has to catch up later.",
@@ -92,5 +92,5 @@
   ],
   "cta_eyebrow": "Let's work together",
   "cta_title": "Have a brand that needs a mark,\nand a site that needs to work?",
-  "cta_body": "Tell us a little about what you're building. We'll both read it, and you'll hear back within two business days."
+  "cta_body": "Tell us a little about what you're building. We read every message, and you'll hear back within two business days."
 }

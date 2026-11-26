@@ -1,0 +1,68 @@
+{
+  "crafts": [
+    {
+      "title": "Graphic design",
+      "role": "Logos, identities and print",
+      "icon": "pen",
+      "group": "id",
+      "body": "We create logos and identities that businesses grow into. Every mark starts as a sketch, becomes a full system, and is tested on everything from a vehicle sticker to a social post, so it holds up wherever your customers meet you.",
+      "skills": [
+        "Logo design",
+        "Brand identity",
+        "Print & packaging",
+        "Social media",
+        "Brand guides"
+      ],
+      "includes": [
+        {
+          "title": "Logo & mark",
+          "detail": "Two or three directions, refined into one mark with every lockup you need"
+        },
+        {
+          "title": "Brand guide",
+          "detail": "Colours, type and simple rules your team can follow"
+        },
+        {
+          "title": "Print & packaging",
+          "detail": "Cards, flyers, catalogs, signage and labels, ready for the printer"
+        },
+        {
+          "title": "Social kit",
+          "detail": "Templates for posts, stories and banners in your new look"
+        }
+      ]
+    },
+    {
+      "title": "UX/UI design",
+      "role": "Websites, apps and research",
+      "icon": "screen",
+      "group": "dg",
+      "body": "We turn research into calm, human-centred interfaces. Listening comes first: interviews, surveys and usability tests. What people share becomes wireframes, design systems and prototype-ready UI that feel easy to use.",
+      "skills": [
+        "UX research",
+        "Usability testing",
+        "Information architecture",
+        "Hi-fi UI",
+        "Figma prototyping"
+      ],
+      "includes": [
+        {
+          "title": "Research",
+          "detail": "Customer interviews, surveys and a look at what others in your field do"
+        },
+        {
+          "title": "Structure & wireframes",
+          "detail": "Site maps, user flows and lo-fi layouts we agree on before any polish"
+        },
+        {
+          "title": "Final UI",
+          "detail": "Hi-fi screens for desktop and mobile, built on a small design system"
+        },
+        {
+          "title": "Prototype & testing",
+          "detail": "A clickable Figma prototype, tested with real people before launch"
+        }
+      ]
+    }
+  ]
+}
