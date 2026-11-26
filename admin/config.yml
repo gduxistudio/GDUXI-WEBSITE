@@ -93,39 +93,41 @@ collections:
                   - { label: Label, name: label, widget: string }
                   - { label: Value, name: value, widget: string }
 
-      # ---------------------------------------------------------------- founders
-      - name: founders
-        label: Founders
-        file: content/founders.json
+      # ---------------------------------------------------------------- crafts
+      - name: crafts
+        label: Crafts
+        file: content/crafts.json
         fields:
-          - label: Founders
-            name: founders
+          - label: Crafts
+            name: crafts
             widget: list
             allow_add: false
-            summary: "{{fields.name}}"
+            summary: "{{fields.title}}"
             fields:
-              - { label: Full name, name: name, widget: string }
-              - { label: First name, name: short, widget: string }
-              - { label: Role, name: role, widget: string }
-              - { label: Photo, name: photo, widget: image }
-              - { label: Signature logo, name: signature, widget: image, required: false }
-              - { label: Bio, name: bio, widget: text }
-              - label: Leads
-                name: leads
+              - { label: Name, name: title, widget: string }
+              - { label: Subtitle, name: role, widget: string }
+              - label: Icon
+                name: icon
+                widget: select
+                options:
+                  - { label: Pen and anchor points, value: pen }
+                  - { label: Website and phone, value: screen }
+              - { label: Description, name: body, widget: text }
+              - label: Tag
+                name: group
                 widget: select
                 options:
                   - { label: Brand + Digital, value: bd }
                   - { label: Digital, value: dg }
                   - { label: Identity, value: id }
               - { label: Skills, name: skills, widget: list, field: { label: Skill, name: skill, widget: string } }
-              - { label: LinkedIn URL, name: linkedin, widget: string }
-              - label: Background
-                name: background
+              - label: What you get
+                name: includes
                 widget: list
                 summary: "{{fields.title}}"
                 fields:
-                  - { label: Where, name: title, widget: string }
-                  - { label: What, name: detail, widget: string }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Detail, name: detail, widget: string }
 
       # ---------------------------------------------------------------- home
       - name: home
@@ -145,9 +147,9 @@ collections:
           - { label: Hero graphic, name: hero_graphic, widget: image }
           - { label: Hero graphic description (alt text), name: hero_graphic_alt, widget: text }
           - { label: Marquee words, name: marquee, widget: list, field: { label: Word, name: word, widget: string } }
-          - { label: Founders eyebrow, name: founders_eyebrow, widget: string }
-          - { label: Founders heading, name: founders_title, widget: string }
-          - { label: Founders intro, name: founders_intro, widget: text }
+          - { label: Crafts eyebrow, name: crafts_eyebrow, widget: string }
+          - { label: Crafts heading, name: crafts_title, widget: string }
+          - { label: Crafts intro, name: crafts_intro, widget: text }
           - label: Stats
             name: stats
             widget: list
@@ -216,8 +218,8 @@ collections:
           - { label: Story eyebrow, name: story_eyebrow, widget: string }
           - { label: Story statement, name: story_quote, widget: text }
           - { label: Story paragraph, name: story_body, widget: text }
-          - { label: Founders eyebrow, name: founders_eyebrow, widget: string }
-          - { label: Founders heading, name: founders_title, widget: string }
+          - { label: Crafts eyebrow, name: crafts_eyebrow, widget: string }
+          - { label: Crafts heading, name: crafts_title, widget: string }
           - { label: Values eyebrow, name: values_eyebrow, widget: string }
           - { label: Values heading, name: values_title, widget: string }
           - label: Values
